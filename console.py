@@ -52,7 +52,7 @@ def jieba_tf_idf():
     return jieba.analyse.extract_tags(speech, topK=20, withWeight=True)
 
 def show_information():
-    print('Here is chat bot backend, echo your choice.')
+    print('Here is chat bot backend, enter your choice.')
     print('-------------------------------------------')
     print('E)xtract the name entity.')
     print('G)ive me the TextRank.')
@@ -60,7 +60,7 @@ def show_information():
     print('P)rint the rule in the rulebase.')
     print('R)eload the baserule.txt.')
     print('T)est the data in speech.txt.')
-    print('Q)uit.')
+    print('B)ye.')
     print('-------------------------------------------')
 
 def init_jieba():

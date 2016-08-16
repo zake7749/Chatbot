@@ -13,6 +13,7 @@ class Rule(object):
         self.term = rule_term
         self.model = word2vec_model
         self.children = []
+        self.log = open('match.log','w', encoding='utf-8')
 
     def __str__(self):
         res = self.term
@@ -83,13 +84,15 @@ class RuleBase(object):
 
         Args: the path of file.
         """
-        assert self.model is not None, "Please load the model before any match."
+        assert self.model is not None, "Please load the model before loading rules."
+        self.rules.clear()
 
         with open(path, 'r', encoding='utf-8') as input:
             for line in input:
                 rule_terms = line.strip('\n').split(' ')
                 new_rule = Rule(self.rule_amount(), rule_terms[0], self.model)
-                self.rules[new_rule.term] = new_rule
+                if new_rule.term not in self.rules:
+                    self.rules[new_rule.term] = new_rule
 
                 if len(rule_terms) > 1:
                     # this rule has parents.
@@ -134,6 +137,7 @@ class RuleBase(object):
 
             result_list = sorted(result_list, reverse=True , key=lambda k: k[0])
             top_domain  = result_list[0][1] # get the best matcher's term.
+
             if self.rules[top_domain].has_child():
                 result_list = []
                 term_trans += top_domain+'>'
