@@ -8,19 +8,21 @@ class Rule(object):
     Store the concept terms of a rule, and calculate the rule similarity.
     """
 
-    def __init__(self, rule_id, rule_term, word2vec_model):
-        self.id    = rule_id
-        self.term = rule_term
+    def __init__(self, rule_id, rule_terms, word2vec_model):
+        self.id = rule_id
+        self.id_term = rule_terms[0]
+        self.terms = rule_terms
         self.model = word2vec_model
         self.children = []
         self.log = open('match.log','w', encoding='utf-8')
 
     def __str__(self):
-        res = self.term
-        if self.has_child():
-            res += ' with children: '
-            for child in self.children:
-                res += ' ' + str(child)
+        for term in self.terms:
+            res = term
+            if self.has_child():
+                res += ' with children: '
+                for child in self.children:
+                    res += ' ' + str(child)
         return res
 
     def add_child(self,child_rule):
@@ -45,17 +47,24 @@ class Rule(object):
 
         max_sim = 0.0
         matchee = ""
+        match_rule_term = ""
 
         for word in sentence:
-            try:
-                sim = self.model.similarity(self.term,word)
-                if sim > max_sim and sim > threshold:
-                    max_sim = sim
-                    matchee = word
-            except Exception as e:
-                print(repr(e))
+            for term in self.terms:
+                try:
+                    sim = self.model.similarity(term,word)
+                    if sim > max_sim and sim > threshold:
+                        max_sim = sim
+                        matchee = word
+                        match_rule_term = term
+                except Exception as e:
+                    print(repr(e)+ ". Try to hard-match.")
+                    if term == word:
+                        max_sim = 1
+                        matchee = word
+                        match_rule_term = term
 
-        return [max_sim, self.term, matchee]
+        return [max_sim, match_rule_term, matchee]
 
 class RuleBase(object):
     """
@@ -90,9 +99,9 @@ class RuleBase(object):
         with open(path, 'r', encoding='utf-8') as input:
             for line in input:
                 rule_terms = line.strip('\n').split(' ')
-                new_rule = Rule(self.rule_amount(), rule_terms[0], self.model)
-                if new_rule.term not in self.rules:
-                    self.rules[new_rule.term] = new_rule
+                new_rule = Rule(self.rule_amount(), rule_terms[0].split(','), self.model)
+                if new_rule.id_term not in self.rules:
+                    self.rules[new_rule.id_term] = new_rule
 
                 if len(rule_terms) > 1:
                     # this rule has parents.

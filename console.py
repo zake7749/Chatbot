@@ -65,8 +65,12 @@ def show_information():
 
 def init_jieba():
     #jieba custom setting
-    #jieba.load_userdict("userdict.txt")
+    jieba.load_userdict("jieba_dict/userdict.txt")
     jieba.set_dictionary('jieba_dict/dict.txt.big')
+    with open('jieba_dict/userdict.txt','r',encoding='utf-8') as input:
+        for word in input:
+            word = word.strip('\n')
+            jieba.suggest_freq(word, True)
 
 def load_stopword():
     #load stopword
