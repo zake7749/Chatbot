@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import os
 
 from gensim.models import word2vec
 from gensim import models
@@ -56,15 +57,13 @@ class Rule(object):
                     if sim > max_sim and sim > threshold:
                         max_sim = sim
                         matchee = word
-                        match_rule_term = term
                 except Exception as e:
                     print(repr(e)+ ". Try to hard-match.")
                     if term == word:
                         max_sim = 1
                         matchee = word
-                        match_rule_term = term
 
-        return [max_sim, match_rule_term, matchee]
+        return [max_sim, self.id_term, matchee]
 
 class RuleBase(object):
     """
@@ -102,14 +101,26 @@ class RuleBase(object):
                 new_rule = Rule(self.rule_amount(), rule_terms[0].split(','), self.model)
                 if new_rule.id_term not in self.rules:
                     self.rules[new_rule.id_term] = new_rule
+                #else
+                #    self.rules[new_rule.id_term].terms = rule_terms
 
                 if len(rule_terms) > 1:
                     # this rule has parents.
                     for parent in rule_terms[1:]:
+                        #if parent not in self.rules:
                         self.rules[parent].children.append(new_rule)
                 else:
                     # is the root of classification tree.
                     self.forest_base_roots.append(new_rule)
+
+    def load_rules_from_dic(self,path):
+        """
+        load all rule_files in given path
+        """
+        for file_name in os.listdir(path):
+            self.load_rules(path + file_name)
+
+
 
     def load_model(self,path):
         """
