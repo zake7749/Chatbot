@@ -1,0 +1,151 @@
+[
+    {
+        "domain": "鬧鐘",
+        "response": [],
+        "concepts": [
+            "鬧鐘"
+        ],
+        "children": []
+    },
+    {
+        "domain": "飲料",
+        "response": [],
+        "concepts": [
+            "飲料"
+        ],
+        "children": []
+    },
+    {
+        "domain": "觀光",
+        "response": [],
+        "concepts": [
+            "觀光"
+        ],
+        "children": []
+    },
+    {
+        "domain": "天氣",
+        "response": [],
+        "concepts": [
+            "天氣"
+        ],
+        "children": []
+    },
+    {
+        "domain": "食物",
+        "response": [],
+        "concepts": [
+            "食物"
+        ],
+        "children": []
+    },
+    {
+        "domain": "吃喝玩樂",
+        "response": [],
+        "concepts": [
+            "吃喝玩樂"
+        ],
+        "children": []
+    },
+    {
+        "domain": "股票",
+        "response": [],
+        "concepts": [
+            "股票"
+        ],
+        "children": []
+    },
+    {
+        "domain": "住宿",
+        "response": [],
+        "concepts": [
+            "住宿"
+        ],
+        "children": []
+    },
+    {
+        "domain": "衣服",
+        "response": [],
+        "concepts": [
+            "衣服"
+        ],
+        "children": []
+    },
+    {
+        "domain": "生活用品",
+        "response": [],
+        "concepts": [
+            "生活用品"
+        ],
+        "children": []
+    },
+    {
+        "domain": "過敏",
+        "response": [],
+        "concepts": [
+            "過敏"
+        ],
+        "children": [
+            "鼻子",
+            "食物"
+        ]
+    },
+    {
+        "domain": "購買",
+        "response": [],
+        "concepts": [
+            "購買"
+        ],
+        "children": [
+            "生活用品",
+            "家電",
+            "食物",
+            "飲料",
+            "鞋子",
+            "衣服",
+            "電腦產品"
+        ]
+    },
+    {
+        "domain": "鼻子",
+        "response": [],
+        "concepts": [
+            "鼻子"
+        ],
+        "children": []
+    },
+    {
+        "domain": "電腦產品",
+        "response": [],
+        "concepts": [
+            "電腦產品"
+        ],
+        "children": []
+    },
+    {
+        "domain": "鞋子",
+        "response": [],
+        "concepts": [
+            "鞋子"
+        ],
+        "children": []
+    },
+    {
+        "domain": "病症",
+        "response": [],
+        "concepts": [
+            "病症"
+        ],
+        "children": [
+            "過敏"
+        ]
+    },
+    {
+        "domain": "家電",
+        "response": [],
+        "concepts": [
+            "家電"
+        ],
+        "children": []
+    }
+]

@@ -2,8 +2,7 @@
 
 import jieba
 import jieba.analyse
-
-import rulebase
+import RuleMatcher.rulebase as rulebase
 
 def main():
     console = Console()
@@ -13,7 +12,7 @@ def main():
 class Console(object):
 
     def __init__(self,model_path="model/ch-corpus.bin",
-                 rule_path="rule/baserule.txt",
+                 rule_path="RuleMatcher/rule/rule.json",
                  stopword="jieba_dict/stopword.txt",
                  jieba_dic="jieba_dict/dict.txt.big",
                  jieba_user_dic="jieba_dict/userdict.txt"):
@@ -54,6 +53,8 @@ class Console(object):
                 self.write_output(speech,res,path)
             elif choice == 'b':
                 exit()
+            elif choice == 'o':
+                self.rb.output_to_json()
             else:
                 print('[Opps!] No such choice: ' + choice + '.')
 
@@ -122,12 +123,12 @@ class Console(object):
     def test_speech(self):
 
         """
-        Try matching all sentence in 'test/output.txt'
+        Try matching all sentence in 'example/output.txt'
         """
 
-        output = open('test/output.txt','w',encoding='utf-8')
+        output = open('example/output.txt','w',encoding='utf-8')
         # load sample data
-        with open('test/speech.txt','r',encoding='utf-8') as input:
+        with open('example/speech.txt','r',encoding='utf-8') as input:
             for speech in input:
                 speech = speech.strip('\n')
                 result,path = self.rule_match(speech)
