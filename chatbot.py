@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import console
+import doctor/medicine
 
 def main():
     chatbot = Chatbot()
@@ -10,6 +11,7 @@ class Chatbot(object):
 
     def __init__(self, name="NCKU"):
         self.name = name      # The name of chatbot.
+        self.last_speech = "" # The last user's input
         self.last_res = None  # The last matching result.
         self.last_path = None # The last traveling path.
         self.console = console.Console()
@@ -18,6 +20,7 @@ class Chatbot(object):
 
         while True:
             speech = input("Hi, I'm " + self.name + '\n')
+            self.last_speech = speech
             self.last_res,self.last_path = self.console.rule_match(speech)
             domain = self.get_baserule()
             self.judge(domain)
@@ -28,13 +31,16 @@ class Chatbot(object):
         Extract the root rule in result.
         """
         if self.last_path == "":
-            return self.last_res[1]
+            return self.last_res[0][1]
         else:
             return(self.last_path.split('>')[0])
 
     def judge(self, domain):
 
-        print("I know you are talking about '%s', but I don't know how to response." % domain)
+        if domain == "病症":
+            print("進入醫生模組")
+        else:
+            print("I know you are talking about '%s', but I don't know how to response." % domain)
 
 if __name__ == '__main__':
     main()
