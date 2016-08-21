@@ -1,17 +1,14 @@
 [
     {
         "domain": "鬧鐘",
-        "response": [],
+        "response": [
+            "鬧鐘要訂在今天幾點？",
+            "alarm_B",
+            "alarm_C",
+            "alarm_D"
+        ],
         "concepts": [
             "鬧鐘"
-        ],
-        "children": []
-    },
-    {
-        "domain": "飲料",
-        "response": [],
-        "concepts": [
-            "飲料"
         ],
         "children": []
     },
@@ -28,14 +25,6 @@
         "response": [],
         "concepts": [
             "天氣"
-        ],
-        "children": []
-    },
-    {
-        "domain": "食物",
-        "response": [],
-        "concepts": [
-            "食物"
         ],
         "children": []
     },
@@ -64,71 +53,20 @@
         "children": []
     },
     {
-        "domain": "衣服",
-        "response": [],
-        "concepts": [
-            "衣服"
-        ],
-        "children": []
-    },
-    {
-        "domain": "生活用品",
-        "response": [],
-        "concepts": [
-            "生活用品"
-        ],
-        "children": []
-    },
-    {
-        "domain": "過敏",
-        "response": [],
-        "concepts": [
-            "過敏"
-        ],
-        "children": [
-            "鼻子",
-            "食物"
-        ]
-    },
-    {
         "domain": "購買",
         "response": [],
         "concepts": [
             "購買"
         ],
         "children": [
-            "生活用品",
-            "家電",
-            "食物",
-            "飲料",
-            "鞋子",
-            "衣服",
-            "電腦產品"
+            "購買生活用品",
+            "購買家電",
+            "購買食物",
+            "購買飲料",
+            "購買鞋子",
+            "購買衣服",
+            "購買電腦產品"
         ]
-    },
-    {
-        "domain": "鼻子",
-        "response": [],
-        "concepts": [
-            "鼻子"
-        ],
-        "children": []
-    },
-    {
-        "domain": "電腦產品",
-        "response": [],
-        "concepts": [
-            "電腦產品"
-        ],
-        "children": []
-    },
-    {
-        "domain": "鞋子",
-        "response": [],
-        "concepts": [
-            "鞋子"
-        ],
-        "children": []
     },
     {
         "domain": "病症",
@@ -137,15 +75,8 @@
             "病症"
         ],
         "children": [
-            "過敏"
+            "過敏",
+            "扭傷"
         ]
-    },
-    {
-        "domain": "家電",
-        "response": [],
-        "concepts": [
-            "家電"
-        ],
-        "children": []
     }
 ]

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import console
-import doctor/medicine
+import doctor.diagnose
 
 def main():
     chatbot = Chatbot()
@@ -20,18 +20,22 @@ class Chatbot(object):
 
         while True:
             speech = input("Hi, I'm " + self.name + '\n')
+
             self.last_speech = speech
-            self.last_res,self.last_path = self.console.rule_match(speech)
+            self.last_res,self.last_path = self.console.rule_match(speech, best_only=True)
+
+            response = self.console.get_response()
+
             domain = self.get_baserule()
             self.judge(domain)
 
-    def get_baserule(self):
+    def get_base_domain(self):
 
         """
         Extract the root rule in result.
         """
         if self.last_path == "":
-            return self.last_res[0][1]
+            return self.last_res[1]
         else:
             return(self.last_path.split('>')[0])
 

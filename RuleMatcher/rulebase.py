@@ -17,15 +17,13 @@ class Rule(object):
         self.model = word2vec_model
         self.response = response
         self.children = children
-        self.log = open('match.log','w', encoding='utf-8')
 
     def __str__(self):
-        for term in self.terms:
-            res = term
-            if self.has_child():
-                res += ' with children: '
-                for child in self.children:
-                    res += ' ' + str(child)
+        res = 'Domain:' + self.id_term
+        if self.has_child():
+            res += ' with children: '
+            for child in self.children:
+                res += ' ' + str(child)
         return res
 
     def serialize(self):
@@ -58,6 +56,9 @@ class Rule(object):
     def has_child(self):
         return len(self.children)
 
+    def has_response(self):
+        return len(self.response)
+
     def match(self, sentence, threshold=0):
         """
         Calculate the similarity between the input and concept term.
@@ -66,12 +67,11 @@ class Rule(object):
             threshold: a threshold to ignore the low similarity.
             sentence : a list of words.
         Returns:
-            a struct : [similarity, term_name, matchee in sentence]
+            a struct : [similarity, domain_name, matchee in the sentence]
         """
 
         max_sim = 0.0
         matchee = ""
-        match_rule_term = ""
 
         for word in sentence:
             for term in self.terms:
@@ -117,14 +117,43 @@ class RuleBase(object):
         with open(path,'w',encoding='utf-8') as op:
             op.write(json.dumps(rule_list, indent=4))
 
-    def load_rules(self,path):
+    def load_rules_old_format(self,path):
+        """
+        Build the rulebase by loading the rules terms from the given file.
+        The data format is: child term, parent term(optional)
+        Args: the path of file.
+        """
+        assert self.model is not None, "Please load the model before loading rules."
+        self.rules.clear()
+
+        with open(path, 'r', encoding='utf-8') as input:
+            for line in input:
+                rule_terms = line.strip('\n').split(' ')
+                new_rule = Rule(self.rule_amount(), rule_terms[0].split(','), self.model)
+                if new_rule.id_term not in self.rules:
+                    self.rules[new_rule.id_term] = new_rule
+                #else
+                #    self.rules[new_rule.id_term].terms = rule_terms
+
+                if len(rule_terms) > 1:
+                    # this rule has parents.
+                    for parent in rule_terms[1:]:
+                        #if parent not in self.rules:
+                        self.rules[parent].children.append(new_rule)
+                else:
+                    # is the root of classification tree.
+                    self.forest_base_roots.append(new_rule)
+
+    def load_rules(self, path, reload=False):
         """
         Build the rulebase by loading the rules terms from the given file.
 
         Args: the path of file.
         """
         assert self.model is not None, "Please load the model before loading rules."
-        self.rules.clear()
+
+        if reload:
+            self.rules.clear()
 
         with open(path, 'r', encoding='utf-8') as input:
             json_data = json.load(input)
@@ -156,9 +185,8 @@ class RuleBase(object):
         load all rule_files in given path
         """
         for file_name in os.listdir(path):
+            print(file_name)
             self.load_rules(path + file_name)
-
-
 
     def load_model(self,path):
         """
