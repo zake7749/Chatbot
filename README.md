@@ -6,7 +6,7 @@ Chatbot 透過將語句向量化來計算主題相似度，再依匹配結果提
 
 更多的樣例可以參照 `example/output.txt`
 
-<span style="display:inline-block;float: left;">
+<div style="display: inline-block; width:45%;">
 輸入：明天早上叫我起床。
 
 |相似度|概念|匹配元|
@@ -18,8 +18,8 @@ Chatbot 透過將語句向量化來計算主題相似度，再依匹配結果提
 |0.1580|購買|早上|
 |0.1270|股票|早上|
 |0.1096|觀光|早上|
-</span>
-<span style="display:inline-block;float: left;">
+</div>
+<div style="display: inline-block; width:45%;">
 輸入：明天上海會不會下雨？
 
 |相似度|概念|匹配元|
@@ -31,7 +31,7 @@ Chatbot 透過將語句向量化來計算主題相似度，再依匹配結果提
 |0.0000|股票||
 |0.0000|觀光||
 |0.0000|購買||
-</span>
+</div>
 ## 環境需求
 
 * 安裝 python3 開發環境
