@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import console
+#import doctor.diagnose
 
 def main():
     chatbot = Chatbot()
@@ -9,32 +10,61 @@ def main():
 class Chatbot(object):
 
     def __init__(self, name="NCKU"):
-        self.name = name      # The name of chatbot.
-        self.last_res = None  # The last matching result.
-        self.last_path = None # The last traveling path.
+        self.name = name             # The name of chatbot.
+
+        self.speech = ''             # The LAST user's input
+        self.speech_domain = ''      # The domain of speech.
+        self.speech_matchee = ''     # The matchee term of speech.
+        self.speech_path = None      # The classification tree traveling path of speech.
+        self.domain_similarity = 0.0 # The similarity between domain and speech.
+
         self.console = console.Console()
 
     def waiting_loop(self):
 
         while True:
-            speech = input("Hi, I'm " + self.name + '\n')
-            self.last_res,self.last_path = self.console.rule_match(speech)
-            domain = self.get_baserule()
-            self.judge(domain)
 
-    def get_baserule(self):
+            speech = input("Hi, I'm " + self.name + '\n')
+            self.rule_match(speech) # to find the most similar domain with speech.
+            print(self.get_response())
+
+
+    def rule_match(self, speech):
+
+        res,self.last_path = self.console.rule_match(speech, best_only=True)
+
+        self.speech = speech
+        self.domain_similarity,self.speech_domain,self.speech_matchee = res
+
+    def get_response(self):
+        """
+        Generate a response to user's speech.
+        """
+        response = self.console.get_response(self.speech_domain)
+        if response is None:
+            return "I know you are talking about '%s', but I don't know how to response." % self.speech_domain
+        else:
+            return response
+
+    def get_base_domain(self):
 
         """
         Extract the root rule in result.
         """
         if self.last_path == "":
-            return self.last_res[1]
+            return self.domain
         else:
             return(self.last_path.split('>')[0])
 
-    def judge(self, domain):
+    def module_switch(self):
 
-        print("I know you are talking about '%s', but I don't know how to response." % domain)
+        #TODO
+        if self.speech_domain == "病症":
+        #Enter the medical module.
+            pass
+        else:
+            pass
+
 
 if __name__ == '__main__':
     main()

@@ -1,32 +1,40 @@
 # -*- coding: utf-8 -*-
 
+import random
+
 import jieba
 import jieba.analyse
-
-import rulebase
+import RuleMatcher.rulebase as rulebase
 
 def main():
     console = Console()
-    console.listen()
+    console.listen() # goto interactive mode.
 
 
 class Console(object):
 
     def __init__(self,model_path="model/ch-corpus.bin",
-                 rule_path="rule/baserule.txt",
+                 rule_path="RuleMatcher/rule/",
                  stopword="jieba_dict/stopword.txt",
                  jieba_dic="jieba_dict/dict.txt.big",
                  jieba_user_dic="jieba_dict/userdict.txt"):
-        print("Building a console...")
+        print("[Console] Building a console...")
+        print("*********************************")
+        try:
+            # jieba custom setting.
+            self.init_jieba(jieba_dic, jieba_user_dic)
+            self.stopword = self.load_stopword(stopword)
 
-        # jieba custom setting.
-        self.init_jieba(jieba_dic, jieba_user_dic)
-        self.stopword = self.load_stopword(stopword)
-
-        # build the rulebase.
-        self.rb = rulebase.RuleBase()
-        self.rb.load_model(model_path)
-        self.rb.load_rules(rule_path)
+            # build the rulebase.
+            self.rb = rulebase.RuleBase()
+            self.rb.load_model(model_path)
+            self.rb.load_rules_from_dic(rule_path)
+            print("*********************************")
+            print("[Console] Initialized successfully :>")
+        except Exception as e:
+            print("[Console] Opps! Initialized Error.")
+            print(repr(e))
+            exit()
 
     def listen(self):
         #into interactive console
@@ -45,8 +53,8 @@ class Console(object):
             elif choice == 'p':
                 print(self.rb)
             elif choice == 'r':
-                self.rb.load_rules('rule/baserule.txt')
-            elif choice == 't':
+                self.rb.load_rules('rule/baserule.txt',reload=True)
+            elif choice == 'd':
                 self.test_speech()
             elif choice == 'm':
                 speech = input('Input a sentence:')
@@ -54,6 +62,14 @@ class Console(object):
                 self.write_output(speech,res,path)
             elif choice == 'b':
                 exit()
+            elif choice == 's':
+                rule_id = input('Input a rule id:')
+                res = self.get_response(rule_id)
+                if res is not None:
+                    print(res)
+
+            elif choice == 'o':
+                self.rb.output_to_json()
             else:
                 print('[Opps!] No such choice: ' + choice + '.')
 
@@ -72,16 +88,16 @@ class Console(object):
         return jieba.analyse.extract_tags(speech, topK=20, withWeight=True)
 
     def show_information(self):
-        print('Here is chat bot backend, enter your choice.')
-        print('-------------------------------------------')
-        print('E)xtract the name entity.')
-        print('G)ive me the TextRank.')
-        print('M)atch sentence with rules.')
-        print('P)rint the rule in the rulebase.')
-        print('R)eload the baserule.txt.')
-        print('T)est the data in speech.txt.')
-        print('B)ye.')
-        print('-------------------------------------------')
+        print('Here is chatbot backend, enter your choice.')
+        print('- D)emo the data in speech.txt.')
+        print('- E)xtract the name entity.')
+        print('- G)ive me the TextRank.')
+        print('- M)atch a sentence with rules.')
+        print('- P)rint all rules in the rulebase.')
+        print('- R)eload the base rule.')
+        print('- O)utput all rules to rule.json.')
+        print('- S)how me a random response of a rule')
+        print('- B)ye.')
 
     def init_jieba(self, seg_dic, userdic):
 
@@ -104,7 +120,7 @@ class Console(object):
                 stopword.add(sw)
         return stopword
 
-    def rule_match(self, sentence):
+    def rule_match(self, sentence, best_only=False):
 
         """
         Match the sentence with rules.
@@ -117,17 +133,35 @@ class Console(object):
             if word not in self.stopword:
                 keyword.append(word)
 
-        return self.rb.match(keyword,threshold=0.1)
+        result_list,path = self.rb.match(keyword,threshold=0.1)
+
+        if best_only:
+            return [result_list[0], path]
+        else:
+            return [result_list, path]
+
+    def get_response(self, rule_id):
+
+        """
+        Get a random response from the given rule's response'list.
+        """
+        rule = self.rb.rules[rule_id]
+        res_num = rule.has_response()
+
+        if res_num == 0:
+            return None
+        else:
+            return rule.response[random.randrange(0,res_num)]
 
     def test_speech(self):
 
         """
-        Try matching all sentence in 'test/output.txt'
+        Try matching all sentence in 'example/output.txt'
         """
 
-        output = open('test/output.txt','w',encoding='utf-8')
+        output = open('example/output.txt','w',encoding='utf-8')
         # load sample data
-        with open('test/speech.txt','r',encoding='utf-8') as input:
+        with open('example/speech.txt','r',encoding='utf-8') as input:
             for speech in input:
                 speech = speech.strip('\n')
                 result,path = self.rule_match(speech)

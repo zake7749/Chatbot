@@ -1,0 +1,41 @@
+[
+  {
+      "domain": "過敏",
+      "response": [],
+      "concepts": [
+          "過敏"
+      ],
+      "children": [
+          "鼻子過敏",
+          "食物過敏"
+      ]
+  },
+  {
+      "domain": "扭傷",
+      "response": [
+        "先讓受傷部位休息再冰敷，如果2~3天後還是沒有改善，就建議給醫生看看唷！"
+      ],
+      "concepts": [
+          "扭傷"
+      ],
+      "children": [
+
+      ]
+  },
+  {
+      "domain": "鼻子過敏",
+      "response": [],
+      "concepts": [
+          "鼻子"
+      ],
+      "children": []
+  },
+  {
+      "domain": "食物過敏",
+      "response": [],
+      "concepts": [
+          "食物"
+      ],
+      "children": []
+  }
+]

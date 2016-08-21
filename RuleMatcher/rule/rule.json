@@ -1,0 +1,82 @@
+[
+    {
+        "domain": "鬧鐘",
+        "response": [
+            "鬧鐘要訂在今天幾點？",
+            "alarm_B",
+            "alarm_C",
+            "alarm_D"
+        ],
+        "concepts": [
+            "鬧鐘"
+        ],
+        "children": []
+    },
+    {
+        "domain": "觀光",
+        "response": [],
+        "concepts": [
+            "觀光"
+        ],
+        "children": []
+    },
+    {
+        "domain": "天氣",
+        "response": [],
+        "concepts": [
+            "天氣"
+        ],
+        "children": []
+    },
+    {
+        "domain": "吃喝玩樂",
+        "response": [],
+        "concepts": [
+            "吃喝玩樂"
+        ],
+        "children": []
+    },
+    {
+        "domain": "股票",
+        "response": [],
+        "concepts": [
+            "股票"
+        ],
+        "children": []
+    },
+    {
+        "domain": "住宿",
+        "response": [],
+        "concepts": [
+            "住宿"
+        ],
+        "children": []
+    },
+    {
+        "domain": "購買",
+        "response": [],
+        "concepts": [
+            "購買"
+        ],
+        "children": [
+            "購買生活用品",
+            "購買家電",
+            "購買食物",
+            "購買飲料",
+            "購買鞋子",
+            "購買衣服",
+            "購買電腦產品"
+        ]
+    },
+    {
+        "domain": "病症",
+        "response": [],
+        "concepts": [
+            "病症"
+        ],
+        "children": [
+            "過敏",
+            "扭傷"
+        ]
+    }
+]
