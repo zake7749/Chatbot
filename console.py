@@ -132,10 +132,13 @@ class Console(object):
         for word in words:
             if word not in self.stopword:
                 keyword.append(word)
+
+        result_list,path = self.rb.match(keyword,threshold=0.1)
+
         if best_only:
-            return self.rb.match(keyword,threshold=0.1)[0]
+            return [result_list[0], path]
         else:
-            return self.rb.match(keyword,threshold=0.1)
+            return [result_list, path]
 
     def get_response(self, rule_id):
 
