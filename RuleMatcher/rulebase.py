@@ -170,14 +170,21 @@ class RuleBase(object):
                     self.rules[domain] = rule
                 else:
                     print("[Rules]: Detect a duplicate domain name '%s'." % domain)
+        self.build_forest_root()
 
-        # build the base root list (the root has no parent.)
+    def build_forest_root(self):
+
+        self.forest_base_roots = []
+        """
+        build the base root list (the root has no parent.)
+        """
         children_set = set()
         for rule in self.rules.values():
             for child in rule.children:
                 children_set.add(child)
         for rule in self.rules.values():
             if rule.id_term not in children_set:
+                print(rule.id_term)
                 self.forest_base_roots.append(self.rules[rule.id_term])
 
     def load_rules_from_dic(self,path):
