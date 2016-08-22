@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
 import console
-#import doctor.diagnose
+import medicine.diagnose as diagnose
+import medicine.medicine as medicine
 
 def main():
     chatbot = Chatbot()
@@ -64,7 +65,8 @@ class Chatbot(object):
         #TODO
         if self.speech_domain == "病症":
         #Enter the medical module.
-            pass
+        listener = medicine.MedicalListener(self.console)
+
         else:
             pass
 

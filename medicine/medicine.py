@@ -13,7 +13,7 @@ class MedicalListener(object):
         """
         pass
 
-    def look_up(arg):
+    def look_up(path):
         """
         根據抽取出的症狀特徵，決定是進入醫生診斷或是純粹提供建議
         """
