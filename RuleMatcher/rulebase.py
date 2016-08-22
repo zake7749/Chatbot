@@ -191,8 +191,8 @@ class RuleBase(object):
         load all rule_files in given path
         """
         for file_name in os.listdir(path):
-            print(file_name)
-            self.load_rules(path + file_name)
+            if not file_name.startswith('.'):  #escape .DS_Store on OSX.
+                self.load_rules(path + file_name)
 
     def load_model(self,path):
         """

@@ -53,7 +53,7 @@ class Console(object):
             elif choice == 'p':
                 print(self.rb)
             elif choice == 'r':
-                self.rb.load_rules('rule/baserule.txt',reload=True)
+                self.rb.load_rules('RuleMatcher/rule/',reload=True)
             elif choice == 'd':
                 self.test_speech()
             elif choice == 'm':
@@ -67,9 +67,8 @@ class Console(object):
                 res = self.get_response(rule_id)
                 if res is not None:
                     print(res)
-
             elif choice == 'o':
-                self.rb.output_to_json()
+                self.rb.output_as_json()
             else:
                 print('[Opps!] No such choice: ' + choice + '.')
 
