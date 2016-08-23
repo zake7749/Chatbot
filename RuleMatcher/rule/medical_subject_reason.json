@@ -1,0 +1,132 @@
+[
+      {
+          "domain": "人體器官",
+          "response": [],
+          "concepts": [
+              "人體","身體","器官"
+          ],
+          "children": [
+          		"胃部",
+          		"腹部",
+          		"頭部",
+          		"胸部",
+          		"手腳",
+          		"臀部",
+          		"腰部",
+          		"背部",
+          		"嘴巴",
+          		"牙齒",
+          		"頸部",
+              "耳朵",
+              "視力"
+          ]
+      },
+      {
+          "domain": "胃部",
+          "response": [],
+          "concepts": [
+            	"胃部"
+          ],
+          "children": []
+      },
+      {
+          "domain": "腹部",
+          "response": [],
+          "concepts": [
+          		"腹部",
+          		"肚子"
+          ],
+          "children": []
+      },
+      {
+          "domain": "頭部",
+          "response": [],
+          "concepts": [
+          		"頭部"
+          ],
+          "children": []
+      },
+	  {
+          "domain": "胸部",
+          "response": [],
+          "concepts": [
+          		"胸部"
+          ],
+          "children": []
+      },
+      {
+          "domain": "手腳",
+          "response": [],
+          "concepts": [
+          		"手腳"
+          ],
+          "children": []
+      },
+	  {
+          "domain": "臀部",
+          "response": [],
+          "concepts": [
+          		"臀部"
+          ],
+          "children": []
+      },
+      {
+          "domain": "腰部",
+          "response": [],
+          "concepts": [
+          		"腰部"
+          ],
+          "children": []
+      },
+      {
+          "domain": "背部",
+          "response": [],
+          "concepts": [
+          		"背部"
+          ],
+          "children": []
+      },
+      {
+          "domain": "頸部",
+          "response": [],
+          "concepts": [
+          		"頸部"
+          ],
+          "children": []
+      },
+      {
+          "domain": "嘴巴",
+          "response": [],
+          "concepts": [
+          		"嘴巴"
+          ],
+          "children": []
+      },
+      {
+          "domain": "牙齒",
+          "response": [],
+          "concepts": [
+          		"牙齒"
+          ],
+          "children": []
+      },
+      {
+          "domain": "耳朵",
+          "response": [],
+          "concepts": [
+              "耳朵"
+          ],
+          "children": []
+      },
+      {
+          "domain": "視力",
+          "response": [],
+          "concepts": [
+              "視力"
+          ],
+          "children": []
+      }
+
+
+
+]
