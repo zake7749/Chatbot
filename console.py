@@ -119,10 +119,20 @@ class Console(object):
                 stopword.add(sw)
         return stopword
 
-    def rule_match(self, sentence, best_only=False):
+    def rule_match(self, sentence, best_only=False, root=None ):
 
         """
         Match the sentence with rules.
+
+        Args:
+            - sentence  : the string you want to match with rules.
+            - best_only : if True, only return the best matched rule.
+            - root      : a domain name, then the rule match will start
+                          at searching from that domain, not from forest roots.
+
+        Return:
+            - a list of candiate rule
+            - the travel path of classification tree.
         """
 
         words = jieba.cut(sentence, HMM=False)
@@ -132,7 +142,10 @@ class Console(object):
             if word not in self.stopword:
                 keyword.append(word)
 
-        result_list,path = self.rb.match(keyword,threshold=0.1)
+        if root is None: # use for rule matching.
+            result_list,path = self.rb.match(keyword,threshold=0.1)
+        else:  # use for reasoning.
+            result_list,path = self.rb.match(keyword,threshold=0.4,root=search_from)
 
         if best_only:
             return [result_list[0], path]

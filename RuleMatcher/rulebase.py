@@ -203,7 +203,7 @@ class RuleBase(object):
         """
         self.model = models.Word2Vec.load_word2vec_format(path,binary=True)
 
-    def match(self, sentence, topk=1, threshold=0):
+    def match(self, sentence, topk=1, threshold=0, search_from=None):
         """
         match the sentence with rules then order by similarity.
 
@@ -218,7 +218,11 @@ class RuleBase(object):
         result_list  = []
         at_leaf_node = False
         term_trans   = ""
-        focused_rule = self.forest_base_roots[:]
+
+        if search_from is None: # then search from roots of forest.
+            focused_rule = self.forest_base_roots[:]
+        else:
+            focused_rule = [self.rules[search_from]]
 
         while not at_leaf_node:
 
