@@ -13,21 +13,22 @@
   	{
         "domain": "玫瑰疹",
         "response": [
-            "有發燒嗎？"
+
         ],
         "concepts": [
             "玫瑰疹"
         ],
         "children": []
-  	      
-  	}, 
+
+  	},
   	{
       "domain": "扭傷",
       "response": [
         "先讓受傷部位休息再冰敷，如果2~3天後還是沒有改善，就建議給醫生看看唷！"
       ],
       "concepts": [
-          "扭傷"
+          "扭傷",
+					"扭到"
       ],
       "children": []
   	},
@@ -57,6 +58,8 @@
         "response": [],
         "concepts": [
             "咳嗽",
+						"咳",
+						"咳得",
             "乾咳"
         ],
         "children": []
@@ -67,26 +70,25 @@
         "concepts": [
             "肘關節脫位"
         ],
-        "children": []    
+        "children": []
     },
     {
         "domain": "消化不良",
         "response": [],
         "concepts": [
             "消化不良",
-            "腸胃不適",
-            "腸胃不舒服"
+            "胃部不適",
+            "胃部不舒服"
         ],
-        "children": []       
+        "children": []
     },
     {
         "domain": "心悸",
         "response": [],
         "concepts": [
-            "心悸",
-            "感覺到自己的心跳"
+            "心悸"
         ],
-        "children": []        
+        "children": []
     },
     {
         "domain": "乏力",
@@ -96,7 +98,7 @@
             "四肢無力",
             "無力"
         ],
-        "children": []        
+        "children": []
     },
     {
         "domain": "畏寒",
@@ -105,7 +107,7 @@
             "畏寒",
             "發冷"
         ],
-        "children": []      
+        "children": []
     },
     {
         "domain": "羅音",
@@ -114,7 +116,7 @@
             "羅音",
             "雜音"
         ],
-        "children": []   
+        "children": []
     },
     {
         "domain": "呼吸困難",
@@ -124,7 +126,7 @@
             "無法呼吸",
             "喘不過氣"
         ],
-        "children": []    
+        "children": []
     },
     {
         "domain": "白帶",
@@ -132,16 +134,7 @@
         "concepts": [
             "白帶"
         ],
-        "children": []     
-    },
-    {
-        "domain": "抽蓄",
-        "response": [],
-        "concepts": [
-            "抽蓄",
-            "抽筋"
-        ],
-        "children": []    
+        "children": []
     },
     {
         "domain": "落枕",
@@ -149,7 +142,7 @@
         "concepts": [
             "落枕"
         ],
-        "children": []        
+        "children": []
     },
 	{
         "domain": "食欲不振",
@@ -160,7 +153,7 @@
             "不想吃東西",
             "食慾減退"
         ],
-        "children": []        
+        "children": []
     },
     {
         "domain": "羊水過多",
@@ -168,7 +161,7 @@
         "concepts": [
             "羊水過多"
         ],
-        "children": []      
+        "children": []
     },
 	{
         "domain": "睾丸疼痛",
@@ -176,7 +169,7 @@
         "concepts": [
             "睾丸疼痛"
         ],
-        "children": []        
+        "children": []
     },
     {
         "domain": "性交疼痛",
@@ -184,7 +177,7 @@
         "concepts": [
             "性交疼痛"
         ],
-        "children": []        
+        "children": []
     },
 	{
         "domain": "呼吸急促",
@@ -193,7 +186,7 @@
             "呼吸急促",
             "喘氣過快"
         ],
-        "children": []        
+        "children": []
     },
     {
         "domain": "肛門瘙癢",
@@ -202,7 +195,7 @@
             "肛門瘙癢",
             "肛門癢"
         ],
-        "children": []    
+        "children": []
     },
 	{
         "domain": "性慾減退",
@@ -210,7 +203,7 @@
         "concepts": [
             "性慾減退"
         ],
-        "children": []    
+        "children": []
     },
     {
         "domain": "肝掌",
@@ -218,7 +211,7 @@
         "concepts": [
             "肝掌"
         ],
-        "children": []        
+        "children": []
     },
     {
         "domain": "心律失常",
@@ -229,28 +222,29 @@
             "心跳過慢",
             "心跳不規則"
         ],
-        "children": []        
+        "children": []
     },
     {
         "domain": "頭暈",
         "response": [],
         "concepts": [
+						"暈",
             "頭暈",
-            "暈炫",
+            "暈眩",
             "頭暈目眩",
-            "四周都在轉"
+						"頭昏眼花"
         ],
-        "children": []    
+        "children": []
     },
 	{
         "domain": "疲倦",
         "response": [],
         "concepts": [
             "疲倦",
-            "累",
+            "很累",
             "疲勞"
         ],
-        "children": []        
+        "children": []
     },
 	{
         "domain": "眼疲勞",
@@ -258,9 +252,9 @@
         "concepts": [
             "眼疲勞",
             "眼睛酸",
-            "眼睛累"
+            "眼睛很累"
         ],
-        "children": []        
+        "children": []
     },
 	{
         "domain": "腰背痛",
@@ -268,7 +262,7 @@
         "concepts": [
             "腰背痛"
         ],
-        "children": []        
+        "children": []
     },
 	{
         "domain": "咳痰",
@@ -283,8 +277,7 @@
         "domain": "低血壓",
         "response": [],
         "concepts": [
-            "低血壓",
-            "血壓降低"
+            "低血壓"
         ],
         "children": []
     },
@@ -295,17 +288,15 @@
             "耳痛",
             "耳朵痛"
         ],
-        "children": []    
+        "children": []
     },
 	{
         "domain": "手足皸裂",
         "response": [],
         "concepts": [
-            "手足皸裂",
-            "手有裂紋",
-            "腳有裂紋"
+            "手足皸裂"
         ],
-        "children": []        
+        "children": []
     },
     {
         "domain": "脫肛",
@@ -314,7 +305,7 @@
             "脫肛"
         ],
         "children": []
-        
+
     },
     {
         "domain": "鱗屑",
@@ -322,7 +313,7 @@
         "concepts": [
             "鱗屑"
         ],
-        "children": []    
+        "children": []
     },
     {
         "domain": "記憶力",
@@ -332,7 +323,7 @@
             "忘東忘西"
         ],
         "children": []
-        
+
     },
 	{
         "domain": "凍瘡",
@@ -341,7 +332,7 @@
             "凍瘡"
         ],
         "children": []
-        
+
     },
 	{
         "domain": "發熱",
@@ -350,7 +341,7 @@
             "發熱",
             "發燒"
         ],
-        "children": []     
+        "children": []
     },
     {
         "domain": "腹痛",
@@ -359,7 +350,7 @@
             "腹痛",
             "肚子痛"
         ],
-        "children": []        
+        "children": []
     },
     {
         "domain": "反胃",
@@ -367,7 +358,7 @@
         "concepts": [
             "反胃"
         ],
-        "children": []        
+        "children": []
     },
     {
         "domain": "流產",
@@ -383,17 +374,16 @@
         "concepts": [
             "血壓升高"
         ],
-        "children": []   
+        "children": []
     },
     {
         "domain": "腹脹",
         "response": [],
         "concepts": [
             "腹脹",
-            "脹",
-            "肚子脹脹的"
+            "脹"
         ],
-        "children": []  
+        "children": []
     },
     {
         "domain": "痛經",
@@ -402,7 +392,7 @@
             "痛經",
             "經痛"
         ],
-        "children": []   
+        "children": []
     },
     {
         "domain": "全身酸痛",
@@ -417,9 +407,10 @@
         "domain": "視力模糊",
         "response": [],
         "concepts": [
-            "視力模糊","看不清楚"
+            "視力模糊",
+						"看不清"
         ],
-        "children": []  
+        "children": []
     },
     {
         "domain": "腹瀉",
@@ -428,16 +419,29 @@
             "腹瀉",
             "拉肚子"
         ],
-        "children": []    
+        "children": []
     },
     {
+        "domain": "抽筋",
+        "response": [
+					"建議你按摩跟伸展，這樣就可以制止抽筋囉！"
+				],
+        "concepts": [
+
+						"抽筋"
+        ],
+        "children": []
+    },
+		{
         "domain": "抽搐",
-        "response": [],
+        "response": [
+				],
         "concepts": [
             "抽搐"
         ],
-        "children": []   
+        "children": []
     },
+
     {
         "domain": "鼻出血",
         "response": [],
@@ -445,7 +449,7 @@
             "鼻出血",
             "流鼻血"
         ],
-        "children": []    
+        "children": []
     },
 	{
         "domain": "疼痛",
@@ -453,7 +457,7 @@
         "concepts": [
             "疼痛"
         ],
-        "children": []    
+        "children": []
     },
     {
         "domain": "氣喘",
@@ -461,7 +465,7 @@
         "concepts": [
             "氣喘"
         ],
-        "children": []       
+        "children": []
     },
     {
         "domain": "尿痛",
@@ -469,7 +473,7 @@
         "concepts": [
             "尿痛"
         ],
-        "children": []    
+        "children": []
     },
     {
         "domain": "乳頭內陷",
@@ -477,7 +481,7 @@
         "concepts": [
             "乳頭內陷"
         ],
-        "children": []    
+        "children": []
     },
     {
         "domain": "閉經",
@@ -486,7 +490,7 @@
             "閉經",
             "停經"
         ],
-        "children": []   
+        "children": []
     },
     {
         "domain": "脊柱彎曲",
@@ -494,7 +498,7 @@
         "concepts": [
             "脊柱彎曲"
         ],
-        "children": []   
+        "children": []
     },
     {
         "domain": "休克",
@@ -510,7 +514,7 @@
         "concepts": [
             "肛裂"
         ],
-        "children": [] 
+        "children": []
     },
     {
         "domain": "單癱",
@@ -527,7 +531,7 @@
             "遺尿"
         ],
         "children": []
-        
+
     },
     {
     	"domain": "牙痛",
@@ -536,7 +540,7 @@
             "牙痛",
             "牙齒"
         ],
-        "children": []   
+        "children": []
     },
     {
         "domain": "皮膚乾燥",
@@ -545,7 +549,7 @@
             "皮膚乾燥",
             "皮膚乾"
         ],
-        "children": []   
+        "children": []
     },
     {
         "domain": "胸悶",
@@ -553,7 +557,7 @@
         "concepts": [
             "胸悶"
         ],
-        "children": []    
+        "children": []
     },
     {
          "domain": "乳房腫塊",
@@ -561,7 +565,7 @@
         "concepts": [
             "乳房腫塊"
         ],
-        "children": []  
+        "children": []
     },
     {
         "domain": "靜脈曲張",
@@ -569,7 +573,7 @@
         "concepts": [
             "靜脈曲張"
         ],
-        "children": []    
+        "children": []
     },
 	{
         "domain": "嘔吐",
@@ -579,7 +583,7 @@
             "吐"
         ],
         "children": []
-        
+
     },
     {
         "domain": "排尿異常",
@@ -589,7 +593,7 @@
             "排尿"
         ],
         "children": []
-        
+
     },
     {
         "domain": "盜汗",
@@ -605,7 +609,7 @@
         "concepts": [
             "鼻塞"
         ],
-        "children": []   
+        "children": []
     },
     {
         "domain": "貧血",
@@ -613,16 +617,20 @@
         "concepts": [
             "貧血"
         ],
-        "children": []   
+        "children": []
     },
     {
         "domain": "鼻涕",
         "response": [],
         "concepts": [
             "鼻涕",
-            "鼻水"
+            "鼻水",
+						"流鼻水",
+						"流鼻涕",
+						"打噴嚏",
+						"噴嚏"
         ],
-        "children": []   
+        "children": []
     },
     {
         "domain": "胸痛",
@@ -638,7 +646,7 @@
         "concepts": [
             "丘疹"
         ],
-        "children": []  
+        "children": []
     },
     {
         "domain": "雞眼",
@@ -647,7 +655,7 @@
             "雞眼"
         ],
         "children": []
-        
+
     },
     {
         "domain": "創傷",
@@ -655,7 +663,7 @@
         "concepts": [
             "創傷"
         ],
-        "children": []    
+        "children": []
     },
     {
         "domain": "耳鳴",
@@ -663,7 +671,7 @@
         "concepts": [
             "耳鳴"
         ],
-        "children": []    
+        "children": []
     },
     {
         "domain": "黃疸",
@@ -672,16 +680,17 @@
             "黃疸",
             "發黃"
         ],
-        "children": []   
+        "children": []
     },
     {
          "domain": "嘔血",
         "response": [],
         "concepts": [
-            "嘔血","吐血"
+            "嘔血",
+						"吐血"
         ],
         "children": []
-       
+
     },
     {
         "domain": "口乾",
@@ -690,7 +699,7 @@
             "口乾"
         ],
         "children": []
-        
+
     },
     {
          "domain": "厭食",
@@ -698,7 +707,7 @@
         "concepts": [
             "厭食"
         ],
-        "children": []   
+        "children": []
     },
     {
         "domain": "尿失禁",
@@ -706,7 +715,7 @@
         "concepts": [
             "尿失禁"
         ],
-        "children": [] 
+        "children": []
     },
     {
         "domain": "遺精",
@@ -714,7 +723,7 @@
         "concepts": [
             "遺精"
         ],
-        "children": []  
+        "children": []
     },
     {
         "domain": "頭痛",
@@ -723,16 +732,17 @@
             "頭痛"
         ],
         "children": []
-        
+
     },
     {
         "domain": "寒戰",
         "response": [],
         "concepts": [
-            "寒戰","寒顫"
+            "寒戰",
+						"寒顫"
         ],
         "children": []
-        
+
     },
     {
         "domain": "畏光",
@@ -741,16 +751,17 @@
             "畏光"
         ],
         "children": []
-        
+
     },
     {
         "domain": "瘙癢",
         "response": [],
         "concepts": [
             "瘙癢",
-            "癢"
+            "癢",
+						"癢癢"
         ],
-        "children": []  
+        "children": []
     },
     {
         "domain": "腰痛",
@@ -759,28 +770,26 @@
             "腰痛"
         ],
         "children": []
-       
+
     },
     {
         "domain": "瘀血",
         "response": [
-        	"你可以先冰敷，如果長時間都沒有改善記得到醫院去做診療喔！"
+        	"可以先冰敷，如果長時間都沒有改善記得到醫院去做診療喔！"
         ],
         "concepts": [
-            "瘀血",
-            "瘀青"
+            "瘀血"
         ],
-        "children": []   
+        "children": []
     },
     {
          "domain": "咯血",
         "response": [],
         "concepts": [
-            "咯血",
-            "咳嗽有血"
+            "咯血"
         ],
         "children": []
-       
+
     },
     {
         "domain": "少尿",
@@ -788,7 +797,7 @@
         "concepts": [
             "少尿"
         ],
-        "children": [] 
+        "children": []
     },
     {
         "domain": "尿急",
@@ -796,27 +805,28 @@
         "concepts": [
             "尿急"
         ],
-        "children": []   
+        "children": []
     },
     {
         "domain": "吞咽困難",
         "response": [],
         "concepts": [
             "吞咽困難",
+						"吞嚥困難",
             "吞咽"
+
         ],
         "children": []
-        
+
     },
     {
         "domain": "噁心",
         "response": [],
         "concepts": [
-            "噁心",
-            "想吐"
+            "噁心"
         ],
         "children": []
-        
+
     },
     {
         "domain": "皰疹",
@@ -824,7 +834,7 @@
         "concepts": [
             "皰疹"
         ],
-        "children": []  
+        "children": []
     },
     {
         "domain": "肌肉酸痛",
@@ -832,7 +842,7 @@
         "concepts": [
             "肌肉酸痛"
         ],
-        "children": []  
+        "children": []
     },
     {
         "domain": "口臭",
@@ -841,7 +851,7 @@
             "口臭"
         ],
         "children": []
-        
+
     },
     {
         "domain": "濕疹",
@@ -850,17 +860,17 @@
             "濕疹"
         ],
         "children": []
-        
+
     },
     {
         "domain": "便血",
         "response": [],
         "concepts": [
             "便血",
-            "大便有血"
+            "血便"
         ],
         "children": []
-        
+
     },
     {
         "domain": "便秘",
@@ -868,7 +878,7 @@
         "concepts": [
             "便秘"
         ],
-        "children": []  
+        "children": []
     },
 	{
         "domain": "關節痛",
@@ -877,7 +887,7 @@
             "關節痛"
         ],
         "children": []
-        
+
     },
     {
         "domain": "惡寒",
@@ -885,7 +895,7 @@
         "concepts": [
             "惡寒"
         ],
-        "children": [] 
+        "children": []
     },
 	{
         "domain": "尿頻",
@@ -896,7 +906,7 @@
             "多尿"
         ],
         "children": []
-        
+
     },
     {
         "domain": "出血",
@@ -904,7 +914,7 @@
         "concepts": [
             "出血"
         ],
-        "children": []   
+        "children": []
     },
     {
 		"domain": "浮腫",
@@ -913,7 +923,7 @@
             "浮腫",
             "水腫"
         ],
-        "children": []   
+        "children": []
     },
     {
         "domain": "尿血",
@@ -923,7 +933,7 @@
             "血尿"
         ],
         "children": []
-        
+
     },
     {
         "domain": "無尿",
@@ -932,7 +942,7 @@
             "無尿"
         ],
         "children": []
-        
+
     },
     {
         "domain": "痢疾",
@@ -941,7 +951,7 @@
             "痢疾"
         ],
         "children": []
-        
+
     },
     {
         "domain": "宮頸糜爛",
@@ -950,7 +960,7 @@
             "宮頸糜爛"
         ],
         "children": []
-        
+
     },
     {
     	"domain": "心絞痛",
@@ -958,7 +968,7 @@
         "concepts": [
             "心絞痛"
         ],
-        "children": [] 
+        "children": []
     },
     {
         "domain": "胃痛",
@@ -966,7 +976,7 @@
         "concepts": [
             "胃痛"
         ],
-        "children": []   
+        "children": []
     },
     {
         "domain": "雀斑",
@@ -974,7 +984,7 @@
         "concepts": [
             "雀斑"
         ],
-        "children": []   
+        "children": []
     }
 
 ]

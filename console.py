@@ -13,7 +13,7 @@ def main():
 
 class Console(object):
 
-    def __init__(self,model_path="model/ch-corpus.bin",
+    def __init__(self,model_path="model/ch-corpus-3sg.bin",
                  rule_path="RuleMatcher/rule/",
                  stopword="jieba_dict/stopword.txt",
                  jieba_dic="jieba_dict/dict.txt.big",
@@ -119,7 +119,17 @@ class Console(object):
                 stopword.add(sw)
         return stopword
 
-    def rule_match(self, sentence, best_only=False, root=None ):
+    def word_segment(self, sentence):
+
+        words = jieba.cut(sentence, HMM=False)
+        #clean up the stopword
+        keyword = []
+        for word in words:
+            if word not in self.stopword:
+                keyword.append(word)
+        return keyword
+
+    def rule_match(self, sentence, best_only=False, search_from=None, segmented=False):
 
         """
         Match the sentence with rules.
@@ -129,23 +139,21 @@ class Console(object):
             - best_only : if True, only return the best matched rule.
             - root      : a domain name, then the rule match will start
                           at searching from that domain, not from forest roots.
-
+            - segmented : the sentence is segmented or not.
         Return:
             - a list of candiate rule
             - the travel path of classification tree.
         """
-
-        words = jieba.cut(sentence, HMM=False)
-        #clean up the stopword
         keyword = []
-        for word in words:
-            if word not in self.stopword:
-                keyword.append(word)
+        if segmented:
+            keyword = sentence
+        else:
+            keyword = self.word_segment(sentence)
 
-        if root is None: # use for rule matching.
+        if search_from is None: # use for rule matching.
             result_list,path = self.rb.match(keyword,threshold=0.1)
         else:  # use for reasoning.
-            result_list,path = self.rb.match(keyword,threshold=0.4,root=search_from)
+            result_list,path = self.rb.match(keyword,threshold=0.1,root=search_from)
 
         if best_only:
             return [result_list[0], path]

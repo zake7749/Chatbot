@@ -18,6 +18,8 @@ class Rule(object):
         self.response = response
         self.children = children
 
+        self.log = open('log.txt','w',encoding='utf-8')
+
     def __str__(self):
         res = 'Domain:' + self.id_term
         if self.has_child():
@@ -81,7 +83,7 @@ class Rule(object):
                         max_sim = sim
                         matchee = word
                 except Exception as e:
-                    print(repr(e)+ ". Try to hard-match.")
+                    self.log.write(repr(e)+ ". Try to hard-match.")
                     if term == word:
                         max_sim = 1
                         matchee = word
@@ -144,7 +146,7 @@ class RuleBase(object):
                     # is the root of classification tree.
                     self.forest_base_roots.append(new_rule)
 
-    def load_rules(self, path, reload=False):
+    def load_rules(self, path, reload=False, is_root=False):
         """
         Build the rulebase by loading the rules terms from the given file.
 
@@ -168,23 +170,11 @@ class RuleBase(object):
                 if domain not in self.rules:
                     rule = Rule(domain, concepts_list, children_list, response, self.model)
                     self.rules[domain] = rule
+                    if is_root:
+                        self.forest_base_roots.append(rule)
                 else:
                     print("[Rules]: Detect a duplicate domain name '%s'." % domain)
-        self.build_forest_root()
 
-    def build_forest_root(self):
-
-        self.forest_base_roots = []
-        """
-        build the base root list (the root has no parent.)
-        """
-        children_set = set()
-        for rule in self.rules.values():
-            for child in rule.children:
-                children_set.add(child)
-        for rule in self.rules.values():
-            if rule.id_term not in children_set:
-                self.forest_base_roots.append(self.rules[rule.id_term])
 
     def load_rules_from_dic(self,path):
         """
@@ -192,7 +182,11 @@ class RuleBase(object):
         """
         for file_name in os.listdir(path):
             if not file_name.startswith('.'):  #escape .DS_Store on OSX.
-                self.load_rules(path + file_name)
+                if file_name == "rule.json": # roots of forest
+                    self.load_rules(path + file_name, is_root=True)
+                else:
+                    self.load_rules(path + file_name)
+                    
 
     def load_model(self,path):
         """
@@ -203,7 +197,7 @@ class RuleBase(object):
         """
         self.model = models.Word2Vec.load_word2vec_format(path,binary=True)
 
-    def match(self, sentence, topk=1, threshold=0, search_from=None):
+    def match(self, sentence, topk=1, threshold=0, root=None):
         """
         match the sentence with rules then order by similarity.
 
@@ -219,10 +213,10 @@ class RuleBase(object):
         at_leaf_node = False
         term_trans   = ""
 
-        if search_from is None: # then search from roots of forest.
+        if root is None: # then search from roots of forest.
             focused_rule = self.forest_base_roots[:]
         else:
-            focused_rule = [self.rules[search_from]]
+            focused_rule = [self.rules[root]]
 
         while not at_leaf_node:
 
