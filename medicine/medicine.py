@@ -30,22 +30,26 @@ class MedicalListener(object):
                 self.symptom_dic[symptom] = False
 
 
-    def processing_baseline(self, sentence, former_result=[]):
+    def get_response(self, sentence, domain, former_result=[]):
 
-        keywords = self.console.word_segment(sentence)
-        self.hard_extract(keywords)
-        self.reason(keywords)
+        if self.look_up(domain):
 
-        for k,v in self.symptom_dic.items():
-            if v:
-                former_result.append(k)
+            keywords = self.console.word_segment(sentence)
+            self.hard_extract(keywords)
+            self.reason(keywords)
 
-        if len(former_result) >= 3:
-            #進入醫生診斷模組 TODO
-            return [False, "醫生還沒來唷，請稍等一下"]
+            for k,v in self.symptom_dic.items():
+                if v:
+                    former_result.append(k)
+
+            if len(former_result) >= 3:
+                #進入醫生診斷模組 TODO
+                return [False, "醫生還沒來唷，請稍等一下"]
+            else:
+                #仍須繼續問診，把目前狀態先回覆給chatbot
+                return [former_result, self._response[random.randrange(0,6)]]
         else:
-            #仍須繼續問診，把目前狀態先回覆給chatbot
-            return [former_result, self._response[random.randrange(0,6)]]
+            return [True, self.console.get_response(domain)]
 
 
     def hard_extract(self, keywords):

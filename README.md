@@ -1,6 +1,6 @@
 # Chatbot
 
-Chatbot 透過將語句向量化來計算主題相似度，再依匹配結果提供迎合使用者需求的答覆。
+Chatbot 透過將語句向量化來計算主題相似度，再依結果提供迎合使用者需求的答覆。
 
 ## 匹配示例
 
@@ -35,7 +35,7 @@ Chatbot 透過將語句向量化來計算主題相似度，再依匹配結果提
 * 安裝 python3 開發環境
 * 安裝 [gensim – Topic Modelling in Python](https://github.com/RaRe-Technologies/gensim)
 * 安裝 [jieba 结巴中文分词 ](https://github.com/fxsjy/jieba)
-* 有已訓練好的中文詞向量，並根據檔案位置調整 `Console class` 的初始化參數
+* 有已訓練好的中文詞向量，並根據檔案位置調整 `Console class` 的初始化參數。
 ```python
 import console
 c = console.Console(model_path='your_model')
@@ -51,9 +51,10 @@ c = console.Console(model_path='your_model')
 
 ```python
 import console
+
 c = console.Console(model_path='your_model')
 speech = input('Input a sentence:')
-res,path = c.rule_match(speech) #取得已照相似度排序的規則
+res,path = c.rule_match(speech)
 c.write_output(speech,res,path)
 ```
 
@@ -100,6 +101,9 @@ c.write_output(speech,res,path)
 ```
 
 ## 開發日誌
+
+*[以 gensim 訓練中文詞向量 ](http://zake7749.github.io/2016/08/28/word2vec-with-gensim/)
+*[基於詞向量的主題匹配 ](http://zake7749.github.io/2016/08/30/chatterbot-with-word2vec/)
 
 ## TODO
 * 追加規則案例

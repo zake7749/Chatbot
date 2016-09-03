@@ -24,29 +24,30 @@ class Chatbot(object):
 
     def waiting_loop(self):
 
+        speech = input("Hi, I'm " + self.name + '\n')
+
         while True:
 
-            speech = input("Hi, I'm " + self.name + '\n')
             self.rule_match(speech) # to find the most similar domain with speech.
-            self.set_assigner() # set a module to handle user's task.
-            result = self.module_switch()
+            response = self.module_switch()
 
-            if result is None:
+            if response is None:
                 print(self.get_response())
             else:
-                print(result)
+                print(response)
 
 
     def rule_match(self, speech):
 
         """
         Get the rule has best similarity with user's input,
-        and set domain,path,similarity based on that rule.
+        and set domain,path,similarity and assigner based on that rule.
         """
 
         res,self.last_path = self.console.rule_match(speech, best_only=True)
         self.speech = speech
         self.domain_similarity,self.speech_domain,self.speech_matchee = res
+        self._set_assigner() # set a module to handle this task.
 
     def get_response(self):
         """
@@ -60,7 +61,7 @@ class Chatbot(object):
         else:
             return response
 
-    def set_assigner(self):
+    def _set_assigner(self):
 
         """
         Extract the root rule in result.
@@ -75,12 +76,8 @@ class Chatbot(object):
         if self.assigner == "病症":
             #Enter the medical module.
             listener = medicine.MedicalListener(self.console)
-            if listener.look_up(self.speech_domain):
-                status, response = listener.processing_baseline(self.speech,[])
-                print(status)
-                return response
-            else:
-                return None
+            status, response = listener.get_response(self.speech,self.speech_domain)
+            return response
         else:
             return None
 
