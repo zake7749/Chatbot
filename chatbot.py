@@ -24,17 +24,21 @@ class Chatbot(object):
 
     def waiting_loop(self):
 
-        speech = input("Hi, I'm " + self.name + '\n')
-
         while True:
 
-            self.rule_match(speech) # to find the most similar domain with speech.
-            response = self.module_switch()
+            speech = input("Hi, I'm " + self.name + '\n')
+            res = self.listen(speech)
+            print(res)
 
-            if response is None:
-                print(self.get_response())
-            else:
-                print(response)
+    def listen(self, sentence):
+
+        self.rule_match(sentence) # to find the most similar domain with speech.
+        response = self.module_switch()
+
+        if response is None:
+            return self.get_response()
+        else:
+            return response
 
 
     def rule_match(self, speech):
