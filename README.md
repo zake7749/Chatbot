@@ -102,8 +102,8 @@ c.write_output(speech,res,path)
 
 ## 開發日誌
 
-*[以 gensim 訓練中文詞向量 ](http://zake7749.github.io/2016/08/28/word2vec-with-gensim/)
-*[基於詞向量的主題匹配 ](http://zake7749.github.io/2016/08/30/chatterbot-with-word2vec/)
+* [以 gensim 訓練中文詞向量 ](http://zake7749.github.io/2016/08/28/word2vec-with-gensim/)
+* [基於詞向量的主題匹配 ](http://zake7749.github.io/2016/08/30/chatterbot-with-word2vec/)
 
 ## TODO
 * 追加規則案例
