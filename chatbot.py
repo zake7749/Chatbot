@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import console
-import medicine.medicine as medicine
+import module_switch
 
 def main():
     chatbot = Chatbot()
@@ -75,15 +75,23 @@ class Chatbot(object):
         else:
             self.assigner = self.last_path.split('>')[0]
 
-    def module_switch(self):
+    def module_switch(self, in_task=False):
 
-        if self.assigner == "病症":
-            #Enter the medical module.
-            listener = medicine.MedicalListener(self.console)
-            status, response = listener.get_response(self.speech,self.speech_domain)
-            return response
-        else:
-            return None
+        switch  = module_switch.Switch(self.console)
+        handler = switch.get_handler(self.assigner)
+
+        if in_task:
+            #TODO
+            handler.restore(self.speech, memory="")
+
+        status, response = handler.get_response(self.speech, self.speech_domain)
+
+        if status is not None:
+            #TODO Restore the history string with user'id.
+            pass
+
+        return response
+
 
 
 if __name__ == '__main__':

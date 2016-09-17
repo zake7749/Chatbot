@@ -1,5 +1,6 @@
 import os
 import random
+import json
 
 #import diagnose
 
@@ -22,6 +23,19 @@ class MedicalListener(object):
             "還有沒有出現其他症狀？"
         ]
 
+    def restore(self, memory):
+
+        """
+        依照記憶將任務狀態回復
+
+        Args:
+            - memory: 為先前的任務紀錄，儲存已知的症狀
+        """
+
+        mem = json.load(memory)
+        for key in mem.keys():
+            self.symptom_dic[key] = True
+
     def load_symptom_set(self,path):
 
         with open(os.path.dirname(__file__) + '/result/symptom_set.txt','r',encoding='utf-8') as input:
@@ -29,27 +43,34 @@ class MedicalListener(object):
                 symptom = symptom.strip('\n')
                 self.symptom_dic[symptom] = False
 
+    def get_response(self, sentence, domain):
 
-    def get_response(self, sentence, domain, former_result=[]):
+        """
+        依據現有的病症資訊，回傳可能疾病或要詢問的症狀
+        """
+
+        history = []
 
         if self.look_up(domain):
 
+            # 從當前的 sentence 抽取病症信息
             keywords = self.console.word_segment(sentence)
             self.hard_extract(keywords)
             self.reason(keywords)
 
+            # 與先前已知的症狀合併
             for k,v in self.symptom_dic.items():
                 if v:
-                    former_result.append(k)
+                    history.append(k)
 
-            if len(former_result) >= 3:
+            if len(history) >= 3:
                 #進入醫生診斷模組 TODO
                 return [False, "醫生還沒來唷，請稍等一下"]
             else:
                 #仍須繼續問診，把目前狀態先回覆給chatbot
-                return [former_result, self._response[random.randrange(0,6)]]
+                return [json.dumps(history), self._response[random.randrange(0,6)]]
         else:
-            return [True, self.console.get_response(domain)]
+            return [None, self.console.get_response(domain)]
 
 
     def hard_extract(self, keywords):
