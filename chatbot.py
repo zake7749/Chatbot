@@ -22,12 +22,6 @@ class Chatbot(object):
 
         self.console = console.Console(model_path="model/ch-corpus-3sg.bin")
 
-
-    def web_api(self, sentence, user_id):
-    
-        pass
-
-
     def waiting_loop(self):
 
         while True:
@@ -105,8 +99,6 @@ class Chatbot(object):
             # Notice that the parsing format of query strings is undefined.
 
         return response
-
-
 
 if __name__ == '__main__':
     main()
