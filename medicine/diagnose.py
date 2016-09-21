@@ -159,7 +159,42 @@ class Doctor(object):
         # 列出診斷結果
         print(self.give_report(cache[:30]))
 
+    def one_pass_diagnose(self, memory, depth=10):
+        """依照症狀給予回應或診斷結果。
+
+            Args:
+                - memory  : 先前問診的記錄表
+                - depth   : 問診次數上限值
+        """
+
+        symptoms = parse_input(memory)
+
+        # 初始化疾病成績，清空已存的症狀標記
+        self.clear_disease_grade()
+        self.clear_symptom_toggle()
+        query = ''
+        target_sym = ''
+
+        # 進入診斷迴圈
+        for symptom,flag in symptoms:
+            self.evaluate(symptom,flag) # 依症狀出現與否給疾病打分
+        cache = sorted(self.diseases_dic.values(), key=lambda disease: disease.grade, reverse=True)
+        target_sym, query  = self.get_query(cache,topk=20) # 詢問下一個症狀是否出現
+
+        if len(memory) >= depth:
+            # 回傳診斷結果
+            return self.give_report(cache[:30])
+        else:
+            # 回傳下一個要詢問的症狀
+            return query
+
+        print(self.give_report(cache[:30]))
+
     def give_report(self, topk):
+
+        """
+        傳入一個 topk 疾病陣列，回傳該疾病的診斷描述
+        """
 
         candiate = None
         if not self.is_girl: # 濾除婦產科疾病

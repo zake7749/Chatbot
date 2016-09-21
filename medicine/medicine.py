@@ -23,6 +23,8 @@ class MedicalListener(object):
             "還有沒有出現其他症狀？"
         ]
 
+        self.memory = None
+
     def restore(self, memory):
 
         """
@@ -50,8 +52,8 @@ class MedicalListener(object):
         """
 
         history = []
-
         if self.look_up(domain):
+        # 判斷是否進入醫生任務
 
             # 從當前的 sentence 抽取病症信息
             keywords = self.console.word_segment(sentence)
@@ -65,7 +67,10 @@ class MedicalListener(object):
 
             if len(history) >= 3:
                 #進入醫生診斷模組 TODO
-                return [False, "醫生還沒來唷，請稍等一下"]
+                doctor = diagnose.Doctor(False)
+                doctor.one_pass_diagnose()
+                return [None, "醫生還沒來唷，請稍等一下"]
+
             else:
                 #仍須繼續問診，把目前狀態先回覆給chatbot
                 return [json.dumps(history), self._response[random.randrange(0,6)]]

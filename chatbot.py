@@ -22,6 +22,12 @@ class Chatbot(object):
 
         self.console = console.Console(model_path="model/ch-corpus-3sg.bin")
 
+
+    def web_api(self, sentence, user_id):
+    
+        pass
+
+
     def waiting_loop(self):
 
         while True:
@@ -30,16 +36,19 @@ class Chatbot(object):
             res = self.listen(speech)
             print(res)
 
+    def is_in_task(self, user_id):
+        #TODO check this user is in task or not
+        return False
+
     def listen(self, sentence):
 
         self.rule_match(sentence) # to find the most similar domain with speech.
-        response = self.module_switch()
+        response = self.module_switch(in_task=self.is_in_task("USER_ID"))
 
         if response is None:
             return self.get_response()
         else:
             return response
-
 
     def rule_match(self, speech):
 
@@ -61,7 +70,7 @@ class Chatbot(object):
         """
         response = self.console.get_response(self.speech_domain)
         if response is None:
-            return "I know you are talking about '%s', but I don't know how to response." % self.speech_domain
+            return "I know you are talking about '%s', but I don't know how to give a response." % self.speech_domain
         else:
             return response
 
@@ -81,14 +90,19 @@ class Chatbot(object):
         handler = switch.get_handler(self.assigner)
 
         if in_task:
-            #TODO
-            handler.restore(self.speech, memory="")
+            #TODO with json format.
+            handler.restore(self.speech, memory=None)
 
-        status, response = handler.get_response(self.speech, self.speech_domain)
-
-        if status is not None:
-            #TODO Restore the history string with user'id.
+        keep,response = handler.get_response(self.speech, self.speech_domain)
+        if keep is not None:
+            #TODO Restore the history string and user's id on SQL Server.
             pass
+
+        if handler.has_query():
+            query_str = handler.get_query()
+            # TODO
+            # send back the query string to the frontend.
+            # Notice that the parsing format of query strings is undefined.
 
         return response
 
