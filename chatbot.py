@@ -30,14 +30,15 @@ class Chatbot(object):
             res = self.listen(speech)
             print(res)
 
-    def is_in_task(self, user_id):
-        #TODO check this user is in task or not
-        return False
-
     def listen(self, sentence):
 
         self.rule_match(sentence) # to find the most similar domain with speech.
-        response = self.module_switch(in_task=self.is_in_task("USER_ID"))
+        handler  = self.module_switch()
+
+        try:
+            mem,response = handler.get_response(self.speech, self.speech_domain)
+        except AttributeError:
+            response = self.get_response()
 
         if response is None:
             return self.get_response()
@@ -78,11 +79,12 @@ class Chatbot(object):
         else:
             self.assigner = self.last_path.split('>')[0]
 
-    def module_switch(self, in_task=False):
+    def module_switch(self):
 
         switch  = module_switch.Switch(self.console)
         handler = switch.get_handler(self.assigner)
 
+        """
         if in_task:
             #TODO with json format.
             handler.restore(self.speech, memory=None)
@@ -97,8 +99,9 @@ class Chatbot(object):
             # TODO
             # send back the query string to the frontend.
             # Notice that the parsing format of query strings is undefined.
+        """
 
-        return response
+        return handler
 
 if __name__ == '__main__':
     main()

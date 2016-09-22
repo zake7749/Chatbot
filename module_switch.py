@@ -2,7 +2,7 @@
 This class is for building and return a task handler
 based on the task's domain.
 """
-import medicine.medicine as medicine
+import task_modules.medicine.medicine as medicine
 
 class Switch(object):
 

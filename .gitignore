@@ -1,0 +1,4 @@
+*.bin
+__pycache__
+log.txt
+*.pyc

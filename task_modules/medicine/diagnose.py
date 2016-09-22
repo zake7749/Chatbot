@@ -2,9 +2,9 @@ import sys
 import os
 import random
 
-import symptom
-import disease
-from toolkit import cleanline
+from . import disease
+from . import symptom
+from .toolkit import cleanline
 
 def main():
 

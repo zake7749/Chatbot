@@ -2,9 +2,10 @@ import os
 import random
 import json
 
-#import diagnose
+from ..task import Task
+from . import diagnose
 
-class MedicalListener(object):
+class MedicalListener(Task):
 
     def __init__(self, console):
         self.console  = console
@@ -25,6 +26,10 @@ class MedicalListener(object):
 
         self.memory = None
 
+    def get_query(self):
+        pass
+
+
     def restore(self, memory):
 
         """
@@ -37,6 +42,9 @@ class MedicalListener(object):
         mem = json.load(memory)
         for key in mem.keys():
             self.symptom_dic[key] = True
+
+    def get_suggest(self):
+        pass
 
     def load_symptom_set(self,path):
 
