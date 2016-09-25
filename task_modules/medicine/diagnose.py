@@ -27,7 +27,7 @@ class Doctor(object):
         dic = {}
 
         # load symptom disease pair
-        abs_path = os.path.join(os.path.dirname(__file__) + 'result/sdpair.txt')
+        abs_path = os.path.join(os.path.dirname(__file__) + '/result/sdpair.txt')
         with open(abs_path,'r',encoding='utf-8') as input:
             for line in input:
                 line = cleanline(line)
@@ -35,14 +35,14 @@ class Doctor(object):
                 dic[sym_term] = symptom.Symptom(sym_term)
                 dic[sym_term].diseases = set(line.split(':')[1].split(','))
         # load symptom's weight.
-        abs_path = os.path.join(os.path.dirname(__file__) + 'result/symptom_score.txt')
+        abs_path = os.path.join(os.path.dirname(__file__) + '/result/symptom_score.txt')
         with open(abs_path,'r',encoding='utf-8') as input:
             for line in input:
                 line = cleanline(line)
                 sym_term = line.split(':')[0]
                 dic[sym_term].weight = float(line.split(':')[1])
         # load symptom's description.
-        abs_path = os.path.join(os.path.dirname(__file__) + 'result/symptom_talks.txt')
+        abs_path = os.path.join(os.path.dirname(__file__) + '/result/symptom_talks.txt')
         with open(abs_path,'r',encoding='utf-8') as input:
             for line in input:
                 line = cleanline(line)
@@ -163,11 +163,16 @@ class Doctor(object):
         """依照症狀給予回應或診斷結果。
 
             Args:
-                - memory  : 先前問診的記錄表
-                - depth   : 問診次數上限值
+                - memory : 已確診之症狀集
+                - depth  : 問診次數上限值
         """
-
-        symptoms = parse_input(memory)
+        symptoms = []
+        cur_depth = 0
+        for k,v in memory.items():
+            if v is not None:
+                cur_depth += 1
+            if v:
+                symptoms.append(k,"1")
 
         # 初始化疾病成績，清空已存的症狀標記
         self.clear_disease_grade()
@@ -181,14 +186,13 @@ class Doctor(object):
         cache = sorted(self.diseases_dic.values(), key=lambda disease: disease.grade, reverse=True)
         target_sym, query  = self.get_query(cache,topk=20) # 詢問下一個症狀是否出現
 
-        if len(memory) >= depth:
+        if cur_depth >= depth:
             # 回傳診斷結果
-            return self.give_report(cache[:30])
+            res, sug_place = self.give_report(cache[:30])
+            return True,res,sug_place
         else:
             # 回傳下一個要詢問的症狀
-            return query
-
-        print(self.give_report(cache[:30]))
+            return False,query,target_sym
 
     def give_report(self, topk):
 
@@ -215,7 +219,7 @@ class Doctor(object):
             "聽起來感覺像是%s，" % candiate.name ,"可以到%s了解更細部的資訊" % candiate.department
         ]
         report = response_set[random.randrange(0,8,2)] + response_set[random.randrange(1,9,2)]
-        return report
+        return report,candiate.department
 
     def parse_input(self, description):
         """分拆讀入字串，回傳一個(症狀,出現與否)的列表

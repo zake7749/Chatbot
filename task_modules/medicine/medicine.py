@@ -14,6 +14,10 @@ class MedicalListener(Task):
         self.symptom_dic = {}
         self.load_symptom_set(path=None)
 
+        self.doctor_mode = False
+        self.doctor_target_attr = None
+        self.doctor_suggest = None
+
         self._matchee_index = -1
         self._response = [
             "還有什麼其他症狀嗎？",
@@ -27,8 +31,19 @@ class MedicalListener(Task):
         self.memory = None
 
     def get_query(self):
-        pass
+        """
+        僅適用於醫生模式，傳回欲問診的病症與預設答案表列
+        """
+        if self.doctor_mode:
+            return self.doctor_target_attr,["會","不會"]
+        else:
+            return None,None
 
+    def _debug(self):
+
+        for k,v in self.symptom_dic.items():
+            if v:
+                print("[DEBUG]: %s" % k)
 
     def restore(self, memory):
 
@@ -38,69 +53,76 @@ class MedicalListener(Task):
         Args:
             - memory: 為先前的任務紀錄，儲存已知的症狀
         """
-
-        mem = json.load(memory)
-        for key in mem.keys():
-            self.symptom_dic[key] = True
+        self.symptom_dic = json.load(memory)
 
     def get_suggest(self):
-        pass
+        return self.doctor_suggest
 
     def load_symptom_set(self,path):
 
         with open(os.path.dirname(__file__) + '/result/symptom_set.txt','r',encoding='utf-8') as input:
             for symptom in input:
                 symptom = symptom.strip('\n')
-                self.symptom_dic[symptom] = False
+                self.symptom_dic[symptom] = None
 
-    def get_response(self, sentence, domain):
+    def get_response(self, sentence, domain, target):
 
         """
-        依據現有的病症資訊，回傳可能疾病或要詢問的症狀
+        依據已知加上當次提供的病症資訊，回傳可能疾病或要詢問的症狀
+        其中已知資訊來自 symptom_dic
         """
 
-        history = []
-        if self.look_up(domain):
-        # 判斷是否進入醫生任務
+        if self.look_up(domain): # 判斷是否進入醫生任務
+            if target is not None and target != "Last_Ask":
+                self.doctor_mode = True
+                self.symptom_dic[target] = True if sentence=="是" else False
+            else:
+                # 從當前的 sentence 抽取病症信息，調整 symptom_dic
+                keywords = self.console.word_segment(sentence)
+                self.hard_extract(keywords)
+                self.reason(keywords)
 
-            # 從當前的 sentence 抽取病症信息
-            keywords = self.console.word_segment(sentence)
-            self.hard_extract(keywords)
-            self.reason(keywords)
+                #計算目前已得知症狀
+                count = 0
+                for v in self.symptom_dic.values():
+                    if v :
+                        count += 1
+                if count >= 3 or target == "Last_Ask": #直接進入醫生診斷模組
+                    self.doctor_mode = True
 
-            # 與先前已知的症狀合併
-            for k,v in self.symptom_dic.items():
-                if v:
-                    history.append(k)
-
-            if len(history) >= 3:
-                #進入醫生診斷模組 TODO
+            if self.doctor_mode:
                 doctor = diagnose.Doctor(False)
-                doctor.one_pass_diagnose()
-                return [None, "醫生還沒來唷，請稍等一下"]
+                done,report,target = doctor.one_pass_diagnose(self.symptom_dic)
 
+                if done:
+                    self.doctor_suggest = target
+                    return [None, report]
+                else:
+                    self.doctor_target_attr = target
+                    return [json.dumps(self.symptom_dic), report]
             else:
                 #仍須繼續問診，把目前狀態先回覆給chatbot
-                return [json.dumps(history), self._response[random.randrange(0,6)]]
+                self.doctor_target_attr = "Last_Ask"
+                return [json.dumps(self.symptom_dic), self._response[random.randrange(0,6)]]
         else:
             return [None, self.console.get_response(domain)]
-
 
     def hard_extract(self, keywords):
         """
         透過症狀樹，取得可能的症狀實體
         """
         # 0.88 是為了擋 “尿痛 酸痛”
-        print(keywords)
         while True:
             domain = self.rule_match(keywords,reasoning_root="病症",
                                      threshold=0.88, remove=False)
-            if domain is not None and not self.symptom_dic[domain]:
-                #print(domain)
-                if domain != "疼痛":
+            if domain is not None:
+                print("[DEBUG]: hard_extract %s" % domain)
+                if domain != "疼痛": # 避免「痛」被刪除，影響 n-gram 運作
                     self.symptom_dic[domain] = True
+                    keywords.remove(domain)
             else:
                 break
+
 
     def soft_extract(self, keywords):
         """
@@ -121,8 +143,8 @@ class MedicalListener(Task):
             if subject_domain is None:
                 break
             sd_list.append([subject_domain,description_domain])
-            #print(description_domain)
-            #print(subject_domain)
+            print("[DEBUG]: DEC %s" % description_domain)
+            print("[DEBUG]: SUB %s" % subject_domain)
         return sd_list
 
     def reason(self, keywords):
@@ -138,6 +160,8 @@ class MedicalListener(Task):
     def pattern_match(self, subject, description):
 
         if subject=="頭部" and description =="痛推理":
+            return "頭痛"
+        if subject=="頭部" and description =="酸痛推理":
             return "頭痛"
         elif subject=="牙齒" and description == "痛推理":
             return "牙痛"
