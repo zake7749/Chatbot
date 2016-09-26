@@ -2,15 +2,15 @@
     {
         "domain": "鬧鐘",
         "response": [
-            "鬧鐘要訂在今天幾點？",
-            "alarm_B",
-            "alarm_C",
-            "alarm_D"
+
         ],
         "concepts": [
             "鬧鐘"
         ],
-        "children": []
+        "children": [
+            "因為疲勞",
+            "其他"
+        ]
     },
     {
         "domain": "問候",
