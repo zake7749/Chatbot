@@ -15,3 +15,13 @@ class Symptom(object):
         for disease in self.diseases:
             res += disease + '\t'
         return res
+
+    def to_json(self):
+
+        res = {
+            "name": str(self.name),
+            "weight": float(self.weight),
+            "talks": str(self.talks),
+            "diseases": list(self.diseases)
+        }
+        return res

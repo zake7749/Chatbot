@@ -119,7 +119,7 @@ class MedicalListener(Task):
                 print("[DEBUG]: hard_extract %s" % domain)
                 if domain != "疼痛": # 避免「痛」被刪除，影響 n-gram 運作
                     self.symptom_dic[domain] = True
-                    keywords.remove(domain)
+                    keywords.pop(self._matchee_index)
             else:
                 break
 

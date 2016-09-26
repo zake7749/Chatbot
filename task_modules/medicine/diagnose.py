@@ -1,18 +1,25 @@
 import sys
 import os
 import random
+import json
 
-from . import disease
-from . import symptom
+from . import disease as d
+from . import symptom as s
 from .toolkit import cleanline
 
 def main():
 
-    doctor = Doctor(False)
-    res = doctor.get_disease_with_maxs()
-    #print(str(res))
-    #print(doctor.get_symptom(res[1]))
-    doctor.diagnose(sys.argv[1])
+    doctor = Doctor(is_girl=False)
+    #doctor.output_to_json()
+
+    if len(sys.argv) == 2:
+        doctor.diagnose(sys.argv[1])
+    elif len(sys.argv) == 3:
+        doctor.diagnose(sys.argv[1],keep_asking=False)
+    else:
+        print("Usage: python3 " + sys.argv[0] + " s1#1,s2#1...")
+        print("For more detail, please refer zake7749/light-doctor on github.")
+        exit()
 
 class Doctor(object):
 
@@ -22,33 +29,50 @@ class Doctor(object):
         self.is_girl = is_girl
 
     def get_symptoms_knowledge(self):
-        """回傳一個症狀對應疾病，與症狀分數和症狀描述的結構
-        """
-        dic = {}
 
-        # load symptom disease pair
-        abs_path = os.path.join(os.path.dirname(__file__) + '/result/sdpair.txt')
+        dic = {}
+        abs_path = os.path.join(os.path.dirname(__file__) + '/result/symptoms.json')
+
         with open(abs_path,'r',encoding='utf-8') as input:
-            for line in input:
-                line = cleanline(line)
-                sym_term = line.split(':')[0]
-                dic[sym_term] = symptom.Symptom(sym_term)
-                dic[sym_term].diseases = set(line.split(':')[1].split(','))
-        # load symptom's weight.
-        abs_path = os.path.join(os.path.dirname(__file__) + '/result/symptom_score.txt')
-        with open(abs_path,'r',encoding='utf-8') as input:
-            for line in input:
-                line = cleanline(line)
-                sym_term = line.split(':')[0]
-                dic[sym_term].weight = float(line.split(':')[1])
-        # load symptom's description.
-        abs_path = os.path.join(os.path.dirname(__file__) + '/result/symptom_talks.txt')
-        with open(abs_path,'r',encoding='utf-8') as input:
-            for line in input:
-                line = cleanline(line)
-                sym_term = line.split(':')[0]
-                dic[sym_term].talks = line.split(':')[1]
+            data = json.load(input)
+            for symptom in data:
+
+                symptom_name = symptom["name"]
+
+                dic[symptom_name] = s.Symptom(symptom_name)
+                dic[symptom_name].diseases = set(symptom["diseases"])
+                dic[symptom_name].weight = symptom["weight"]
+                dic[symptom_name].talks = symptom["talks"]
         return dic
+
+    def get_diseases_knowledge(self):
+
+        dic = {}
+        abs_path = os.path.join(os.path.dirname(__file__) + '/result/diseases.json')
+
+        with open(abs_path,'r',encoding='utf-8') as input:
+            data = json.load(input)
+            for disease in data:
+                disease_name = disease["name"]
+
+                dic[disease_name] = d.Disease(disease_name)
+                dic[disease_name].department = disease["department"]
+                dic[disease_name].bias = disease["bias"]
+                dic[disease_name].grade = disease["bias"]
+        return dic
+
+    def output_to_json(self):
+
+        with open('result/d_symptoms.json','w',encoding='utf-8') as output:
+            l = []
+            for symptom in self.symptoms_dic.values():
+                l.append(symptom.to_json())
+            output.write(json.dumps(l,indent=4))
+        with open('result/d_diseases.json','w',encoding='utf-8') as output:
+            l = []
+            for disease in self.diseases_dic.values():
+                l.append(disease.to_json())
+            output.write(json.dumps(l,indent=4))
 
     def get_disease_with_maxs(self):
         """回傳一個由症狀最多的疾病，以及其疾病數的列表
@@ -62,40 +86,30 @@ class Doctor(object):
                 res = [max, disease]
         return res
 
-    def get_diseases_knowledge(self):
-        """回傳一個疾病、科別與疾病分數的結構
-        """
-        dic = {}
-
-        abs_path = os.path.join(os.path.dirname(__file__) + 'result/ddpair.txt')
-        # load department of disease
-        with open(abs_path,'r',encoding='utf-8') as input:
-            for line in input:
-                line = cleanline(line)
-                dis_term = line.split(':')[0]
-                dic[dis_term] = disease.Disease(dis_term)
-                dic[dis_term].department = line.split(':')[1]
-        # load bias
-        abs_path = os.path.join(os.path.dirname(__file__) + 'result/disease_bias.txt')
-        with open(abs_path,'r',encoding='utf-8') as input:
-            for line in input:
-                line = cleanline(line)
-                dis_term = line.split(':')[0]
-                dic[dis_term].bias  = float(line.split(':')[1])
-                dic[dis_term].grade = dic[dis_term].bias
-        return dic
-
     def clear_disease_grade(self):
         """重新設定每一個疾病的 grade
         """
         for disease in self.diseases_dic.values():
-            disease.grade = disease.bias
+            disease.grade   = disease.bias
+            disease.toggled = 0
 
     def clear_symptom_toggle(self):
         """將每一個症狀的使用標記清空
         """
         for symptom in self.symptoms_dic.values():
             symptom.toggle = False
+
+        # 標計女性或男性的特有症狀
+        if self.is_girl:
+            self.symptoms_dic["睾丸疼痛"].toggle = True
+            self.symptoms_dic["遺精"].toggle = True
+        else:
+            self.symptoms_dic["乳房腫塊"].toggle = True
+            self.symptoms_dic["白帶"].toggle = True
+            self.symptoms_dic["閉經"].toggle = True
+            self.symptoms_dic["痛經"].toggle = True
+            self.symptoms_dic["宮頸糜爛"].toggle = True
+            self.symptoms_dic["流產"].toggle = True
 
     def evaluate(self, symptom, flag):
         """傳入一個症狀，依疾病是否有出現該症狀來調整該病的得分
@@ -116,14 +130,15 @@ class Doctor(object):
                 disease_weight = 1
 
                 if disease.name in symptom_inst.diseases and flag == 1:
-                    disease.grade += symptom_inst.weight * disease_weight
+                    disease.grade   += symptom_inst.weight * disease_weight
+                    disease.toggled += 1
                 elif disease.name not in symptom_inst.diseases and flag == 1:
                     disease.grade -= symptom_inst.weight * disease_weight
             except Exception as e:
                 print('[Error]' + str(disease))
                 print(e)
 
-    def diagnose(self, description, depth=6):
+    def diagnose(self, description, depth=6, keep_asking=True):
         """依照症狀與疾病的對應字典來判斷可能疾病
 
             Args:
@@ -140,28 +155,32 @@ class Doctor(object):
         query = ''
         target_sym = ''
         cycle = 0
-        cycle_limit = 8
+        cycle_limit = 10
 
         # 進入診斷迴圈
         while depth != 0 and cycle < cycle_limit:
             choice = 0
             for symptom,flag in symptoms:
                 self.evaluate(symptom,flag) # 依症狀出現與否給疾病打分
-            cache = sorted(self.diseases_dic.values(), key=lambda disease: disease.grade, reverse=True)
+            cache = sorted(self.diseases_dic.values(),
+                           key=lambda disease: disease.grade + disease.toggled*0.17,
+                           reverse=True)
 
-            while choice != "1" and cycle < cycle_limit:
-                target_sym, query  = self.get_query(cache,topk=20) # 詢問下一個症狀是否出現
-                choice = input(query)
-                cycle += 1
-            symptoms = [[target_sym,choice]] # 依 choice 更新患者症狀
-            depth -= 1
+            if keep_asking:
+                while choice != "1" and cycle < cycle_limit:
+                    target_sym, query  = self.get_query(cache,topk=20) # 詢問下一個症狀是否出現
+                    choice = input(query+'(1 or -1) ')
+                    cycle += 1
+                symptoms = [[target_sym,choice]] # 依 choice 更新患者症狀
+                depth -= 1
+            else:
+                break
 
         # 列出診斷結果
         print(self.give_report(cache[:30]))
 
     def one_pass_diagnose(self, memory, depth=10):
         """依照症狀給予回應或診斷結果。
-
             Args:
                 - memory : 已確診之症狀集
                 - depth  : 問診次數上限值
@@ -172,7 +191,7 @@ class Doctor(object):
             if v is not None:
                 cur_depth += 1
             if v:
-                symptoms.append(k,"1")
+                symptoms.append([k,"1"])
 
         # 初始化疾病成績，清空已存的症狀標記
         self.clear_disease_grade()
@@ -208,10 +227,6 @@ class Doctor(object):
                     break
         else:
             candiate = topk[0]
-        #for d in topk:
-        #    print(d)
-
-
         response_set = [
             "初步判斷可能為%s，" % candiate.name ,"建議前往%s去做更進一步的檢查" % candiate.department,
             "這可能是%s的徵兆，" % candiate.name ,"建議到%s進一步檢查" % candiate.department,
@@ -250,7 +265,7 @@ class Doctor(object):
             for symptom in syms_of_dis:
                 if not self.symptoms_dic[symptom].toggle: #（該症狀是未被詢問過的）
                     symptom_counter[symptom] = (symptom_counter.get(symptom,0)
-                                                + 1)
+                                                + self.symptoms_dic[symptom].weight/6.72)
 
         symptom_counter = sorted(symptom_counter.keys(), key=lambda k:symptom_counter[k], reverse=True)
         #target = symptom_counter[int(len(symptom_counter)/2)] #取出中間值視為最優分割點
