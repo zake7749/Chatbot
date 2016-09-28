@@ -39,11 +39,18 @@ class MedicalListener(Task):
         else:
             return None,None
 
-    def _debug(self):
+    def debug(self,log=None):
 
         for k,v in self.symptom_dic.items():
             if v:
-                print("[DEBUG]: %s" % k)
+                if log is None:
+                    print("[DEBUG]: %s" % k)
+                else:
+                    log.write("[Get-Attr]: %s" % k)
+
+        if log is not None:
+            log.write("Current status is:\n")
+            log.write(json.dumps(self.symptom_dic, indent=2))
 
     def restore(self, memory):
 

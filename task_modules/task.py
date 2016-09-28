@@ -38,3 +38,7 @@ class Task(object):
             - place: 當一個指標任務結束時，依用戶需求推薦地點集名稱或絕對位置
         """
         raise NotImplementedError
+
+    def debug(self):
+
+        pass

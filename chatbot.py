@@ -16,11 +16,11 @@ class Chatbot(object):
         self.speech_domain = ''      # The domain of speech.
         self.speech_matchee = ''     # The matchee term of speech.
         self.speech_path = None      # The classification tree traveling path of speech.
+
         self.root_domain = None      # The root domain of user's input.
-
-
         self.domain_similarity = 0.0 # The similarity between domain and speech.
 
+        self.extract_attr_log = open('log/extract_arrt.log','w',encoding='utf-8')
         self.console = console.Console(model_path="model/ch-corpus-3sg.bin")
 
     def waiting_loop(self):
@@ -39,15 +39,15 @@ class Chatbot(object):
 
         Args:
             - sentence: User's input from frontend.
-            - target  : Optional, is to define the user's input is in form of
-            a sentence or coming from a given answer by pressing the bubble buttom.
-            If it is come from a button, target is the attribute name our module
-            want to confirm.
+            - target  : Optional. It is to define the user's input is in form of
+            a sentence or a given answer by pressing the bubble buttom.
+            If it is come from a button's text, target is the attribute name our
+            module want to confirm.
 
         Return:
             - response : Based on the result of modules or a default answer.
-            - status   : It is the module's current status if the user has been
-            sent to a module.
+            - status   : It would be the module's current status if the user has
+                         been sent into any module and had not left it.
             - target   : Refer to get_query() in task_modules/task.py
             - candiates: Refer to get_query() in task_modules/task.py
         """
@@ -55,7 +55,7 @@ class Chatbot(object):
         response = None
 
         self.rule_match(sentence) # find the most similar domain with speech.
-        handler = self._module_switch()
+        handler = self.get_task_handler()
 
         try:
             status,response = handler.get_response(self.speech, self.speech_domain, target)
@@ -63,6 +63,7 @@ class Chatbot(object):
             # It will happen when we call a module which have not implemented.
             # Ref task_modules/module_switch.py and module_switch/task.py
             print("Handler of '%s' have not implemented" % self.root_domain)
+
         if response is None:
             response = self.get_response()
 
@@ -71,7 +72,7 @@ class Chatbot(object):
             return [response,None,None,None]
         else:
             target,candiates = handler.get_query()
-            handler._debug()
+            handler.debug(self.extract_attr_log)
             return [response,status,target,candiates]
 
     def rule_match(self, speech):
@@ -111,10 +112,17 @@ class Chatbot(object):
         else:
             self.root_domain = self.last_path.split('>')[0]
 
-    def _module_switch(self):
+    def get_task_handler(self, domain=None):
+
+        """
+        Get the instance of task handler based on the given domain.
+        """
+
+        if domain is None:
+            domain = self.root_domain
 
         switch  = module_switch.Switch(self.console)
-        handler = switch.get_handler(self.root_domain)
+        handler = switch.get_handler(domain)
 
         return handler
 
