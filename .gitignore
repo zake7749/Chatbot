@@ -1,6 +1,8 @@
 *.bin
 __pycache__
-log.txt
 *.pyc
 *.train
+*.model
+*.log
 .DS_Store
+*log.txt
