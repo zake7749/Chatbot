@@ -1,0 +1,206 @@
+[
+      {
+          "domain": "主體描述",
+          "response": [],
+          "concepts": [
+              "人體","身體","器官"
+          ],
+          "children": [
+          		"胃部",
+          		"腹部",
+          		"頭部",
+          		"胸部",
+          		"四肢",
+          		"臀部",
+          		"腰部",
+          		"背部",
+          		"嘴巴",
+          		"牙齒",
+              "心臟",
+          		"頸部",
+              "鼻子",
+              "耳朵",
+              "骨骼",
+              "視力",
+              "全身",
+              "皮膚",
+              "尿液",
+              "大便"
+          ]
+      },
+      {
+          "domain": "胃部",
+          "response": [],
+          "concepts": [
+            	"胃部"
+          ],
+          "children": []
+      },
+      {
+          "domain": "骨骼",
+          "response": [],
+          "concepts": [
+            	"骨骼"
+          ],
+          "children": []
+      },
+      {
+          "domain": "鼻子",
+          "response": [],
+          "concepts": [
+            	"鼻子"
+          ],
+          "children": []
+      },
+      {
+          "domain": "心臟",
+          "response": [],
+          "concepts": [
+            	"心臟",
+              "心"
+          ],
+          "children": []
+      },
+      {
+          "domain": "腹部",
+          "response": [],
+          "concepts": [
+          		"腹部",
+          		"肚子"
+          ],
+          "children": []
+      },
+      {
+          "domain": "頭部",
+          "response": [],
+          "concepts": [
+          		"頭部",
+              "頭"
+          ],
+          "children": []
+      },
+	    {
+          "domain": "胸部",
+          "response": [],
+          "concepts": [
+          		"胸部",
+              "胸口"
+          ],
+          "children": []
+      },
+      {
+          "domain": "四肢",
+          "response": [],
+          "concepts": [
+          		"四肢"
+          ],
+          "children": []
+      },
+	    {
+          "domain": "臀部",
+          "response": [],
+          "concepts": [
+          		"臀部",
+              "屁股"
+          ],
+          "children": []
+      },
+      {
+          "domain": "腰部",
+          "response": [],
+          "concepts": [
+          		"腰部",
+              "腰"
+          ],
+          "children": []
+      },
+      {
+          "domain": "背部",
+          "response": [],
+          "concepts": [
+          		"背部",
+              "背"
+          ],
+          "children": []
+      },
+      {
+          "domain": "頸部",
+          "response": [],
+          "concepts": [
+          		"頸部",
+              "吞咽",
+              "吞"
+          ],
+          "children": []
+      },
+      {
+          "domain": "嘴巴",
+          "response": [],
+          "concepts": [
+          		"嘴巴"
+          ],
+          "children": []
+      },
+      {
+          "domain": "牙齒",
+          "response": [],
+          "concepts": [
+          		"牙齒"
+          ],
+          "children": []
+      },
+      {
+          "domain": "耳朵",
+          "response": [],
+          "concepts": [
+              "耳朵"
+          ],
+          "children": []
+      },
+      {
+          "domain": "視力",
+          "response": [],
+          "concepts": [
+              "視力",
+              "眼睛"
+          ],
+          "children": []
+      },
+      {
+          "domain": "全身",
+          "response": [],
+          "concepts": [
+              "全身",
+              "全身上下"
+          ],
+          "children": []
+      },
+      {
+          "domain": "皮膚",
+          "response": [],
+          "concepts": [
+              "皮膚"
+          ],
+          "children": []
+      },
+      {
+          "domain": "尿液",
+          "response": [],
+          "concepts": [
+              "尿",
+              "尿液",
+              "小便"
+          ],
+          "children": []
+      },
+      {
+          "domain": "大便",
+          "response": [],
+          "concepts": [
+              "大便",
+              "糞便"
+          ],
+          "children": []
+      }
+
+]

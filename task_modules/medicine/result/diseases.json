@@ -1,0 +1,1657 @@
+[
+    {
+        "name": "喉阻塞",
+        "department": "耳鼻喉科",
+        "bias": 0.510101
+    },
+    {
+        "name": "電擊傷",
+        "department": "急診科",
+        "bias": 0.54798
+    },
+    {
+        "name": "高鉀血症",
+        "department": "血液科",
+        "bias": 0.0
+    },
+    {
+        "name": "痔瘡",
+        "department": "肛腸外科",
+        "bias": 1.068182
+    },
+    {
+        "name": "血栓閉塞性脈管炎",
+        "department": "血管外科",
+        "bias": 0.592172
+    },
+    {
+        "name": "痙病",
+        "department": "神經內科",
+        "bias": 0.407828
+    },
+    {
+        "name": "菌血症",
+        "department": "血液科",
+        "bias": 0.967172
+    },
+    {
+        "name": "副傷寒",
+        "department": "消化內科",
+        "bias": 0.0
+    },
+    {
+        "name": "肺爆震傷",
+        "department": "外傷外科",
+        "bias": 0.0
+    },
+    {
+        "name": "新生兒生理性黃疸",
+        "department": "小兒科",
+        "bias": 0.0
+    },
+    {
+        "name": "尿崩症",
+        "department": "腎內科",
+        "bias": 1.441919
+    },
+    {
+        "name": "附件炎",
+        "department": "婦產科",
+        "bias": 1.237374
+    },
+    {
+        "name": "腎病症候群",
+        "department": "腎內科",
+        "bias": 0.0
+    },
+    {
+        "name": "休克",
+        "department": "急診科",
+        "bias": 0.0
+    },
+    {
+        "name": "中暑",
+        "department": "急診科",
+        "bias": 1.0
+    },
+    {
+        "name": "食道癌",
+        "department": "消化內科",
+        "bias": 0.763636
+    },
+    {
+        "name": "痛風性關節炎",
+        "department": "風濕科",
+        "bias": 0.025253
+    },
+    {
+        "name": "食管異物",
+        "department": "消化內科",
+        "bias": 0.333333
+    },
+    {
+        "name": "肺不張",
+        "department": "心胸外科",
+        "bias": 1.005808
+    },
+    {
+        "name": "十二指腸炎",
+        "department": "消化內科",
+        "bias": 0.483586
+    },
+    {
+        "name": "直腸脫垂",
+        "department": "肛腸外科",
+        "bias": 0.128788
+    },
+    {
+        "name": "低鈉血症",
+        "department": "血液科",
+        "bias": 0.0
+    },
+    {
+        "name": "創傷性氣胸",
+        "department": "外傷外科",
+        "bias": 0.0
+    },
+    {
+        "name": "急性盆腔炎",
+        "department": "婦產科",
+        "bias": 0.441919
+    },
+    {
+        "name": "尿路梗阻",
+        "department": "泌尿外科",
+        "bias": 0.465909
+    },
+    {
+        "name": "產後出血",
+        "department": "急診科",
+        "bias": 1.005051
+    },
+    {
+        "name": "腦蛛網膜下腔出血",
+        "department": "腦外科",
+        "bias": 0.0
+    },
+    {
+        "name": "肺炎",
+        "department": "呼吸內科",
+        "bias": 1.9
+    },
+    {
+        "name": "口臭",
+        "department": "口腔科",
+        "bias": 0.0
+    },
+    {
+        "name": "耳真菌病",
+        "department": "耳鼻喉科",
+        "bias": 0.539141
+    },
+    {
+        "name": "膀胱結石",
+        "department": "泌尿外科",
+        "bias": 1.061869
+    },
+    {
+        "name": "中毒",
+        "department": "急診科",
+        "bias": 1.5
+    },
+    {
+        "name": "急性乳腺炎",
+        "department": "婦產科",
+        "bias": 0.94697
+    },
+    {
+        "name": "風濕熱",
+        "department": "骨科",
+        "bias": 0.02904
+    },
+    {
+        "name": "股動脈損傷",
+        "department": "急診科",
+        "bias": 0.34596
+    },
+    {
+        "name": "陰莖硬結症",
+        "department": "泌尿外科",
+        "bias": 0.203283
+    },
+    {
+        "name": "小兒流行性感冒",
+        "department": "呼吸內科",
+        "bias": 1.007576
+    },
+    {
+        "name": "高鈣血症",
+        "department": "急診科",
+        "bias": 0.0
+    },
+    {
+        "name": "肺水腫",
+        "department": "呼吸內科",
+        "bias": 0.690657
+    },
+    {
+        "name": "頸椎病",
+        "department": "骨科",
+        "bias": 0.843434
+    },
+    {
+        "name": "老年性耳聾",
+        "department": "耳鼻喉科",
+        "bias": 0.342172
+    },
+    {
+        "name": "食管破裂",
+        "department": "心胸外科",
+        "bias": 0.329545
+    },
+    {
+        "name": "百日咳",
+        "department": "呼吸內科",
+        "bias": 1.152778
+    },
+    {
+        "name": "高血脂",
+        "department": "心血管內科",
+        "bias": 1.78271
+    },
+    {
+        "name": "先天性耳聾",
+        "department": "耳鼻喉科",
+        "bias": 0.366161
+    },
+    {
+        "name": "流行性感冒",
+        "department": "傳染科",
+        "bias": 1.02399
+    },
+    {
+        "name": "二尖瓣狹窄",
+        "department": "心胸外科",
+        "bias": 1.034346
+    },
+    {
+        "name": "B型肝炎",
+        "department": "消化內科",
+        "bias": 1.134477
+    },
+    {
+        "name": "肥胖症",
+        "department": "內分泌科",
+        "bias": 0.246212
+    },
+    {
+        "name": "矽肺",
+        "department": "呼吸內科",
+        "bias": 0.0
+    },
+    {
+        "name": "上瞼下垂",
+        "department": "眼科",
+        "bias": 0.840909
+    },
+    {
+        "name": "便秘",
+        "department": "消化內科",
+        "bias": 0.0
+    },
+    {
+        "name": "消化道出血",
+        "department": "消化內科",
+        "bias": 0.901515
+    },
+    {
+        "name": "急性腎小球腎炎",
+        "department": "腎內科",
+        "bias": 0.598485
+    },
+    {
+        "name": "藥物過敏",
+        "department": "風濕科",
+        "bias": 1.175505
+    },
+    {
+        "name": "骨質疏鬆",
+        "department": "骨科",
+        "bias": 1.018939
+    },
+    {
+        "name": "鼓膜外傷",
+        "department": "耳鼻喉科",
+        "bias": 0.246212
+    },
+    {
+        "name": "月經失調",
+        "department": "婦產科",
+        "bias": 0.022727
+    },
+    {
+        "name": "鼓膜穿孔",
+        "department": "耳鼻喉科",
+        "bias": 0.914142
+    },
+    {
+        "name": "頸椎骨折脫位",
+        "department": "腦外科",
+        "bias": 0.045454
+    },
+    {
+        "name": "腦血吸蟲病",
+        "department": "腦外科",
+        "bias": 0.208333
+    },
+    {
+        "name": "舌扁平苔蘚",
+        "department": "口腔科",
+        "bias": 0.055555
+    },
+    {
+        "name": "急性心包炎",
+        "department": "心血管內科",
+        "bias": 0.339647
+    },
+    {
+        "name": "新生兒肺不張",
+        "department": "呼吸內科",
+        "bias": 0.0
+    },
+    {
+        "name": "智齒冠周炎",
+        "department": "口腔科",
+        "bias": 0.489899
+    },
+    {
+        "name": "氣管支氣管異物",
+        "department": "急診科",
+        "bias": 0.107323
+    },
+    {
+        "name": "腎石症",
+        "department": "泌尿外科",
+        "bias": 0.330808
+    },
+    {
+        "name": "呼吸道異物",
+        "department": "急診科",
+        "bias": 0.0
+    },
+    {
+        "name": "潮熱",
+        "department": "婦產科",
+        "bias": 0.459596
+    },
+    {
+        "name": "神經衰弱",
+        "department": "神經內科",
+        "bias": 1.853972
+    },
+    {
+        "name": "胃石症",
+        "department": "腸胃外科",
+        "bias": 0.0
+    },
+    {
+        "name": "腎下垂",
+        "department": "腎內科",
+        "bias": 0.246212
+    },
+    {
+        "name": "肺癌",
+        "department": "呼吸內科",
+        "bias": 0.0
+    },
+    {
+        "name": "結節病",
+        "department": "風濕科",
+        "bias": 0.424242
+    },
+    {
+        "name": "胃潰瘍",
+        "department": "腸胃外科",
+        "bias": 1.17803
+    },
+    {
+        "name": "遠視",
+        "department": "眼科",
+        "bias": 1.147727
+    },
+    {
+        "name": "關節脫位",
+        "department": "骨科",
+        "bias": 0.892677
+    },
+    {
+        "name": "斷指再植",
+        "department": "骨科",
+        "bias": 1.257576
+    },
+    {
+        "name": "高血壓腦出血",
+        "department": "心血管內科",
+        "bias": 0.107323
+    },
+    {
+        "name": "急性喉炎",
+        "department": "耳鼻喉科",
+        "bias": 1.213384
+    },
+    {
+        "name": "低鉀血症",
+        "department": "血液科",
+        "bias": 0.097222
+    },
+    {
+        "name": "直腸息肉",
+        "department": "肛腸外科",
+        "bias": 0.0
+    },
+    {
+        "name": "急性高原病",
+        "department": "急診科",
+        "bias": 0.0
+    },
+    {
+        "name": "癲癇",
+        "department": "神經內科",
+        "bias": 1.075758
+    },
+    {
+        "name": "糖尿病",
+        "department": "內分泌科",
+        "bias": 1.8523
+    },
+    {
+        "name": "肝硬化",
+        "department": "消化內科",
+        "bias": 0.0
+    },
+    {
+        "name": "心功能障礙",
+        "department": "心血管內科",
+        "bias": 1.027778
+    },
+    {
+        "name": "磨牙",
+        "department": "口腔科",
+        "bias": 0.0
+    },
+    {
+        "name": "乳頭溢液",
+        "department": "婦產科",
+        "bias": 0.0
+    },
+    {
+        "name": "淚囊炎",
+        "department": "眼科",
+        "bias": 0.606061
+    },
+    {
+        "name": "胰石症",
+        "department": "肝膽外科",
+        "bias": 0.0
+    },
+    {
+        "name": "腸扭轉",
+        "department": "腸胃外科",
+        "bias": 0.39899
+    },
+    {
+        "name": "頭皮損傷",
+        "department": "腦外科",
+        "bias": 0.300505
+    },
+    {
+        "name": "破傷風 ",
+        "department": "傳染科",
+        "bias": 0.0
+    },
+    {
+        "name": "小兒高血壓",
+        "department": "小兒科",
+        "bias": 0.233586
+    },
+    {
+        "name": "急性氣管支氣管炎",
+        "department": "呼吸內科",
+        "bias": 0.29798
+    },
+    {
+        "name": "高血壓腦病",
+        "department": "腦外科",
+        "bias": 0.531566
+    },
+    {
+        "name": "面肌抽搐",
+        "department": "神經內科",
+        "bias": 0.449495
+    },
+    {
+        "name": "盆腔炎",
+        "department": "婦產科",
+        "bias": 0.427337
+    },
+    {
+        "name": "氣胸",
+        "department": "心胸外科",
+        "bias": 0.0
+    },
+    {
+        "name": "膽道出血",
+        "department": "肝膽外科",
+        "bias": 1.005051
+    },
+    {
+        "name": "閉孔疝",
+        "department": "腸胃外科",
+        "bias": 0.0
+    },
+    {
+        "name": "甲狀腺機能亢進",
+        "department": "內分泌科",
+        "bias": 0.0
+    },
+    {
+        "name": "鼻癤",
+        "department": "耳鼻喉科",
+        "bias": 0.332071
+    },
+    {
+        "name": "腹膜炎",
+        "department": "消化內科",
+        "bias": 1.207071
+    },
+    {
+        "name": "睾丸腫瘤",
+        "department": "泌尿外科",
+        "bias": 0.306818
+    },
+    {
+        "name": "哮喘",
+        "department": "呼吸內科",
+        "bias": 2.0
+    },
+    {
+        "name": "成人臍疝",
+        "department": "肛腸外科",
+        "bias": 0.0
+    },
+    {
+        "name": "二尖瓣關閉不全",
+        "department": "心胸外科",
+        "bias": 1.646028
+    },
+    {
+        "name": "肛管損傷",
+        "department": "腸胃外科",
+        "bias": 0.503788
+    },
+    {
+        "name": "大動脈炎",
+        "department": "心血管內科",
+        "bias": 1.0
+    },
+    {
+        "name": "創傷性窒息",
+        "department": "外傷外科",
+        "bias": 0.065656
+    },
+    {
+        "name": "前列腺增生",
+        "department": "泌尿外科",
+        "bias": 1.295455
+    },
+    {
+        "name": "維生素D中毒症",
+        "department": "內分泌科",
+        "bias": 0.140152
+    },
+    {
+        "name": "地圖舌",
+        "department": "口腔科",
+        "bias": 0.285353
+    },
+    {
+        "name": "色盲",
+        "department": "眼科",
+        "bias": 1.324495
+    },
+    {
+        "name": "心肌梗塞",
+        "department": "心胸外科",
+        "bias": 1.443182
+    },
+    {
+        "name": "動脈硬化",
+        "department": "心胸外科",
+        "bias": 1.29798
+    },
+    {
+        "name": "風濕性關節炎",
+        "department": "骨科",
+        "bias": 1.003788
+    },
+    {
+        "name": "盆腔腹膜炎",
+        "department": "婦產科",
+        "bias": 0.169192
+    },
+    {
+        "name": "腎積水",
+        "department": "腎內科",
+        "bias": 0.0
+    },
+    {
+        "name": "急性腎功能衰竭",
+        "department": "腎內科",
+        "bias": 0.391414
+    },
+    {
+        "name": "慢性單純外傷性腰腿痛",
+        "department": "外傷外科",
+        "bias": 0.0
+    },
+    {
+        "name": "播散性血管內凝血",
+        "department": "血液科",
+        "bias": 0.0
+    },
+    {
+        "name": "大骨節病",
+        "department": "骨科",
+        "bias": 0.193182
+    },
+    {
+        "name": "急性腸胃炎",
+        "department": "消化內科",
+        "bias": 2.0
+    },
+    {
+        "name": "乳腺結核",
+        "department": "乳腺外科",
+        "bias": 0.414141
+    },
+    {
+        "name": "咽異感症",
+        "department": "耳鼻喉科",
+        "bias": 0.0
+    },
+    {
+        "name": "結腸瘺",
+        "department": "肛腸外科",
+        "bias": 0.0
+    },
+    {
+        "name": "四肢血管損傷",
+        "department": "血管外科",
+        "bias": 1.5
+    },
+    {
+        "name": "多發性肌炎",
+        "department": "風濕科",
+        "bias": 0.493687
+    },
+    {
+        "name": "梗阻性腎病",
+        "department": "腎內科",
+        "bias": 1.017677
+    },
+    {
+        "name": "鼻竇炎",
+        "department": "耳鼻喉科",
+        "bias": 0.333333
+    },
+    {
+        "name": "胃損傷",
+        "department": "腸胃外科",
+        "bias": 0.921717
+    },
+    {
+        "name": "嬰兒玫瑰疹",
+        "department": "小兒科",
+        "bias": 0.0
+    },
+    {
+        "name": "敗血症",
+        "department": "急診科",
+        "bias": 1.046717
+    },
+    {
+        "name": "小兒營養不良",
+        "department": "小兒科",
+        "bias": 0.674242
+    },
+    {
+        "name": "動脈瘤",
+        "department": "心血管內科",
+        "bias": 1.007576
+    },
+    {
+        "name": "胃腸功能紊亂",
+        "department": "消化內科",
+        "bias": 0.0
+    },
+    {
+        "name": "大腸梗阻",
+        "department": "肛腸外科",
+        "bias": 0.36995
+    },
+    {
+        "name": "宮頸糜爛",
+        "department": "婦產科",
+        "bias": 1.753505
+    },
+    {
+        "name": "胃內異物",
+        "department": "腸胃外科",
+        "bias": 0.443182
+    },
+    {
+        "name": "牙髓病",
+        "department": "口腔科",
+        "bias": 1.056818
+    },
+    {
+        "name": "尿毒症",
+        "department": "腎內科",
+        "bias": 0.981924
+    },
+    {
+        "name": "過敏性鼻炎",
+        "department": "耳鼻喉科",
+        "bias": 0.612374
+    },
+    {
+        "name": "癰",
+        "department": "手外科",
+        "bias": 1.0
+    },
+    {
+        "name": "腹內疝",
+        "department": "肛腸外科",
+        "bias": 0.145202
+    },
+    {
+        "name": "骨折",
+        "department": "骨科",
+        "bias": 0.0
+    },
+    {
+        "name": "喉部創傷",
+        "department": "外傷外科",
+        "bias": 0.64899
+    },
+    {
+        "name": "男性乳房肥大症",
+        "department": "乳腺外科",
+        "bias": 0.338384
+    },
+    {
+        "name": "兒童腹痛",
+        "department": "小兒科",
+        "bias": 0.29798
+    },
+    {
+        "name": "手足口病",
+        "department": "小兒科",
+        "bias": 1.405303
+    },
+    {
+        "name": "肺膿腫",
+        "department": "呼吸內科",
+        "bias": 0.0
+    },
+    {
+        "name": "耳聾",
+        "department": "耳鼻喉科",
+        "bias": 1.17803
+    },
+    {
+        "name": "鞏膜炎",
+        "department": "眼科",
+        "bias": 0.229798
+    },
+    {
+        "name": "淹溺",
+        "department": "急診科",
+        "bias": 0.17803
+    },
+    {
+        "name": "潰瘍病穿孔",
+        "department": "腸胃外科",
+        "bias": 0.301768
+    },
+    {
+        "name": "高滲性脫水",
+        "department": "腎內科",
+        "bias": 0.666667
+    },
+    {
+        "name": "麻疹",
+        "department": "傳染科",
+        "bias": 0.8
+    },
+    {
+        "name": "貧血",
+        "department": "血液科",
+        "bias": 0.0
+    },
+    {
+        "name": "鼻竇創傷",
+        "department": "耳鼻喉科",
+        "bias": 0.342172
+    },
+    {
+        "name": "鞭蟲病",
+        "department": "肛腸外科",
+        "bias": 0.385101
+    },
+    {
+        "name": "毛滴蟲病",
+        "department": "婦產科",
+        "bias": 1.338384
+    },
+    {
+        "name": "尿道炎",
+        "department": "腎內科",
+        "bias": 1.564252
+    },
+    {
+        "name": "大腸息肉",
+        "department": "肛腸外科",
+        "bias": 0.0
+    },
+    {
+        "name": "惡性青光眼",
+        "department": "眼科",
+        "bias": 0.282828
+    },
+    {
+        "name": "脂肪肝",
+        "department": "消化內科",
+        "bias": 1.000935
+    },
+    {
+        "name": "肝外膽管損傷",
+        "department": "肝膽外科",
+        "bias": 0.0
+    },
+    {
+        "name": "門靜脈高壓症",
+        "department": "肝膽外科",
+        "bias": 0.097222
+    },
+    {
+        "name": "不孕症",
+        "department": "婦產科",
+        "bias": 0.804293
+    },
+    {
+        "name": "腸道蛔蟲",
+        "department": "消化內科",
+        "bias": 0.361111
+    },
+    {
+        "name": "偏頭痛",
+        "department": "神經內科",
+        "bias": 2.0
+    },
+    {
+        "name": "氣性壞疽",
+        "department": "手外科",
+        "bias": 0.0
+    },
+    {
+        "name": "小兒嘔吐",
+        "department": "小兒科",
+        "bias": 0.146465
+    },
+    {
+        "name": "慢性腎功能衰竭",
+        "department": "腎內科",
+        "bias": 1.015152
+    },
+    {
+        "name": "安眠藥中毒",
+        "department": "神經內科",
+        "bias": 0.07702
+    },
+    {
+        "name": "脫水",
+        "department": "急診科",
+        "bias": 1.9
+    },
+    {
+        "name": "開放性手外傷",
+        "department": "手外科",
+        "bias": 0.003788
+    },
+    {
+        "name": "意識障礙",
+        "department": "神經內科",
+        "bias": 1.843458
+    },
+    {
+        "name": "結腸息肉",
+        "department": "肛腸外科",
+        "bias": 0.638889
+    },
+    {
+        "name": "創傷性休克",
+        "department": "外傷外科",
+        "bias": 0.304293
+    },
+    {
+        "name": "高血壓",
+        "department": "心血管內科",
+        "bias": 1.703271
+    },
+    {
+        "name": "慢性扁桃體炎",
+        "department": "耳鼻喉科",
+        "bias": 0.497475
+    },
+    {
+        "name": "視神經萎縮",
+        "department": "眼科",
+        "bias": 0.388889
+    },
+    {
+        "name": "外陰炎",
+        "department": "婦產科",
+        "bias": 0.0
+    },
+    {
+        "name": "腦膜炎",
+        "department": "腦外科",
+        "bias": 0.411616
+    },
+    {
+        "name": "胃下垂",
+        "department": "消化內科",
+        "bias": 1.104798
+    },
+    {
+        "name": "成人呼吸窘迫症候群",
+        "department": "急診科",
+        "bias": 0.0
+    },
+    {
+        "name": "腎臟損傷",
+        "department": "腎內科",
+        "bias": 0.896465
+    },
+    {
+        "name": "口角炎",
+        "department": "口腔科",
+        "bias": 1.015152
+    },
+    {
+        "name": "食物中毒",
+        "department": "消化內科",
+        "bias": 0.86822
+    },
+    {
+        "name": "雪盲",
+        "department": "眼科",
+        "bias": 0.75
+    },
+    {
+        "name": "腕舟狀骨骨折",
+        "department": "手外科",
+        "bias": 0.0
+    },
+    {
+        "name": "低血壓",
+        "department": "心血管內科",
+        "bias": 1.088384
+    },
+    {
+        "name": "骨關節炎",
+        "department": "骨科",
+        "bias": 0.569445
+    },
+    {
+        "name": "葡萄胎",
+        "department": "婦產科",
+        "bias": 1.30303
+    },
+    {
+        "name": "流行性腮腺炎",
+        "department": "傳染科",
+        "bias": 0.659091
+    },
+    {
+        "name": "小兒高熱",
+        "department": "小兒科",
+        "bias": 0.041667
+    },
+    {
+        "name": "外耳道炎",
+        "department": "耳鼻喉科",
+        "bias": 0.790404
+    },
+    {
+        "name": "細菌性陰道炎",
+        "department": "婦產科",
+        "bias": 0.0
+    },
+    {
+        "name": "大腸癌",
+        "department": "消化內科",
+        "bias": 0.460354
+    },
+    {
+        "name": "腸瘺",
+        "department": "腸胃外科",
+        "bias": 0.449495
+    },
+    {
+        "name": "肺轉移瘤",
+        "department": "心胸外科",
+        "bias": 0.287879
+    },
+    {
+        "name": "多發性大動脈炎",
+        "department": "風濕科",
+        "bias": 0.171717
+    },
+    {
+        "name": "慢性支氣管炎",
+        "department": "呼吸內科",
+        "bias": 0.267677
+    },
+    {
+        "name": "膽道蛔蟲病",
+        "department": "肝膽外科",
+        "bias": 0.0
+    },
+    {
+        "name": "煤氣中毒",
+        "department": "呼吸內科",
+        "bias": 0.0
+    },
+    {
+        "name": "牙外傷",
+        "department": "口腔科",
+        "bias": 0.488636
+    },
+    {
+        "name": "半月線疝",
+        "department": "腸胃外科",
+        "bias": 0.0
+    },
+    {
+        "name": "風濕性多肌痛",
+        "department": "風濕科",
+        "bias": 1.021465
+    },
+    {
+        "name": "禽流感",
+        "department": "呼吸內科",
+        "bias": 0.0
+    },
+    {
+        "name": "閉合性脊髓損傷",
+        "department": "骨科",
+        "bias": 0.0
+    },
+    {
+        "name": "肝損傷",
+        "department": "肝膽外科",
+        "bias": 1.5
+    },
+    {
+        "name": "肩周炎",
+        "department": "骨科",
+        "bias": 1.156566
+    },
+    {
+        "name": "脊神經根炎",
+        "department": "神經內科",
+        "bias": 0.0
+    },
+    {
+        "name": "腎損傷",
+        "department": "泌尿外科",
+        "bias": 0.792929
+    },
+    {
+        "name": "急性闌尾炎",
+        "department": "肛腸外科",
+        "bias": 0.805556
+    },
+    {
+        "name": "闌尾炎",
+        "department": "肛腸外科",
+        "bias": 1.107412
+    },
+    {
+        "name": "血胸",
+        "department": "外傷外科",
+        "bias": 0.993687
+    },
+    {
+        "name": "癱瘓",
+        "department": "神經內科",
+        "bias": 0.0
+    },
+    {
+        "name": "腎結核",
+        "department": "泌尿外科",
+        "bias": 0.286616
+    },
+    {
+        "name": "視盤炎",
+        "department": "眼科",
+        "bias": 0.271465
+    },
+    {
+        "name": "膀胱憩室",
+        "department": "泌尿外科",
+        "bias": 0.0
+    },
+    {
+        "name": "急性鼻炎",
+        "department": "耳鼻喉科",
+        "bias": 1.277778
+    },
+    {
+        "name": "蛔蟲性腸梗阻",
+        "department": "腸胃外科",
+        "bias": 0.119949
+    },
+    {
+        "name": "創傷性鼻中隔穿孔",
+        "department": "外傷外科",
+        "bias": 0.0
+    },
+    {
+        "name": "類風濕性關節炎",
+        "department": "風濕科",
+        "bias": 0.391414
+    },
+    {
+        "name": "腎結石",
+        "department": "泌尿外科",
+        "bias": 0.811869
+    },
+    {
+        "name": "小兒風濕熱",
+        "department": "風濕科",
+        "bias": 0.131313
+    },
+    {
+        "name": "尺神經損傷",
+        "department": "手外科",
+        "bias": 0.258838
+    },
+    {
+        "name": "燒傷",
+        "department": "急診科",
+        "bias": 1.127525
+    },
+    {
+        "name": "便血",
+        "department": "消化內科",
+        "bias": 1.0
+    },
+    {
+        "name": "胃瀦留",
+        "department": "消化內科",
+        "bias": 0.044192
+    },
+    {
+        "name": "慢性咽炎",
+        "department": "耳鼻喉科",
+        "bias": 1.204545
+    },
+    {
+        "name": "急性動脈栓塞",
+        "department": "血管外科",
+        "bias": 0.353535
+    },
+    {
+        "name": "閉經",
+        "department": "婦產科",
+        "bias": 1.031566
+    },
+    {
+        "name": "痛經",
+        "department": "婦產科",
+        "bias": 0.84596
+    },
+    {
+        "name": "臍疝",
+        "department": "腸胃外科",
+        "bias": 0.397727
+    },
+    {
+        "name": "結腸直腸損傷",
+        "department": "肛腸外科",
+        "bias": 0.277778
+    },
+    {
+        "name": "非凍結性冷傷",
+        "department": "外傷外科",
+        "bias": 0.0
+    },
+    {
+        "name": "高血壓性腦出血",
+        "department": "急診科",
+        "bias": 1.056818
+    },
+    {
+        "name": "腸梗阻",
+        "department": "消化內科",
+        "bias": 1.294192
+    },
+    {
+        "name": "輸尿管損傷",
+        "department": "腎內科",
+        "bias": 0.383838
+    },
+    {
+        "name": "結腸損傷",
+        "department": "肛腸外科",
+        "bias": 0.505051
+    },
+    {
+        "name": "心肌病",
+        "department": "心胸外科",
+        "bias": 1.069445
+    },
+    {
+        "name": "甲型H1N1流感",
+        "department": "呼吸內科",
+        "bias": 0.72096
+    },
+    {
+        "name": "病毒感染性腹瀉",
+        "department": "傳染科",
+        "bias": 0.90404
+    },
+    {
+        "name": "膽石症",
+        "department": "泌尿外科",
+        "bias": 1.011364
+    },
+    {
+        "name": "流行性角結膜炎",
+        "department": "眼科",
+        "bias": 0.0
+    },
+    {
+        "name": "鼻疽",
+        "department": "急診科",
+        "bias": 0.0
+    },
+    {
+        "name": "前列腺結石",
+        "department": "泌尿外科",
+        "bias": 0.0
+    },
+    {
+        "name": "靜脈炎",
+        "department": "血管外科",
+        "bias": 1.109849
+    },
+    {
+        "name": "帶下病",
+        "department": "婦產科",
+        "bias": 1.188131
+    },
+    {
+        "name": "失血性休克",
+        "department": "外傷外科",
+        "bias": 0.459596
+    },
+    {
+        "name": "乳頭內陷",
+        "department": "乳腺外科",
+        "bias": 0.0
+    },
+    {
+        "name": "乳腺囊性增生症",
+        "department": "乳腺外科",
+        "bias": 1.090909
+    },
+    {
+        "name": "牙周萎縮",
+        "department": "口腔科",
+        "bias": 0.723485
+    },
+    {
+        "name": "遺尿症",
+        "department": "腎內科",
+        "bias": 0.52904
+    },
+    {
+        "name": "慢性呼吸衰竭",
+        "department": "呼吸內科",
+        "bias": 1.016414
+    },
+    {
+        "name": "膽囊結石",
+        "department": "肝膽外科",
+        "bias": 1.055556
+    },
+    {
+        "name": "腹瀉",
+        "department": "消化內科",
+        "bias": 1.214646
+    },
+    {
+        "name": "癤",
+        "department": "手外科",
+        "bias": 0.103535
+    },
+    {
+        "name": "頭皮血腫",
+        "department": "外傷外科",
+        "bias": 0.0
+    },
+    {
+        "name": "乳房濕疹",
+        "department": "婦產科",
+        "bias": 0.0
+    },
+    {
+        "name": "氟牙症",
+        "department": "口腔科",
+        "bias": 0.0
+    },
+    {
+        "name": "鼻出血",
+        "department": "耳鼻喉科",
+        "bias": 1.22096
+    },
+    {
+        "name": "睾丸扭轉",
+        "department": "泌尿外科",
+        "bias": 0.0
+    },
+    {
+        "name": "中風",
+        "department": "腦外科",
+        "bias": 1.601636
+    },
+    {
+        "name": "生長激素缺乏症",
+        "department": "內分泌科",
+        "bias": 1.075758
+    },
+    {
+        "name": "口腔扁平苔蘚",
+        "department": "口腔科",
+        "bias": 0.0
+    },
+    {
+        "name": "紅眼病",
+        "department": "眼科",
+        "bias": 1.07197
+    },
+    {
+        "name": "狂犬病",
+        "department": "傳染科",
+        "bias": 0.0
+    },
+    {
+        "name": "創傷性鼻出血",
+        "department": "外傷外科",
+        "bias": 0.207071
+    },
+    {
+        "name": "結腸扭轉",
+        "department": "肛腸外科",
+        "bias": 0.146465
+    },
+    {
+        "name": "痴呆",
+        "department": "神經內科",
+        "bias": 0.0
+    },
+    {
+        "name": "齲齒",
+        "department": "口腔科",
+        "bias": 0.219697
+    },
+    {
+        "name": "腎動脈狹窄",
+        "department": "血管外科",
+        "bias": 1.027778
+    },
+    {
+        "name": "雀斑",
+        "department": "內分泌科",
+        "bias": 0.0
+    },
+    {
+        "name": "鼻腔異物",
+        "department": "耳鼻喉科",
+        "bias": 0.193182
+    },
+    {
+        "name": "十二指腸損傷",
+        "department": "腸胃外科",
+        "bias": 0.074495
+    },
+    {
+        "name": "坐骨神經痛",
+        "department": "神經內科",
+        "bias": 0.469697
+    },
+    {
+        "name": "凍僵",
+        "department": "急診科",
+        "bias": 1.054293
+    },
+    {
+        "name": "白線疝",
+        "department": "肛腸外科",
+        "bias": 0.0
+    },
+    {
+        "name": "末梢神經炎",
+        "department": "神經內科",
+        "bias": 0.347222
+    },
+    {
+        "name": "急性胃炎",
+        "department": "消化內科",
+        "bias": 1.036616
+    },
+    {
+        "name": "肝膿腫",
+        "department": "消化內科",
+        "bias": 0.763889
+    },
+    {
+        "name": "頸動脈狹窄",
+        "department": "血管外科",
+        "bias": 0.770202
+    },
+    {
+        "name": "新生兒發熱",
+        "department": "小兒科",
+        "bias": 0.352273
+    },
+    {
+        "name": "主動脈瓣狹窄",
+        "department": "心胸外科",
+        "bias": 0.0
+    },
+    {
+        "name": "失眠",
+        "department": "神經內科",
+        "bias": 0.0
+    },
+    {
+        "name": "雷諾病",
+        "department": "血管外科",
+        "bias": 0.483586
+    },
+    {
+        "name": "慢性腹瀉",
+        "department": "消化內科",
+        "bias": 0.0
+    },
+    {
+        "name": "感冒",
+        "department": "耳鼻喉科",
+        "bias": 2.0
+    },
+    {
+        "name": "肺栓塞",
+        "department": "心胸外科",
+        "bias": 1.015152
+    },
+    {
+        "name": "口腔潰瘍",
+        "department": "口腔科",
+        "bias": 1.010101
+    },
+    {
+        "name": "性早熟",
+        "department": "內分泌科",
+        "bias": 1.455808
+    },
+    {
+        "name": "血吸蟲腸病",
+        "department": "消化內科",
+        "bias": 0.0
+    },
+    {
+        "name": "睾丸損傷",
+        "department": "泌尿外科",
+        "bias": 0.289141
+    },
+    {
+        "name": "呼吸衰竭",
+        "department": "急診科",
+        "bias": 1.073232
+    },
+    {
+        "name": "紅斑性狼瘡",
+        "department": "風濕科",
+        "bias": 0.112374
+    },
+    {
+        "name": "慢性腎小球腎炎",
+        "department": "腎內科",
+        "bias": 0.609848
+    },
+    {
+        "name": "胃結核",
+        "department": "腸胃外科",
+        "bias": 0.328283
+    },
+    {
+        "name": "穿腹膜疝",
+        "department": "肛腸外科",
+        "bias": 0.0
+    },
+    {
+        "name": "色素痣",
+        "department": "手外科",
+        "bias": 1.186869
+    },
+    {
+        "name": "多毛症",
+        "department": "內分泌科",
+        "bias": 0.502525
+    },
+    {
+        "name": "肝包蟲病",
+        "department": "肝膽外科",
+        "bias": 0.0
+    },
+    {
+        "name": "唇皰疹",
+        "department": "口腔科",
+        "bias": 1.994159
+    },
+    {
+        "name": "視神經炎",
+        "department": "眼科",
+        "bias": 0.537879
+    },
+    {
+        "name": "酒精中毒",
+        "department": "神經內科",
+        "bias": 1.108586
+    },
+    {
+        "name": "臂叢神經損傷",
+        "department": "手外科",
+        "bias": 0.0
+    },
+    {
+        "name": "腸系膜裂孔疝",
+        "department": "腸胃外科",
+        "bias": 0.0
+    },
+    {
+        "name": "腦梗塞",
+        "department": "腦外科",
+        "bias": 1.228535
+    },
+    {
+        "name": "阿米巴痢疾",
+        "department": "急診科",
+        "bias": 0.156566
+    },
+    {
+        "name": "登革出血熱",
+        "department": "急診科",
+        "bias": 0.546717
+    },
+    {
+        "name": "頭風病",
+        "department": "腦外科",
+        "bias": 1.016414
+    },
+    {
+        "name": "毒蛇咬傷",
+        "department": "急診科",
+        "bias": 0.0
+    },
+    {
+        "name": "牙列擁擠",
+        "department": "口腔科",
+        "bias": 0.167929
+    },
+    {
+        "name": "扁平足",
+        "department": "骨科",
+        "bias": 1.082071
+    },
+    {
+        "name": "白喉",
+        "department": "耳鼻喉科",
+        "bias": 1.006313
+    },
+    {
+        "name": "小腸損傷",
+        "department": "消化內科",
+        "bias": 0.440657
+    },
+    {
+        "name": "子宮脫垂",
+        "department": "婦產科",
+        "bias": 0.0
+    },
+    {
+        "name": "切口疝",
+        "department": "肛腸外科",
+        "bias": 0.243687
+    },
+    {
+        "name": "膀胱瘺",
+        "department": "泌尿外科",
+        "bias": 0.0
+    },
+    {
+        "name": "眼內異物",
+        "department": "眼科",
+        "bias": 0.900253
+    },
+    {
+        "name": "SARS",
+        "department": "呼吸內科",
+        "bias": 0.0
+    },
+    {
+        "name": "登革熱",
+        "department": "傳染科",
+        "bias": 1.361111
+    },
+    {
+        "name": "手掌深部間隙感染",
+        "department": "手外科",
+        "bias": 0.0
+    },
+    {
+        "name": "帕金森病",
+        "department": "神經內科",
+        "bias": 0.545454
+    },
+    {
+        "name": "腰疝",
+        "department": "肛腸外科",
+        "bias": 0.434343
+    },
+    {
+        "name": "白內障",
+        "department": "眼科",
+        "bias": 1.069445
+    },
+    {
+        "name": "外陰潰瘍",
+        "department": "婦產科",
+        "bias": 0.145202
+    }
+]

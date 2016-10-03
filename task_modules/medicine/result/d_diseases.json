@@ -1,0 +1,1657 @@
+[
+    {
+        "bias": 0.02904,
+        "department": "\u9aa8\u79d1",
+        "name": "\u98a8\u6fd5\u71b1"
+    },
+    {
+        "bias": 0.981924,
+        "department": "\u814e\u5167\u79d1",
+        "name": "\u5c3f\u6bd2\u75c7"
+    },
+    {
+        "bias": 1.015152,
+        "department": "\u53e3\u8154\u79d1",
+        "name": "\u53e3\u89d2\u708e"
+    },
+    {
+        "bias": 0.330808,
+        "department": "\u6ccc\u5c3f\u5916\u79d1",
+        "name": "\u814e\u77f3\u75c7"
+    },
+    {
+        "bias": 0.333333,
+        "department": "\u6d88\u5316\u5167\u79d1",
+        "name": "\u98df\u7ba1\u7570\u7269"
+    },
+    {
+        "bias": 0.483586,
+        "department": "\u6d88\u5316\u5167\u79d1",
+        "name": "\u5341\u4e8c\u6307\u8178\u708e"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u5167\u5206\u6ccc\u79d1",
+        "name": "\u7532\u72c0\u817a\u6a5f\u80fd\u4ea2\u9032"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u624b\u5916\u79d1",
+        "name": "\u624b\u638c\u6df1\u90e8\u9593\u9699\u611f\u67d3"
+    },
+    {
+        "bias": 0.107323,
+        "department": "\u5fc3\u8840\u7ba1\u5167\u79d1",
+        "name": "\u9ad8\u8840\u58d3\u8166\u51fa\u8840"
+    },
+    {
+        "bias": 0.790404,
+        "department": "\u8033\u9f3b\u5589\u79d1",
+        "name": "\u5916\u8033\u9053\u708e"
+    },
+    {
+        "bias": 0.434343,
+        "department": "\u809b\u8178\u5916\u79d1",
+        "name": "\u8170\u759d"
+    },
+    {
+        "bias": 1.108586,
+        "department": "\u795e\u7d93\u5167\u79d1",
+        "name": "\u9152\u7cbe\u4e2d\u6bd2"
+    },
+    {
+        "bias": 1.027778,
+        "department": "\u5fc3\u8840\u7ba1\u5167\u79d1",
+        "name": "\u5fc3\u529f\u80fd\u969c\u7919"
+    },
+    {
+        "bias": 0.267677,
+        "department": "\u547c\u5438\u5167\u79d1",
+        "name": "\u6162\u6027\u652f\u6c23\u7ba1\u708e"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u6025\u8a3a\u79d1",
+        "name": "\u4f11\u514b"
+    },
+    {
+        "bias": 0.167929,
+        "department": "\u53e3\u8154\u79d1",
+        "name": "\u7259\u5217\u64c1\u64e0"
+    },
+    {
+        "bias": 1.021465,
+        "department": "\u98a8\u6fd5\u79d1",
+        "name": "\u98a8\u6fd5\u6027\u591a\u808c\u75db"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u5916\u50b7\u5916\u79d1",
+        "name": "\u5275\u50b7\u6027\u9f3b\u4e2d\u9694\u7a7f\u5b54"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u6025\u8a3a\u79d1",
+        "name": "\u6210\u4eba\u547c\u5438\u7a98\u8feb\u75c7\u5019\u7fa4"
+    },
+    {
+        "bias": 0.666667,
+        "department": "\u814e\u5167\u79d1",
+        "name": "\u9ad8\u6ef2\u6027\u812b\u6c34"
+    },
+    {
+        "bias": 1.5,
+        "department": "\u8840\u7ba1\u5916\u79d1",
+        "name": "\u56db\u80a2\u8840\u7ba1\u640d\u50b7"
+    },
+    {
+        "bias": 0.64899,
+        "department": "\u5916\u50b7\u5916\u79d1",
+        "name": "\u5589\u90e8\u5275\u50b7"
+    },
+    {
+        "bias": 0.328283,
+        "department": "\u8178\u80c3\u5916\u79d1",
+        "name": "\u80c3\u7d50\u6838"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u809d\u81bd\u5916\u79d1",
+        "name": "\u80f0\u77f3\u75c7"
+    },
+    {
+        "bias": 2.0,
+        "department": "\u5167\u5206\u6ccc\u79d1",
+        "name": "\u7cd6\u5c3f\u75c5"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u5fc3\u80f8\u5916\u79d1",
+        "name": "\u4e3b\u52d5\u8108\u74e3\u72f9\u7a84"
+    },
+    {
+        "bias": 0.193182,
+        "department": "\u9aa8\u79d1",
+        "name": "\u5927\u9aa8\u7bc0\u75c5"
+    },
+    {
+        "bias": 1.703271,
+        "department": "\u5fc3\u8840\u7ba1\u5167\u79d1",
+        "name": "\u9ad8\u8840\u58d3"
+    },
+    {
+        "bias": 0.287879,
+        "department": "\u5fc3\u80f8\u5916\u79d1",
+        "name": "\u80ba\u8f49\u79fb\u7624"
+    },
+    {
+        "bias": 2.0,
+        "department": "\u8033\u9f3b\u5589\u79d1",
+        "name": "\u611f\u5192"
+    },
+    {
+        "bias": 0.193182,
+        "department": "\u8033\u9f3b\u5589\u79d1",
+        "name": "\u9f3b\u8154\u7570\u7269"
+    },
+    {
+        "bias": 1.455808,
+        "department": "\u5167\u5206\u6ccc\u79d1",
+        "name": "\u6027\u65e9\u719f"
+    },
+    {
+        "bias": 0.131313,
+        "department": "\u98a8\u6fd5\u79d1",
+        "name": "\u5c0f\u5152\u98a8\u6fd5\u71b1"
+    },
+    {
+        "bias": 0.342172,
+        "department": "\u8033\u9f3b\u5589\u79d1",
+        "name": "\u9f3b\u7ac7\u5275\u50b7"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u6d88\u5316\u5167\u79d1",
+        "name": "\u526f\u50b7\u5bd2"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u8033\u9f3b\u5589\u79d1",
+        "name": "\u54bd\u7570\u611f\u75c7"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u624b\u5916\u79d1",
+        "name": "\u81c2\u53e2\u795e\u7d93\u640d\u50b7"
+    },
+    {
+        "bias": 1.601636,
+        "department": "\u8166\u5916\u79d1",
+        "name": "\u4e2d\u98a8"
+    },
+    {
+        "bias": 1.175505,
+        "department": "\u98a8\u6fd5\u79d1",
+        "name": "\u85e5\u7269\u904e\u654f"
+    },
+    {
+        "bias": 1.5,
+        "department": "\u6025\u8a3a\u79d1",
+        "name": "\u4e2d\u6bd2"
+    },
+    {
+        "bias": 1.056818,
+        "department": "\u6025\u8a3a\u79d1",
+        "name": "\u9ad8\u8840\u58d3\u6027\u8166\u51fa\u8840"
+    },
+    {
+        "bias": 0.289141,
+        "department": "\u6ccc\u5c3f\u5916\u79d1",
+        "name": "\u777e\u4e38\u640d\u50b7"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u8178\u80c3\u5916\u79d1",
+        "name": "\u9589\u5b54\u759d"
+    },
+    {
+        "bias": 0.443182,
+        "department": "\u8178\u80c3\u5916\u79d1",
+        "name": "\u80c3\u5167\u7570\u7269"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u5c0f\u5152\u79d1",
+        "name": "\u65b0\u751f\u5152\u751f\u7406\u6027\u9ec3\u75b8"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u809d\u81bd\u5916\u79d1",
+        "name": "\u809d\u5305\u87f2\u75c5"
+    },
+    {
+        "bias": 0.128788,
+        "department": "\u809b\u8178\u5916\u79d1",
+        "name": "\u76f4\u8178\u812b\u5782"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u6ccc\u5c3f\u5916\u79d1",
+        "name": "\u524d\u5217\u817a\u7d50\u77f3"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u624b\u5916\u79d1",
+        "name": "\u6c23\u6027\u58de\u75bd"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u5c0f\u5152\u79d1",
+        "name": "\u5b30\u5152\u73ab\u7470\u75b9"
+    },
+    {
+        "bias": 1.075758,
+        "department": "\u795e\u7d93\u5167\u79d1",
+        "name": "\u7672\u7647"
+    },
+    {
+        "bias": 1.006313,
+        "department": "\u8033\u9f3b\u5589\u79d1",
+        "name": "\u767d\u5589"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u5fc3\u80f8\u5916\u79d1",
+        "name": "\u6c23\u80f8"
+    },
+    {
+        "bias": 0.258838,
+        "department": "\u624b\u5916\u79d1",
+        "name": "\u5c3a\u795e\u7d93\u640d\u50b7"
+    },
+    {
+        "bias": 1.007576,
+        "department": "\u547c\u5438\u5167\u79d1",
+        "name": "\u5c0f\u5152\u6d41\u884c\u6027\u611f\u5192"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u6ccc\u5c3f\u5916\u79d1",
+        "name": "\u8180\u80f1\u61a9\u5ba4"
+    },
+    {
+        "bias": 0.271465,
+        "department": "\u773c\u79d1",
+        "name": "\u8996\u76e4\u708e"
+    },
+    {
+        "bias": 1.5,
+        "department": "\u809d\u81bd\u5916\u79d1",
+        "name": "\u809d\u640d\u50b7"
+    },
+    {
+        "bias": 1.9,
+        "department": "\u547c\u5438\u5167\u79d1",
+        "name": "\u80ba\u708e"
+    },
+    {
+        "bias": 1.294192,
+        "department": "\u6d88\u5316\u5167\u79d1",
+        "name": "\u8178\u6897\u963b"
+    },
+    {
+        "bias": 1.127525,
+        "department": "\u6025\u8a3a\u79d1",
+        "name": "\u71d2\u50b7"
+    },
+    {
+        "bias": 0.483586,
+        "department": "\u8840\u7ba1\u5916\u79d1",
+        "name": "\u96f7\u8afe\u75c5"
+    },
+    {
+        "bias": 1.003788,
+        "department": "\u9aa8\u79d1",
+        "name": "\u98a8\u6fd5\u6027\u95dc\u7bc0\u708e"
+    },
+    {
+        "bias": 1.324495,
+        "department": "\u773c\u79d1",
+        "name": "\u8272\u76f2"
+    },
+    {
+        "bias": 0.811869,
+        "department": "\u6ccc\u5c3f\u5916\u79d1",
+        "name": "\u814e\u7d50\u77f3"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u53e3\u8154\u79d1",
+        "name": "\u53e3\u81ed"
+    },
+    {
+        "bias": 1.753505,
+        "department": "\u5a66\u7522\u79d1",
+        "name": "\u5bae\u9838\u7cdc\u721b"
+    },
+    {
+        "bias": 1.35,
+        "department": "\u6d88\u5316\u5167\u79d1",
+        "name": "B\u578b\u809d\u708e"
+    },
+    {
+        "bias": 1.015152,
+        "department": "\u814e\u5167\u79d1",
+        "name": "\u6162\u6027\u814e\u529f\u80fd\u8870\u7aed"
+    },
+    {
+        "bias": 0.407828,
+        "department": "\u795e\u7d93\u5167\u79d1",
+        "name": "\u75d9\u75c5"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u809b\u8178\u5916\u79d1",
+        "name": "\u7a7f\u8179\u819c\u759d"
+    },
+    {
+        "bias": 0.146465,
+        "department": "\u809b\u8178\u5916\u79d1",
+        "name": "\u7d50\u8178\u626d\u8f49"
+    },
+    {
+        "bias": 0.338384,
+        "department": "\u4e73\u817a\u5916\u79d1",
+        "name": "\u7537\u6027\u4e73\u623f\u80a5\u5927\u75c7"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u6ccc\u5c3f\u5916\u79d1",
+        "name": "\u777e\u4e38\u626d\u8f49"
+    },
+    {
+        "bias": 1.160354,
+        "department": "\u6d88\u5316\u5167\u79d1",
+        "name": "\u5927\u8178\u764c"
+    },
+    {
+        "bias": 1.073232,
+        "department": "\u6025\u8a3a\u79d1",
+        "name": "\u547c\u5438\u8870\u7aed"
+    },
+    {
+        "bias": 0.75,
+        "department": "\u773c\u79d1",
+        "name": "\u96ea\u76f2"
+    },
+    {
+        "bias": 0.411616,
+        "department": "\u8166\u5916\u79d1",
+        "name": "\u8166\u819c\u708e"
+    },
+    {
+        "bias": 0.94697,
+        "department": "\u5a66\u7522\u79d1",
+        "name": "\u6025\u6027\u4e73\u817a\u708e"
+    },
+    {
+        "bias": 1.02399,
+        "department": "\u50b3\u67d3\u79d1",
+        "name": "\u6d41\u884c\u6027\u611f\u5192"
+    },
+    {
+        "bias": 1.634346,
+        "department": "\u5fc3\u80f8\u5916\u79d1",
+        "name": "\u4e8c\u5c16\u74e3\u72f9\u7a84"
+    },
+    {
+        "bias": 1.0,
+        "department": "\u6d88\u5316\u5167\u79d1",
+        "name": "\u4fbf\u8840"
+    },
+    {
+        "bias": 0.342172,
+        "department": "\u8033\u9f3b\u5589\u79d1",
+        "name": "\u8001\u5e74\u6027\u8033\u807e"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u809d\u81bd\u5916\u79d1",
+        "name": "\u81bd\u9053\u86d4\u87f2\u75c5"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u8178\u80c3\u5916\u79d1",
+        "name": "\u80c3\u77f3\u75c7"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u809d\u81bd\u5916\u79d1",
+        "name": "\u809d\u5916\u81bd\u7ba1\u640d\u50b7"
+    },
+    {
+        "bias": 1.054293,
+        "department": "\u6025\u8a3a\u79d1",
+        "name": "\u51cd\u50f5"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u53e3\u8154\u79d1",
+        "name": "\u6c1f\u7259\u75c7"
+    },
+    {
+        "bias": 0.609848,
+        "department": "\u814e\u5167\u79d1",
+        "name": "\u6162\u6027\u814e\u5c0f\u7403\u814e\u708e"
+    },
+    {
+        "bias": 1.088384,
+        "department": "\u5fc3\u8840\u7ba1\u5167\u79d1",
+        "name": "\u4f4e\u8840\u58d3"
+    },
+    {
+        "bias": 0.277778,
+        "department": "\u809b\u8178\u5916\u79d1",
+        "name": "\u7d50\u8178\u76f4\u8178\u640d\u50b7"
+    },
+    {
+        "bias": 0.306818,
+        "department": "\u6ccc\u5c3f\u5916\u79d1",
+        "name": "\u777e\u4e38\u816b\u7624"
+    },
+    {
+        "bias": 1.152778,
+        "department": "\u547c\u5438\u5167\u79d1",
+        "name": "\u767e\u65e5\u54b3"
+    },
+    {
+        "bias": 0.465909,
+        "department": "\u6ccc\u5c3f\u5916\u79d1",
+        "name": "\u5c3f\u8def\u6897\u963b"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u6d88\u5316\u5167\u79d1",
+        "name": "\u80c3\u8178\u529f\u80fd\u7d0a\u4e82"
+    },
+    {
+        "bias": 0.86822,
+        "department": "\u6d88\u5316\u5167\u79d1",
+        "name": "\u98df\u7269\u4e2d\u6bd2"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u5916\u50b7\u5916\u79d1",
+        "name": "\u6162\u6027\u55ae\u7d14\u5916\u50b7\u6027\u8170\u817f\u75db"
+    },
+    {
+        "bias": 0.208333,
+        "department": "\u8166\u5916\u79d1",
+        "name": "\u8166\u8840\u5438\u87f2\u75c5"
+    },
+    {
+        "bias": 0.243687,
+        "department": "\u809b\u8178\u5916\u79d1",
+        "name": "\u5207\u53e3\u759d"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u547c\u5438\u5167\u79d1",
+        "name": "\u80ba\u764c"
+    },
+    {
+        "bias": 0.459596,
+        "department": "\u5a66\u7522\u79d1",
+        "name": "\u6f6e\u71b1"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u547c\u5438\u5167\u79d1",
+        "name": "\u65b0\u751f\u5152\u80ba\u4e0d\u5f35"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u50b3\u67d3\u79d1",
+        "name": "\u72c2\u72ac\u75c5"
+    },
+    {
+        "bias": 1.027337,
+        "department": "\u5a66\u7522\u79d1",
+        "name": "\u76c6\u8154\u708e"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u8178\u80c3\u5916\u79d1",
+        "name": "\u534a\u6708\u7dda\u759d"
+    },
+    {
+        "bias": 0.592172,
+        "department": "\u8840\u7ba1\u5916\u79d1",
+        "name": "\u8840\u6813\u9589\u585e\u6027\u8108\u7ba1\u708e"
+    },
+    {
+        "bias": 0.54798,
+        "department": "\u6025\u8a3a\u79d1",
+        "name": "\u96fb\u64ca\u50b7"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u547c\u5438\u5167\u79d1",
+        "name": "\u80ba\u81bf\u816b"
+    },
+    {
+        "bias": 0.440657,
+        "department": "\u6d88\u5316\u5167\u79d1",
+        "name": "\u5c0f\u8178\u640d\u50b7"
+    },
+    {
+        "bias": 0.537879,
+        "department": "\u773c\u79d1",
+        "name": "\u8996\u795e\u7d93\u708e"
+    },
+    {
+        "bias": 0.843434,
+        "department": "\u9aa8\u79d1",
+        "name": "\u9838\u690e\u75c5"
+    },
+    {
+        "bias": 0.901515,
+        "department": "\u6d88\u5316\u5167\u79d1",
+        "name": "\u6d88\u5316\u9053\u51fa\u8840"
+    },
+    {
+        "bias": 0.353535,
+        "department": "\u8840\u7ba1\u5916\u79d1",
+        "name": "\u6025\u6027\u52d5\u8108\u6813\u585e"
+    },
+    {
+        "bias": 0.505051,
+        "department": "\u809b\u8178\u5916\u79d1",
+        "name": "\u7d50\u8178\u640d\u50b7"
+    },
+    {
+        "bias": 0.659091,
+        "department": "\u50b3\u67d3\u79d1",
+        "name": "\u6d41\u884c\u6027\u816e\u817a\u708e"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u5a66\u7522\u79d1",
+        "name": "\u5b50\u5bae\u812b\u5782"
+    },
+    {
+        "bias": 1.214646,
+        "department": "\u6d88\u5316\u5167\u79d1",
+        "name": "\u8179\u7009"
+    },
+    {
+        "bias": 0.140152,
+        "department": "\u5167\u5206\u6ccc\u79d1",
+        "name": "\u7dad\u751f\u7d20D\u4e2d\u6bd2\u75c7"
+    },
+    {
+        "bias": 0.805556,
+        "department": "\u809b\u8178\u5916\u79d1",
+        "name": "\u6025\u6027\u95cc\u5c3e\u708e"
+    },
+    {
+        "bias": 0.72096,
+        "department": "\u547c\u5438\u5167\u79d1",
+        "name": "\u7532\u578bH1N1\u6d41\u611f"
+    },
+    {
+        "bias": 0.203283,
+        "department": "\u6ccc\u5c3f\u5916\u79d1",
+        "name": "\u9670\u8396\u786c\u7d50\u75c7"
+    },
+    {
+        "bias": 0.347222,
+        "department": "\u795e\u7d93\u5167\u79d1",
+        "name": "\u672b\u68a2\u795e\u7d93\u708e"
+    },
+    {
+        "bias": 0.17803,
+        "department": "\u6025\u8a3a\u79d1",
+        "name": "\u6df9\u6eba"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u9aa8\u79d1",
+        "name": "\u9589\u5408\u6027\u810a\u9ad3\u640d\u50b7"
+    },
+    {
+        "bias": 1.069445,
+        "department": "\u773c\u79d1",
+        "name": "\u767d\u5167\u969c"
+    },
+    {
+        "bias": 1.016414,
+        "department": "\u547c\u5438\u5167\u79d1",
+        "name": "\u6162\u6027\u547c\u5438\u8870\u7aed"
+    },
+    {
+        "bias": 1.29798,
+        "department": "\u5fc3\u80f8\u5916\u79d1",
+        "name": "\u52d5\u8108\u786c\u5316"
+    },
+    {
+        "bias": 1.228535,
+        "department": "\u8166\u5916\u79d1",
+        "name": "\u8166\u6897\u585e"
+    },
+    {
+        "bias": 0.107323,
+        "department": "\u6025\u8a3a\u79d1",
+        "name": "\u6c23\u7ba1\u652f\u6c23\u7ba1\u7570\u7269"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u795e\u7d93\u5167\u79d1",
+        "name": "\u810a\u795e\u7d93\u6839\u708e"
+    },
+    {
+        "bias": 1.30303,
+        "department": "\u5a66\u7522\u79d1",
+        "name": "\u8461\u8404\u80ce"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u809b\u8178\u5916\u79d1",
+        "name": "\u76f4\u8178\u606f\u8089"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u6025\u8a3a\u79d1",
+        "name": "\u547c\u5438\u9053\u7570\u7269"
+    },
+    {
+        "bias": 0.041667,
+        "department": "\u5c0f\u5152\u79d1",
+        "name": "\u5c0f\u5152\u9ad8\u71b1"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u809b\u8178\u5916\u79d1",
+        "name": "\u6210\u4eba\u81cd\u759d"
+    },
+    {
+        "bias": 0.993687,
+        "department": "\u5916\u50b7\u5916\u79d1",
+        "name": "\u8840\u80f8"
+    },
+    {
+        "bias": 1.5,
+        "department": "\u50b3\u67d3\u79d1",
+        "name": "\u9ebb\u75b9"
+    },
+    {
+        "bias": 0.34596,
+        "department": "\u6025\u8a3a\u79d1",
+        "name": "\u80a1\u52d5\u8108\u640d\u50b7"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u8840\u6db2\u79d1",
+        "name": "\u9ad8\u9240\u8840\u75c7"
+    },
+    {
+        "bias": 1.015152,
+        "department": "\u5fc3\u80f8\u5916\u79d1",
+        "name": "\u80ba\u6813\u585e"
+    },
+    {
+        "bias": 0.510101,
+        "department": "\u8033\u9f3b\u5589\u79d1",
+        "name": "\u5589\u963b\u585e"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u6025\u8a3a\u79d1",
+        "name": "\u9ad8\u9223\u8840\u75c7"
+    },
+    {
+        "bias": 1.0,
+        "department": "\u6025\u8a3a\u79d1",
+        "name": "\u4e2d\u6691"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u773c\u79d1",
+        "name": "\u6d41\u884c\u6027\u89d2\u7d50\u819c\u708e"
+    },
+    {
+        "bias": 1.0,
+        "department": "\u5fc3\u8840\u7ba1\u5167\u79d1",
+        "name": "\u5927\u52d5\u8108\u708e"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u809b\u8178\u5916\u79d1",
+        "name": "\u5927\u8178\u606f\u8089"
+    },
+    {
+        "bias": 0.449495,
+        "department": "\u8178\u80c3\u5916\u79d1",
+        "name": "\u8178\u763a"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u5916\u50b7\u5916\u79d1",
+        "name": "\u80ba\u7206\u9707\u50b7"
+    },
+    {
+        "bias": 0.770202,
+        "department": "\u8840\u7ba1\u5916\u79d1",
+        "name": "\u9838\u52d5\u8108\u72f9\u7a84"
+    },
+    {
+        "bias": 0.792929,
+        "department": "\u6ccc\u5c3f\u5916\u79d1",
+        "name": "\u814e\u640d\u50b7"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u8840\u6db2\u79d1",
+        "name": "\u64ad\u6563\u6027\u8840\u7ba1\u5167\u51dd\u8840"
+    },
+    {
+        "bias": 1.017677,
+        "department": "\u814e\u5167\u79d1",
+        "name": "\u6897\u963b\u6027\u814e\u75c5"
+    },
+    {
+        "bias": 1.061869,
+        "department": "\u6ccc\u5c3f\u5916\u79d1",
+        "name": "\u8180\u80f1\u7d50\u77f3"
+    },
+    {
+        "bias": 0.900253,
+        "department": "\u773c\u79d1",
+        "name": "\u773c\u5167\u7570\u7269"
+    },
+    {
+        "bias": 0.503788,
+        "department": "\u8178\u80c3\u5916\u79d1",
+        "name": "\u809b\u7ba1\u640d\u50b7"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u5916\u50b7\u5916\u79d1",
+        "name": "\u975e\u51cd\u7d50\u6027\u51b7\u50b7"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u9aa8\u79d1",
+        "name": "\u9aa8\u6298"
+    },
+    {
+        "bias": 0.097222,
+        "department": "\u809d\u81bd\u5916\u79d1",
+        "name": "\u9580\u975c\u8108\u9ad8\u58d3\u75c7"
+    },
+    {
+        "bias": 0.493687,
+        "department": "\u98a8\u6fd5\u79d1",
+        "name": "\u591a\u767c\u6027\u808c\u708e"
+    },
+    {
+        "bias": 0.333333,
+        "department": "\u8033\u9f3b\u5589\u79d1",
+        "name": "\u9f3b\u7ac7\u708e"
+    },
+    {
+        "bias": 1.055556,
+        "department": "\u809d\u81bd\u5916\u79d1",
+        "name": "\u81bd\u56ca\u7d50\u77f3"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u624b\u5916\u79d1",
+        "name": "\u8155\u821f\u72c0\u9aa8\u9aa8\u6298"
+    },
+    {
+        "bias": 0.497475,
+        "department": "\u8033\u9f3b\u5589\u79d1",
+        "name": "\u6162\u6027\u6241\u6843\u9ad4\u708e"
+    },
+    {
+        "bias": 0.169192,
+        "department": "\u5a66\u7522\u79d1",
+        "name": "\u76c6\u8154\u8179\u819c\u708e"
+    },
+    {
+        "bias": 0.065656,
+        "department": "\u5916\u50b7\u5916\u79d1",
+        "name": "\u5275\u50b7\u6027\u7a92\u606f"
+    },
+    {
+        "bias": 1.443182,
+        "department": "\u5fc3\u80f8\u5916\u79d1",
+        "name": "\u5fc3\u808c\u6897\u585e"
+    },
+    {
+        "bias": 2.0,
+        "department": "\u6d88\u5316\u5167\u79d1",
+        "name": "\u6025\u6027\u8178\u80c3\u708e"
+    },
+    {
+        "bias": 0.674242,
+        "department": "\u5c0f\u5152\u79d1",
+        "name": "\u5c0f\u5152\u71df\u990a\u4e0d\u826f"
+    },
+    {
+        "bias": 1.104798,
+        "department": "\u6d88\u5316\u5167\u79d1",
+        "name": "\u80c3\u4e0b\u5782"
+    },
+    {
+        "bias": 0.545454,
+        "department": "\u795e\u7d93\u5167\u79d1",
+        "name": "\u5e15\u91d1\u68ee\u75c5"
+    },
+    {
+        "bias": 0.967172,
+        "department": "\u8840\u6db2\u79d1",
+        "name": "\u83cc\u8840\u75c7"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u814e\u5167\u79d1",
+        "name": "\u814e\u75c5\u75c7\u5019\u7fa4"
+    },
+    {
+        "bias": 0.246212,
+        "department": "\u814e\u5167\u79d1",
+        "name": "\u814e\u4e0b\u5782"
+    },
+    {
+        "bias": 0.385101,
+        "department": "\u809b\u8178\u5916\u79d1",
+        "name": "\u97ad\u87f2\u75c5"
+    },
+    {
+        "bias": 0.097222,
+        "department": "\u8840\u6db2\u79d1",
+        "name": "\u4f4e\u9240\u8840\u75c7"
+    },
+    {
+        "bias": 1.17803,
+        "department": "\u8178\u80c3\u5916\u79d1",
+        "name": "\u80c3\u6f70\u760d"
+    },
+    {
+        "bias": 2.0,
+        "department": "\u547c\u5438\u5167\u79d1",
+        "name": "\u54ee\u5598"
+    },
+    {
+        "bias": 0.146465,
+        "department": "\u5c0f\u5152\u79d1",
+        "name": "\u5c0f\u5152\u5614\u5410"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u5167\u5206\u6ccc\u79d1",
+        "name": "\u96c0\u6591"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u5916\u50b7\u5916\u79d1",
+        "name": "\u982d\u76ae\u8840\u816b"
+    },
+    {
+        "bias": 0.763889,
+        "department": "\u6d88\u5316\u5167\u79d1",
+        "name": "\u809d\u81bf\u816b"
+    },
+    {
+        "bias": 0.840909,
+        "department": "\u773c\u79d1",
+        "name": "\u4e0a\u77bc\u4e0b\u5782"
+    },
+    {
+        "bias": 0.045454,
+        "department": "\u8166\u5916\u79d1",
+        "name": "\u9838\u690e\u9aa8\u6298\u812b\u4f4d"
+    },
+    {
+        "bias": 0.391414,
+        "department": "\u814e\u5167\u79d1",
+        "name": "\u6025\u6027\u814e\u529f\u80fd\u8870\u7aed"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u547c\u5438\u5167\u79d1",
+        "name": "SARS"
+    },
+    {
+        "bias": 1.9,
+        "department": "\u6025\u8a3a\u79d1",
+        "name": "\u812b\u6c34"
+    },
+    {
+        "bias": 0.921717,
+        "department": "\u8178\u80c3\u5916\u79d1",
+        "name": "\u80c3\u640d\u50b7"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u6d88\u5316\u5167\u79d1",
+        "name": "\u809d\u786c\u5316"
+    },
+    {
+        "bias": 1.075758,
+        "department": "\u5167\u5206\u6ccc\u79d1",
+        "name": "\u751f\u9577\u6fc0\u7d20\u7f3a\u4e4f\u75c7"
+    },
+    {
+        "bias": 1.157828,
+        "department": "\u795e\u7d93\u5167\u79d1",
+        "name": "\u504f\u982d\u75db"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u5a66\u7522\u79d1",
+        "name": "\u5916\u9670\u708e"
+    },
+    {
+        "bias": 1.109849,
+        "department": "\u8840\u7ba1\u5916\u79d1",
+        "name": "\u975c\u8108\u708e"
+    },
+    {
+        "bias": 0.103535,
+        "department": "\u624b\u5916\u79d1",
+        "name": "\u7664"
+    },
+    {
+        "bias": 1.031566,
+        "department": "\u5a66\u7522\u79d1",
+        "name": "\u9589\u7d93"
+    },
+    {
+        "bias": 0.502525,
+        "department": "\u5167\u5206\u6ccc\u79d1",
+        "name": "\u591a\u6bdb\u75c7"
+    },
+    {
+        "bias": 0.892677,
+        "department": "\u9aa8\u79d1",
+        "name": "\u95dc\u7bc0\u812b\u4f4d"
+    },
+    {
+        "bias": 0.52904,
+        "department": "\u814e\u5167\u79d1",
+        "name": "\u907a\u5c3f\u75c7"
+    },
+    {
+        "bias": 0.29798,
+        "department": "\u547c\u5438\u5167\u79d1",
+        "name": "\u6025\u6027\u6c23\u7ba1\u652f\u6c23\u7ba1\u708e"
+    },
+    {
+        "bias": 1.016414,
+        "department": "\u8166\u5916\u79d1",
+        "name": "\u982d\u98a8\u75c5"
+    },
+    {
+        "bias": 0.598485,
+        "department": "\u814e\u5167\u79d1",
+        "name": "\u6025\u6027\u814e\u5c0f\u7403\u814e\u708e"
+    },
+    {
+        "bias": 1.994159,
+        "department": "\u53e3\u8154\u79d1",
+        "name": "\u5507\u76b0\u75b9"
+    },
+    {
+        "bias": 1.853972,
+        "department": "\u795e\u7d93\u5167\u79d1",
+        "name": "\u795e\u7d93\u8870\u5f31"
+    },
+    {
+        "bias": 0.119949,
+        "department": "\u8178\u80c3\u5916\u79d1",
+        "name": "\u86d4\u87f2\u6027\u8178\u6897\u963b"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u5a66\u7522\u79d1",
+        "name": "\u4e73\u623f\u6fd5\u75b9"
+    },
+    {
+        "bias": 0.219697,
+        "department": "\u53e3\u8154\u79d1",
+        "name": "\u9f72\u9f52"
+    },
+    {
+        "bias": 0.366161,
+        "department": "\u8033\u9f3b\u5589\u79d1",
+        "name": "\u5148\u5929\u6027\u8033\u807e"
+    },
+    {
+        "bias": 1.361111,
+        "department": "\u50b3\u67d3\u79d1",
+        "name": "\u767b\u9769\u71b1"
+    },
+    {
+        "bias": 0.074495,
+        "department": "\u8178\u80c3\u5916\u79d1",
+        "name": "\u5341\u4e8c\u6307\u8178\u640d\u50b7"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u547c\u5438\u5167\u79d1",
+        "name": "\u77fd\u80ba"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u4e73\u817a\u5916\u79d1",
+        "name": "\u4e73\u982d\u5167\u9677"
+    },
+    {
+        "bias": 0.612374,
+        "department": "\u8033\u9f3b\u5589\u79d1",
+        "name": "\u904e\u654f\u6027\u9f3b\u708e"
+    },
+    {
+        "bias": 0.84596,
+        "department": "\u5a66\u7522\u79d1",
+        "name": "\u75db\u7d93"
+    },
+    {
+        "bias": 1.405303,
+        "department": "\u5c0f\u5152\u79d1",
+        "name": "\u624b\u8db3\u53e3\u75c5"
+    },
+    {
+        "bias": 0.300505,
+        "department": "\u8166\u5916\u79d1",
+        "name": "\u982d\u76ae\u640d\u50b7"
+    },
+    {
+        "bias": 1.78271,
+        "department": "\u5fc3\u8840\u7ba1\u5167\u79d1",
+        "name": "\u9ad8\u8840\u8102"
+    },
+    {
+        "bias": 0.233586,
+        "department": "\u5c0f\u5152\u79d1",
+        "name": "\u5c0f\u5152\u9ad8\u8840\u58d3"
+    },
+    {
+        "bias": 0.441919,
+        "department": "\u5a66\u7522\u79d1",
+        "name": "\u6025\u6027\u76c6\u8154\u708e"
+    },
+    {
+        "bias": 0.459596,
+        "department": "\u5916\u50b7\u5916\u79d1",
+        "name": "\u5931\u8840\u6027\u4f11\u514b"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u6025\u8a3a\u79d1",
+        "name": "\u6025\u6027\u9ad8\u539f\u75c5"
+    },
+    {
+        "bias": 0.229798,
+        "department": "\u773c\u79d1",
+        "name": "\u978f\u819c\u708e"
+    },
+    {
+        "bias": 0.638889,
+        "department": "\u809b\u8178\u5916\u79d1",
+        "name": "\u7d50\u8178\u606f\u8089"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u5a66\u7522\u79d1",
+        "name": "\u7d30\u83cc\u6027\u9670\u9053\u708e"
+    },
+    {
+        "bias": 1.363636,
+        "department": "\u6d88\u5316\u5167\u79d1",
+        "name": "\u98df\u9053\u764c"
+    },
+    {
+        "bias": 0.569445,
+        "department": "\u9aa8\u79d1",
+        "name": "\u9aa8\u95dc\u7bc0\u708e"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u6d88\u5316\u5167\u79d1",
+        "name": "\u8840\u5438\u87f2\u8178\u75c5"
+    },
+    {
+        "bias": 0.489899,
+        "department": "\u53e3\u8154\u79d1",
+        "name": "\u667a\u9f52\u51a0\u5468\u708e"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u814e\u5167\u79d1",
+        "name": "\u814e\u7a4d\u6c34"
+    },
+    {
+        "bias": 1.246212,
+        "department": "\u5167\u5206\u6ccc\u79d1",
+        "name": "\u80a5\u80d6\u75c7"
+    },
+    {
+        "bias": 0.282828,
+        "department": "\u773c\u79d1",
+        "name": "\u60e1\u6027\u9752\u5149\u773c"
+    },
+    {
+        "bias": 1.005051,
+        "department": "\u809d\u81bd\u5916\u79d1",
+        "name": "\u81bd\u9053\u51fa\u8840"
+    },
+    {
+        "bias": 1.237374,
+        "department": "\u5a66\u7522\u79d1",
+        "name": "\u9644\u4ef6\u708e"
+    },
+    {
+        "bias": 1.188131,
+        "department": "\u5a66\u7522\u79d1",
+        "name": "\u5e36\u4e0b\u75c5"
+    },
+    {
+        "bias": 1.338384,
+        "department": "\u5a66\u7522\u79d1",
+        "name": "\u6bdb\u6ef4\u87f2\u75c5"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u8840\u6db2\u79d1",
+        "name": "\u8ca7\u8840"
+    },
+    {
+        "bias": 0.488636,
+        "department": "\u53e3\u8154\u79d1",
+        "name": "\u7259\u5916\u50b7"
+    },
+    {
+        "bias": 1.082071,
+        "department": "\u9aa8\u79d1",
+        "name": "\u6241\u5e73\u8db3"
+    },
+    {
+        "bias": 1.011364,
+        "department": "\u6ccc\u5c3f\u5916\u79d1",
+        "name": "\u81bd\u77f3\u75c7"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u53e3\u8154\u79d1",
+        "name": "\u53e3\u8154\u6241\u5e73\u82d4\u861a"
+    },
+    {
+        "bias": 0.414141,
+        "department": "\u4e73\u817a\u5916\u79d1",
+        "name": "\u4e73\u817a\u7d50\u6838"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u53e3\u8154\u79d1",
+        "name": "\u78e8\u7259"
+    },
+    {
+        "bias": 0.914142,
+        "department": "\u8033\u9f3b\u5589\u79d1",
+        "name": "\u9f13\u819c\u7a7f\u5b54"
+    },
+    {
+        "bias": 0.339647,
+        "department": "\u5fc3\u8840\u7ba1\u5167\u79d1",
+        "name": "\u6025\u6027\u5fc3\u5305\u708e"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u8166\u5916\u79d1",
+        "name": "\u8166\u86db\u7db2\u819c\u4e0b\u8154\u51fa\u8840"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u795e\u7d93\u5167\u79d1",
+        "name": "\u5931\u7720"
+    },
+    {
+        "bias": 0.36995,
+        "department": "\u809b\u8178\u5916\u79d1",
+        "name": "\u5927\u8178\u6897\u963b"
+    },
+    {
+        "bias": 0.044192,
+        "department": "\u6d88\u5316\u5167\u79d1",
+        "name": "\u80c3\u7026\u7559"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u5916\u50b7\u5916\u79d1",
+        "name": "\u5275\u50b7\u6027\u6c23\u80f8"
+    },
+    {
+        "bias": 0.391414,
+        "department": "\u98a8\u6fd5\u79d1",
+        "name": "\u985e\u98a8\u6fd5\u6027\u95dc\u7bc0\u708e"
+    },
+    {
+        "bias": 1.000935,
+        "department": "\u6d88\u5316\u5167\u79d1",
+        "name": "\u8102\u80aa\u809d"
+    },
+    {
+        "bias": 0.207071,
+        "department": "\u5916\u50b7\u5916\u79d1",
+        "name": "\u5275\u50b7\u6027\u9f3b\u51fa\u8840"
+    },
+    {
+        "bias": 1.147727,
+        "department": "\u773c\u79d1",
+        "name": "\u9060\u8996"
+    },
+    {
+        "bias": 1.646028,
+        "department": "\u5fc3\u80f8\u5916\u79d1",
+        "name": "\u4e8c\u5c16\u74e3\u95dc\u9589\u4e0d\u5168"
+    },
+    {
+        "bias": 0.112374,
+        "department": "\u98a8\u6fd5\u79d1",
+        "name": "\u7d05\u6591\u6027\u72fc\u7621"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u5a66\u7522\u79d1",
+        "name": "\u4e73\u982d\u6ea2\u6db2"
+    },
+    {
+        "bias": 1.056818,
+        "department": "\u53e3\u8154\u79d1",
+        "name": "\u7259\u9ad3\u75c5"
+    },
+    {
+        "bias": 1.213384,
+        "department": "\u8033\u9f3b\u5589\u79d1",
+        "name": "\u6025\u6027\u5589\u708e"
+    },
+    {
+        "bias": 1.295455,
+        "department": "\u6ccc\u5c3f\u5916\u79d1",
+        "name": "\u524d\u5217\u817a\u589e\u751f"
+    },
+    {
+        "bias": 0.804293,
+        "department": "\u5a66\u7522\u79d1",
+        "name": "\u4e0d\u5b55\u75c7"
+    },
+    {
+        "bias": 1.22096,
+        "department": "\u8033\u9f3b\u5589\u79d1",
+        "name": "\u9f3b\u51fa\u8840"
+    },
+    {
+        "bias": 1.007576,
+        "department": "\u5fc3\u8840\u7ba1\u5167\u79d1",
+        "name": "\u52d5\u8108\u7624"
+    },
+    {
+        "bias": 0.361111,
+        "department": "\u6d88\u5316\u5167\u79d1",
+        "name": "\u8178\u9053\u86d4\u87f2"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u795e\u7d93\u5167\u79d1",
+        "name": "\u7671\u7613"
+    },
+    {
+        "bias": 0.329545,
+        "department": "\u5fc3\u80f8\u5916\u79d1",
+        "name": "\u98df\u7ba1\u7834\u88c2"
+    },
+    {
+        "bias": 1.186869,
+        "department": "\u624b\u5916\u79d1",
+        "name": "\u8272\u7d20\u75e3"
+    },
+    {
+        "bias": 0.145202,
+        "department": "\u809b\u8178\u5916\u79d1",
+        "name": "\u8179\u5167\u759d"
+    },
+    {
+        "bias": 0.449495,
+        "department": "\u795e\u7d93\u5167\u79d1",
+        "name": "\u9762\u808c\u62bd\u6410"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u6ccc\u5c3f\u5916\u79d1",
+        "name": "\u8180\u80f1\u763a"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u6025\u8a3a\u79d1",
+        "name": "\u9f3b\u75bd"
+    },
+    {
+        "bias": 1.036616,
+        "department": "\u6d88\u5316\u5167\u79d1",
+        "name": "\u6025\u6027\u80c3\u708e"
+    },
+    {
+        "bias": 0.022727,
+        "department": "\u5a66\u7522\u79d1",
+        "name": "\u6708\u7d93\u5931\u8abf"
+    },
+    {
+        "bias": 1.441919,
+        "department": "\u814e\u5167\u79d1",
+        "name": "\u5c3f\u5d29\u75c7"
+    },
+    {
+        "bias": 0.896465,
+        "department": "\u814e\u5167\u79d1",
+        "name": "\u814e\u81df\u640d\u50b7"
+    },
+    {
+        "bias": 1.046717,
+        "department": "\u6025\u8a3a\u79d1",
+        "name": "\u6557\u8840\u75c7"
+    },
+    {
+        "bias": 0.025253,
+        "department": "\u98a8\u6fd5\u79d1",
+        "name": "\u75db\u98a8\u6027\u95dc\u7bc0\u708e"
+    },
+    {
+        "bias": 0.539141,
+        "department": "\u8033\u9f3b\u5589\u79d1",
+        "name": "\u8033\u771f\u83cc\u75c5"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u809b\u8178\u5916\u79d1",
+        "name": "\u767d\u7dda\u759d"
+    },
+    {
+        "bias": 0.304293,
+        "department": "\u5916\u50b7\u5916\u79d1",
+        "name": "\u5275\u50b7\u6027\u4f11\u514b"
+    },
+    {
+        "bias": 0.606061,
+        "department": "\u773c\u79d1",
+        "name": "\u6dda\u56ca\u708e"
+    },
+    {
+        "bias": 1.455808,
+        "department": "\u5fc3\u80f8\u5916\u79d1",
+        "name": "\u80ba\u4e0d\u5f35"
+    },
+    {
+        "bias": 1.07197,
+        "department": "\u773c\u79d1",
+        "name": "\u7d05\u773c\u75c5"
+    },
+    {
+        "bias": 1.564252,
+        "department": "\u814e\u5167\u79d1",
+        "name": "\u5c3f\u9053\u708e"
+    },
+    {
+        "bias": 1.17803,
+        "department": "\u8033\u9f3b\u5589\u79d1",
+        "name": "\u8033\u807e"
+    },
+    {
+        "bias": 0.286616,
+        "department": "\u6ccc\u5c3f\u5916\u79d1",
+        "name": "\u814e\u7d50\u6838"
+    },
+    {
+        "bias": 0.90404,
+        "department": "\u50b3\u67d3\u79d1",
+        "name": "\u75c5\u6bd2\u611f\u67d3\u6027\u8179\u7009"
+    },
+    {
+        "bias": 0.07702,
+        "department": "\u795e\u7d93\u5167\u79d1",
+        "name": "\u5b89\u7720\u85e5\u4e2d\u6bd2"
+    },
+    {
+        "bias": 1.0,
+        "department": "\u624b\u5916\u79d1",
+        "name": "\u7670"
+    },
+    {
+        "bias": 0.469697,
+        "department": "\u795e\u7d93\u5167\u79d1",
+        "name": "\u5750\u9aa8\u795e\u7d93\u75db"
+    },
+    {
+        "bias": 1.207071,
+        "department": "\u6d88\u5316\u5167\u79d1",
+        "name": "\u8179\u819c\u708e"
+    },
+    {
+        "bias": 0.383838,
+        "department": "\u814e\u5167\u79d1",
+        "name": "\u8f38\u5c3f\u7ba1\u640d\u50b7"
+    },
+    {
+        "bias": 0.531566,
+        "department": "\u8166\u5916\u79d1",
+        "name": "\u9ad8\u8840\u58d3\u8166\u75c5"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u6d88\u5316\u5167\u79d1",
+        "name": "\u4fbf\u79d8"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u809b\u8178\u5916\u79d1",
+        "name": "\u7d50\u8178\u763a"
+    },
+    {
+        "bias": 1.843458,
+        "department": "\u795e\u7d93\u5167\u79d1",
+        "name": "\u610f\u8b58\u969c\u7919"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u547c\u5438\u5167\u79d1",
+        "name": "\u7164\u6c23\u4e2d\u6bd2"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u6025\u8a3a\u79d1",
+        "name": "\u6bd2\u86c7\u54ac\u50b7"
+    },
+    {
+        "bias": 1.010101,
+        "department": "\u53e3\u8154\u79d1",
+        "name": "\u53e3\u8154\u6f70\u760d"
+    },
+    {
+        "bias": 0.246212,
+        "department": "\u8033\u9f3b\u5589\u79d1",
+        "name": "\u9f13\u819c\u5916\u50b7"
+    },
+    {
+        "bias": 0.388889,
+        "department": "\u773c\u79d1",
+        "name": "\u8996\u795e\u7d93\u840e\u7e2e"
+    },
+    {
+        "bias": 1.156566,
+        "department": "\u9aa8\u79d1",
+        "name": "\u80a9\u5468\u708e"
+    },
+    {
+        "bias": 0.723485,
+        "department": "\u53e3\u8154\u79d1",
+        "name": "\u7259\u5468\u840e\u7e2e"
+    },
+    {
+        "bias": 0.690657,
+        "department": "\u547c\u5438\u5167\u79d1",
+        "name": "\u80ba\u6c34\u816b"
+    },
+    {
+        "bias": 1.005051,
+        "department": "\u6025\u8a3a\u79d1",
+        "name": "\u7522\u5f8c\u51fa\u8840"
+    },
+    {
+        "bias": 0.285353,
+        "department": "\u53e3\u8154\u79d1",
+        "name": "\u5730\u5716\u820c"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u547c\u5438\u5167\u79d1",
+        "name": "\u79bd\u6d41\u611f"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u795e\u7d93\u5167\u79d1",
+        "name": "\u75f4\u5446"
+    },
+    {
+        "bias": 0.397727,
+        "department": "\u8178\u80c3\u5916\u79d1",
+        "name": "\u81cd\u759d"
+    },
+    {
+        "bias": 0.546717,
+        "department": "\u6025\u8a3a\u79d1",
+        "name": "\u767b\u9769\u51fa\u8840\u71b1"
+    },
+    {
+        "bias": 0.156566,
+        "department": "\u6025\u8a3a\u79d1",
+        "name": "\u963f\u7c73\u5df4\u75e2\u75be"
+    },
+    {
+        "bias": 1.027778,
+        "department": "\u8840\u7ba1\u5916\u79d1",
+        "name": "\u814e\u52d5\u8108\u72f9\u7a84"
+    },
+    {
+        "bias": 1.018939,
+        "department": "\u9aa8\u79d1",
+        "name": "\u9aa8\u8cea\u758f\u9b06"
+    },
+    {
+        "bias": 0.39899,
+        "department": "\u8178\u80c3\u5916\u79d1",
+        "name": "\u8178\u626d\u8f49"
+    },
+    {
+        "bias": 0.003788,
+        "department": "\u624b\u5916\u79d1",
+        "name": "\u958b\u653e\u6027\u624b\u5916\u50b7"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u6d88\u5316\u5167\u79d1",
+        "name": "\u6162\u6027\u8179\u7009"
+    },
+    {
+        "bias": 1.277778,
+        "department": "\u8033\u9f3b\u5589\u79d1",
+        "name": "\u6025\u6027\u9f3b\u708e"
+    },
+    {
+        "bias": 0.332071,
+        "department": "\u8033\u9f3b\u5589\u79d1",
+        "name": "\u9f3b\u7664"
+    },
+    {
+        "bias": 1.090909,
+        "department": "\u4e73\u817a\u5916\u79d1",
+        "name": "\u4e73\u817a\u56ca\u6027\u589e\u751f\u75c7"
+    },
+    {
+        "bias": 0.301768,
+        "department": "\u8178\u80c3\u5916\u79d1",
+        "name": "\u6f70\u760d\u75c5\u7a7f\u5b54"
+    },
+    {
+        "bias": 0.055555,
+        "department": "\u53e3\u8154\u79d1",
+        "name": "\u820c\u6241\u5e73\u82d4\u861a"
+    },
+    {
+        "bias": 0.29798,
+        "department": "\u5c0f\u5152\u79d1",
+        "name": "\u5152\u7ae5\u8179\u75db"
+    },
+    {
+        "bias": 0.171717,
+        "department": "\u98a8\u6fd5\u79d1",
+        "name": "\u591a\u767c\u6027\u5927\u52d5\u8108\u708e"
+    },
+    {
+        "bias": 1.204545,
+        "department": "\u8033\u9f3b\u5589\u79d1",
+        "name": "\u6162\u6027\u54bd\u708e"
+    },
+    {
+        "bias": 1.294192,
+        "department": "\u5fc3\u8840\u7ba1\u5167\u79d1",
+        "name": "\u5fc3\u5f8b\u5931\u5e38"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u8840\u6db2\u79d1",
+        "name": "\u4f4e\u9209\u8840\u75c7"
+    },
+    {
+        "bias": 0.145202,
+        "department": "\u5a66\u7522\u79d1",
+        "name": "\u5916\u9670\u6f70\u760d"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u8178\u80c3\u5916\u79d1",
+        "name": "\u8178\u7cfb\u819c\u88c2\u5b54\u759d"
+    },
+    {
+        "bias": 1.069445,
+        "department": "\u5fc3\u80f8\u5916\u79d1",
+        "name": "\u5fc3\u808c\u75c5"
+    },
+    {
+        "bias": 1.257576,
+        "department": "\u9aa8\u79d1",
+        "name": "\u65b7\u6307\u518d\u690d"
+    },
+    {
+        "bias": 0.424242,
+        "department": "\u98a8\u6fd5\u79d1",
+        "name": "\u7d50\u7bc0\u75c5"
+    },
+    {
+        "bias": 0.352273,
+        "department": "\u5c0f\u5152\u79d1",
+        "name": "\u65b0\u751f\u5152\u767c\u71b1"
+    },
+    {
+        "bias": 1.068182,
+        "department": "\u809b\u8178\u5916\u79d1",
+        "name": "\u75d4\u7621"
+    },
+    {
+        "bias": 0.0,
+        "department": "\u50b3\u67d3\u79d1",
+        "name": "\u7834\u50b7\u98a8 "
+    }
+]

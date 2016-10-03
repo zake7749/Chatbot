@@ -1,0 +1,58 @@
+[
+      {
+          "domain": "購買電腦產品",
+          "response": [],
+          "concepts": [
+              "電腦產品"
+          ],
+          "children": []
+      },
+      {
+          "domain": "購買鞋子",
+          "response": [],
+          "concepts": [
+              "鞋子","皮鞋","布鞋"
+          ],
+          "children": []
+      },
+      {
+          "domain": "購買食物",
+          "response": [],
+          "concepts": [
+              "食物","美食"
+          ],
+          "children": []
+      },
+      {
+          "domain": "購買家電",
+          "response": [],
+          "concepts": [
+              "家電"
+          ],
+          "children": []
+      },
+      {
+          "domain": "購買衣服",
+          "response": [],
+          "concepts": [
+              "衣服","外套"
+          ],
+          "children": []
+      },
+      {
+          "domain": "購買生活用品",
+          "response": [],
+          "concepts": [
+              "生活用品"
+          ],
+          "children": []
+      },
+      {
+          "domain": "購買飲料",
+          "response": [],
+          "concepts": [
+              "飲料"
+          ],
+          "children": []
+      }
+]
