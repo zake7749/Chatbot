@@ -1,17 +1,17 @@
 [
       {
-          "domain": "購買電腦產品",
+          "domain": "購買數位產品",
           "response": [],
           "concepts": [
-              "電腦產品"
+              "數位產品"
           ],
-          "children": []
+          "children": ["平板","手機","數位相機","印表機","手機充電線","電腦產品","無線分享器","投影機"]
       },
       {
           "domain": "購買鞋子",
           "response": [],
           "concepts": [
-              "鞋子","皮鞋","布鞋"
+              "鞋子","皮鞋","布鞋","涼鞋","拖鞋"
           ],
           "children": []
       },
@@ -35,7 +35,7 @@
           "domain": "購買衣服",
           "response": [],
           "concepts": [
-              "衣服","外套"
+              "衣服","外套","內褲"
           ],
           "children": []
       },
@@ -45,7 +45,7 @@
           "concepts": [
               "生活用品"
           ],
-          "children": []
+          "children": ["烹飪用品",""]
       },
       {
           "domain": "購買飲料",
@@ -53,6 +53,95 @@
           "concepts": [
               "飲料"
           ],
+          "children": ["咖啡","開水","運動飲料","手搖杯","茶類"]
+      },
+      {
+          "domain": "烹飪用品",
+          "response": [],
+          "concepts": [
+
+          ],
+          "children": []
+      },
+            {
+          "domain": "電腦產品",
+          "response": [],
+          "concepts": [
+
+          ],
+          "children": []
+      },
+            {
+          "domain": "咖啡",
+          "response": [],
+          "concepts": [
+            "咖啡"
+          ],
+          "children": []
+      },
+            {
+          "domain": "手搖杯",
+          "response": [],
+          "concepts": [
+
+          ],
+          "children": []
+      },
+            {
+          "domain": "茶類",
+          "response": [],
+          "concepts": [
+              "紅茶","綠茶","烏龍茶","青茶"
+          ],
+          "children": []
+      },
+            {
+          "domain": "文具",
+          "response": [],
+          "concepts": [
+
+          ],
+          "children": []
+      },
+            {
+          "domain": "文具",
+          "response": [],
+          "concepts": [
+
+          ],
+          "children": []
+      },
+            {
+          "domain": "文具",
+          "response": [],
+          "concepts": [
+
+          ],
+          "children": []
+      },
+            {
+          "domain": "文具",
+          "response": [],
+          "concepts": [
+
+          ],
+          "children": []
+      },
+            {
+          "domain": "文具",
+          "response": [],
+          "concepts": [
+
+          ],
+          "children": []
+      },
+            {
+          "domain": "文具",
+          "response": [],
+          "concepts": [
+
+          ],
           "children": []
       }
+
 ]
