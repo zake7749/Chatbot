@@ -37,7 +37,7 @@
           "concepts": [
               "衣服","外套","內褲"
           ],
-          "children": []
+          "children": ["外套"]
       },
       {
           "domain": "購買生活用品",
@@ -51,9 +51,9 @@
           "domain": "購買飲料",
           "response": [],
           "concepts": [
-              "飲料"
+              "飲料","喝"
           ],
-          "children": ["咖啡","開水","運動飲料","手搖杯","茶類"]
+          "children": ["咖啡","開水","運動飲料","茶類"]
       },
       {
           "domain": "烹飪用品",
@@ -80,10 +80,10 @@
           "children": []
       },
             {
-          "domain": "手搖杯",
+          "domain": "外套",
           "response": [],
           "concepts": [
-
+              "外套"
           ],
           "children": []
       },
@@ -91,55 +91,55 @@
           "domain": "茶類",
           "response": [],
           "concepts": [
-              "紅茶","綠茶","烏龍茶","青茶"
+              "茶"
+          ],
+          "children": ["紅茶","綠茶","奶茶","烏龍茶"]
+      },
+            {
+          "domain": "紅茶",
+          "response": [],
+          "concepts": [
+              "紅茶"
           ],
           "children": []
       },
             {
-          "domain": "文具",
+          "domain": "綠茶",
           "response": [],
           "concepts": [
-
+              "綠茶"
           ],
           "children": []
       },
             {
-          "domain": "文具",
+          "domain": "奶茶",
           "response": [],
           "concepts": [
-
+              "奶茶"
           ],
           "children": []
       },
             {
-          "domain": "文具",
+          "domain": "烏龍茶",
           "response": [],
           "concepts": [
-
+              "烏龍茶"
           ],
           "children": []
       },
             {
-          "domain": "文具",
+          "domain": "開水",
           "response": [],
           "concepts": [
-
+              "開水","水","白開水"
           ],
           "children": []
       },
             {
-          "domain": "文具",
+          "domain": "運動飲料",
           "response": [],
           "concepts": [
-
-          ],
-          "children": []
-      },
-            {
-          "domain": "文具",
-          "response": [],
-          "concepts": [
-
+              "運動飲料"
           ],
           "children": []
       }
