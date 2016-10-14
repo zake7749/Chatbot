@@ -4,7 +4,7 @@ based on the task's domain.
 """
 from .medicine import medicine
 from .other.weather import Weather
-
+from .other.stock import Stock
 class Switch(object):
 
     def __init__(self, console):
@@ -18,6 +18,8 @@ class Switch(object):
             handler = medicine.MedicalListener(self.console)
         elif domain=="天氣":
             handler = Weather(self.console)
+        elif domain=="股票":
+            handler = Stock(self.console)
         else:
             pass    
         """

@@ -3,9 +3,9 @@
           "domain": "購買數位產品",
           "response": [],
           "concepts": [
-              "數位產品"
+              "數位產品","筆電","平板","手機","數位相機","印表機","手機充電線","電腦產品","無線分享器","投影機"
           ],
-          "children": ["平板","手機","數位相機","印表機","手機充電線","電腦產品","無線分享器","投影機"]
+          "children": []
       },
       {
           "domain": "購買鞋子",
@@ -19,7 +19,7 @@
           "domain": "購買食物",
           "response": [],
           "concepts": [
-              "食物","美食"
+              "食物","美食","小吃","零食"
           ],
           "children": []
       },
@@ -35,17 +35,17 @@
           "domain": "購買衣服",
           "response": [],
           "concepts": [
-              "衣服","外套","內褲"
+              "衣服","外套","內褲","西裝"
           ],
-          "children": ["外套"]
+          "children": []
       },
       {
           "domain": "購買生活用品",
           "response": [],
           "concepts": [
-              "生活用品"
+              "日常用品"
           ],
-          "children": ["烹飪用品",""]
+          "children": ["烹飪用品","清潔用品",""]
       },
       {
           "domain": "購買飲料",
@@ -53,21 +53,13 @@
           "concepts": [
               "飲料","喝"
           ],
-          "children": ["咖啡","開水","運動飲料","茶類"]
+          "children": ["咖啡","水","運動飲料","茶類"]
       },
       {
           "domain": "烹飪用品",
           "response": [],
           "concepts": [
-
-          ],
-          "children": []
-      },
-            {
-          "domain": "電腦產品",
-          "response": [],
-          "concepts": [
-
+              "炒菜鍋","鍋鏟","平底鍋","湯匙","筷子","叉子","碗","盤",""
           ],
           "children": []
       },
@@ -79,63 +71,23 @@
           ],
           "children": []
       },
-            {
-          "domain": "外套",
-          "response": [],
-          "concepts": [
-              "外套"
-          ],
-          "children": []
-      },
-            {
+      {
           "domain": "茶類",
           "response": [],
           "concepts": [
-              "茶"
-          ],
-          "children": ["紅茶","綠茶","奶茶","烏龍茶"]
-      },
-            {
-          "domain": "紅茶",
-          "response": [],
-          "concepts": [
-              "紅茶"
+              "茶","紅茶","綠茶","奶茶","烏龍茶"
           ],
           "children": []
       },
-            {
-          "domain": "綠茶",
+      {
+          "domain": "水",
           "response": [],
           "concepts": [
-              "綠茶"
+              "水","礦泉水","瓶裝水"
           ],
           "children": []
       },
-            {
-          "domain": "奶茶",
-          "response": [],
-          "concepts": [
-              "奶茶"
-          ],
-          "children": []
-      },
-            {
-          "domain": "烏龍茶",
-          "response": [],
-          "concepts": [
-              "烏龍茶"
-          ],
-          "children": []
-      },
-            {
-          "domain": "開水",
-          "response": [],
-          "concepts": [
-              "開水","水","白開水"
-          ],
-          "children": []
-      },
-            {
+      {
           "domain": "運動飲料",
           "response": [],
           "concepts": [
@@ -143,5 +95,6 @@
           ],
           "children": []
       }
+
 
 ]
