@@ -23,23 +23,24 @@ class Stock(object):
 		stock_name = ""
 		stock_no = 'None'
 		keywords = self.console.word_segment(user_input)
-		print(keywords)
+		#print(keywords)
 		for nm in keywords:
-			print("股")
+			#print("股")
 			stock_no = self.get_stock_no(nm)
 			if 	stock_no is not 'None':
-				print(stock_no)
+				#print(stock_no)
 				break
 		if stock_no == 'None':
 			output = "找不到關於該股票的資料"
-			print("no data\n")
+			#print("no data\n")
 			return [None,output]
-		stock_no = "2357"
+		#stock_no = "tse_2357.tw"
 		req = requests.session()
 		req.get('http://mis.twse.com.tw/stock/index.jsp',headers = {'Accept-Language':'zh-TW,zh;q=0.8,en-US;q=0.6,en;q=0.4'})
-		
-		response = req.get('http://mis.twse.com.tw/stock/api/getStockInfo.jsp?ex_ch={}'.format(stock_no))
+		timestamp = int(time.time()*1000+1000000)
+		response = req.get('http://mis.twse.com.tw/stock/api/getStockInfo.jsp?_={}&ex_ch={}'.format(timestamp,stock_no))
 		res_json = response.json()
+		#print(res_json)
 		msgArray = res_json['msgArray']
 		
 		for key in msgArray:
@@ -53,7 +54,7 @@ class Stock(object):
 			number = key['v']
 		
 		output = '股票名稱:' + name + '\n' +'股票代碼:' + no + '\n' +'開盤價格:' + str(open_price) + '\n' +'該盤成交價格:' + str(price) + '\n' +'漲跌價:' + str(diff) + '\n' +'最高價:' + highest + '\n' +'最低價:' + lowest + '\n' +'張數:' + number + '\n'
-		print(msgArray)
+		#print(msgArray)
 		return [None,output]
 	
 	def get_stock_no(self, stock_name):
