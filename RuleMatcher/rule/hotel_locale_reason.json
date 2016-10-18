@@ -1,0 +1,51 @@
+[
+  {
+          "domain": "地點描述",
+          "response": [],
+          "concepts": [
+              "地點"
+          ],
+          "children": [
+              "台北市",
+              "台中市",
+              "台南市",
+              "高雄市"
+          ]
+      },
+      {
+          "domain": "台北市",
+          "response": [],
+          "concepts": [
+              "台北市",
+			  "台北"
+          ],
+          "children": []
+      },
+      {
+          "domain": "台中市",
+          "response": [],
+          "concepts": [
+              "台中市",
+			  "台中"
+          ],
+          "children": []
+      },
+      {
+          "domain": "台南市",
+          "response": [],
+          "concepts": [
+              "台南市",
+			  "台南"
+          ],
+          "children": []
+      },{
+          "domain": "高雄市",
+          "response": [],
+          "concepts": [
+              "高雄市",
+			  "高雄"
+          ],
+          "children": []
+      }
+
+]

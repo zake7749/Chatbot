@@ -1,0 +1,990 @@
+[
+  	{
+		"domain": "單人房",
+		"response": [
+		],
+		"concepts": [
+			"單人房"
+		],
+		"children": []
+
+  	},
+  	{
+	  "domain": "雙人房",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "雙人房"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "網路",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "網路",
+		  "無線網路"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "獨立衛浴",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "獨立衛浴"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "旅館",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "旅館"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "飯店",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "飯店"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "酒店",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "酒店"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "民宿",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "民宿"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "青年旅店",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "青年旅店"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "背包客",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "背包客"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "單人床",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "單人床"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "雙人床",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "雙人床"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "一月",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "一月",
+		  "1月"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "二月",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "二月",
+		  "2月"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "三月",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "三月",
+		  "3月"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "四月",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "四月",
+		  "4月"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "五月",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "五月",
+		  "5月"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "六月",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "六月",
+		  "6月"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "七月",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "七月",
+		  "7月"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "八月",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "八月",
+		  "8月"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "九月",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "九月",
+		  "9月"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "十月",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "十月",
+		  "10月"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "十一月",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "十一月",
+		  "11月"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "十二月",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "十二月",
+		  "12月"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "星期一",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "星期一",
+		  "禮拜一",
+		  "周一"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "星期二",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "星期二",
+		  "禮拜二",
+		  "周二"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "星期三",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "星期三",
+		  "禮拜三",
+		  "周三"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "星期四",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "星期四",
+		  "禮拜四",
+		  "周四"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "星期五",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "星期五",
+		  "禮拜五",
+		  "周五"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "星期六",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "星期六",
+		  "禮拜六",
+		  "周六"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "星期日",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "星期日",
+		  "禮拜日",
+		  "星期天",
+		  "禮拜天",
+		  "周日"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "明天",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "明天",
+		  "明日"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "後天",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "後天"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "台北市",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "台北市",
+		  "台北",
+		  "新北市",
+		  "新北"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "基隆市",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "基隆市",
+		  "基隆"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "桃園市",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "桃園市",
+		  "桃園"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "新竹縣",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "新竹縣",
+		  "新竹"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "苗栗縣",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "苗栗縣",
+		  "苗栗"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "台中市",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "台中市",
+		  "台中"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "彰化縣",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "彰化縣",
+		  "彰化"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "南投縣",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "南投縣",
+		  "南投"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "雲林縣",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "雲林縣",
+		  "雲林"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "嘉義縣",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "嘉義縣",
+		  "嘉義"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "台南市",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "台南市",
+		  "台南"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "高雄市",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "高雄市",
+		  "高雄"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "屏東縣",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "屏東縣",
+		  "屏東"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "宜蘭縣",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "宜蘭縣",
+		  "宜蘭"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "花蓮縣",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "花蓮縣",
+		  "花蓮"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "台東縣",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "台東縣",
+		  "台東"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "澎湖縣",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "澎湖縣",
+		  "澎湖"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "金門縣",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "金門縣",
+		  "金門"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "馬祖列島",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "馬祖列島",
+		  "馬祖縣",
+		  "連江縣",
+		  "馬祖"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "墾丁",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "墾丁",
+		  "墾丁市"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "一日",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "一日",
+		  "1日",
+		  "一號",
+		  "1號"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "二日",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "二日",
+		  "2日",
+		  "二號",
+		  "2號"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "三日",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "三日",
+		  "3日",
+		  "三號",
+		  "3號"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "四日",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "四日",
+		  "4日",
+		  "四號",
+		  "4號"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "五日",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "五日",
+		  "5日",
+		  "五號",
+		  "5號"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "六日",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "六日",
+		  "6日",
+		  "六號",
+		  "6號"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "七日",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "七日",
+		  "7日",
+		  "七號",
+		  "7號"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "八日",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "八日",
+		  "8日",
+		  "八號",
+		  "8號"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "九日",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "九日",
+		  "9日",
+		  "九號",
+		  "9號"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "十日",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "十日",
+		  "10日",
+		  "十號",
+		  "10號"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "十一日",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "十一日",
+		  "11日",
+		  "十一號",
+		  "11號"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "十二日",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "十二日",
+		  "12日",
+		  "十二號",
+		  "12號"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "十三日",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "十三日",
+		  "13日",
+		  "十三號",
+		  "13號"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "十四日",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "十四日",
+		  "14日",
+		  "十四號",
+		  "14號"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "十五日",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "十五日",
+		  "15日",
+		  "十五號",
+		  "15號"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "十六日",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "十六日",
+		  "16日",
+		  "十六號",
+		  "16號"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "十七日",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "十七日",
+		  "17日",
+		  "十七號",
+		  "17號"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "十八日",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "十八日",
+		  "18日",
+		  "十八號",
+		  "18號"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "十九日",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "十九日",
+		  "19日",
+		  "十九號",
+		  "19號"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "二十日",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "二十日",
+		  "20日",
+		  "二十號",
+		  "20號"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "二十一日",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "二十一日",
+		  "21日",
+		  "二十一號",
+		  "21號"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "二十二日",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "二十二日",
+		  "22日",
+		  "二十二號",
+		  "22號"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "二十三日",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "二十三日",
+		  "23日",
+		  "二十三號",
+		  "23號"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "二十四日",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "二十四日",
+		  "24日",
+		  "二十四號",
+		  "24號"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "二十五日",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "二十五日",
+		  "25日",
+		  "二十五號",
+		  "25號"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "二十六日",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "二十六日",
+		  "26日",
+		  "二十六號",
+		  "26號"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "二十七日",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "二十七日",
+		  "27日",
+		  "二十七號",
+		  "27號"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "二十八日",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "二十八日",
+		  "28日",
+		  "二十八號",
+		  "28號"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "二十九日",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "二十九日",
+		  "29日",
+		  "二十九號",
+		  "29號"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "三十日",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "三十日",
+		  "30日",
+		  "三十號",
+		  "30號"
+	  ],
+	  "children": [
+	  ]
+  	},
+	{
+	  "domain": "三十一日",
+	  "response": [
+	  ],
+	  "concepts": [
+		  "三十一日",
+		  "31日",
+		  "三十一號",
+		  "31號"
+	  ],
+	  "children": [
+	  ]
+  	}
+	
+]
