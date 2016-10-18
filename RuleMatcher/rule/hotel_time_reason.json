@@ -1,0 +1,38 @@
+[
+      {
+          "domain": "時間描述",
+          "response": [],
+          "concepts": [
+              "時間"
+          ],
+          "children": [
+          		"早上",
+				"中午",
+				"下午"
+          ]
+      },
+      {
+          "domain": "早上",
+          "response": [],
+          "concepts": [
+            	"早上"
+          ],
+          "children": []
+      },
+      {
+          "domain": "中午",
+          "response": [],
+          "concepts": [
+            	"中午"
+          ],
+          "children": []
+      },
+      {
+          "domain": "下午",
+          "response": [],
+          "concepts": [
+            	"下午"
+          ],
+          "children": []
+      }
+]
