@@ -1,7 +1,7 @@
 from ..task import Task
 import os
 import json
-
+import RuleMatcher.rulebase as rulebase
 class PurchaseOperator(Task):
 
     def __init__(self, console):
@@ -10,7 +10,9 @@ class PurchaseOperator(Task):
         self.memory = None
         self.attribute_list = None
         self.current_domain = None
-
+        self.ret = None
+        self.rb = rulebase.RuleBase()
+        #self.rb.load_model("model/ch-corpus-3sg.bin")
     def get_response(self,user_input, domain, target):
         """
         Return:
@@ -23,13 +25,14 @@ class PurchaseOperator(Task):
             #依據domain而判斷missing Attribute
             #從句子撈attribute(如果有的話)
             #沒有則問好問滿
-            
+        #keywords = self.console.word_segment(user_input)
+        self.current_domain = domain
+        #res="test"
+        #clear demand: return domain
+        #hidden demand: ?
 
-
-
-
-
-        return []
+        self.ret = domain + "#" + domain
+        return [None,self.ret]
 
     def get_query(self):
         """
@@ -37,6 +40,8 @@ class PurchaseOperator(Task):
             - target_attr : String, 預詢問的目標屬性為何
             - candiates  : List, 對該詢問預設的答案列表 (bubble buttons)
         """
+        if self.current_domain == "茶":
+            return [None,None]
 
     def restore(self, memory):
         """
@@ -46,10 +51,8 @@ class PurchaseOperator(Task):
         """
 
     def get_suggest(self):
-        """
-        Return:
-            - place: 當一個指標任務結束時，依用戶需求推薦地點集名稱或絕對位置
-        """
+        if self.current_domain is "茶":
+            return "五十嵐"
     def debug(self):
 
         pass

@@ -1,0 +1,411 @@
+[
+	{
+		"domain": "吃喝玩樂",
+		"response": [
+			"導向吃喝玩樂模組"
+		],
+		"concepts": [
+			"吃","餓","喝","渴","玩"
+		],
+		"children": [
+			"吃",
+			"喝",
+			"玩"
+		]
+	},
+{
+		"domain": "吃",
+		"response": [
+			
+		],
+		"concepts": [
+			"吃","餓"
+		],
+		"children": [
+			"飯",
+			"麵",
+			"火鍋",
+			"速食",
+			"西餐",
+			"粥"
+		]
+	},
+{
+		"domain": "喝",
+		"response": [
+			
+		],
+		"concepts": [
+			"喝","渴"
+		],
+		"children": [
+			"茶",
+			"果汁",
+			"汽水",
+			"牛奶"
+		]
+	},
+{
+		"domain": "玩",
+		"response": [
+			
+		],
+		"concepts": [
+			"玩","逛","看","去","走"
+		],
+		"children": [
+			"電影",
+			"夜市",
+			"公園",
+			"博物館",
+			"紀念館",
+			"美術館",
+			"捷運站",
+			"公車站",
+			"火車站",
+			"景點"
+		]
+	},
+{
+		"domain": "電影",
+		"response": [
+			
+		],
+		"concepts": [
+			"電影"
+		],
+		"children": [
+		]
+	},
+{
+		"domain": "電影院",
+		"response": [
+			
+		],
+		"concepts": [
+			"電影院","影城"
+		],
+		"children": [
+		]
+	},
+{
+		"domain": "夜市",
+		"response": [
+			
+		],
+		"concepts": [
+			"夜市"
+		],
+		"children": [
+		]
+	},
+{
+		"domain": "公園",
+		"response": [
+			
+		],
+		"concepts": [
+			"公園"
+		],
+		"children": [
+		]
+	},
+{
+		"domain": "博物館",
+		"response": [
+			
+		],
+		"concepts": [
+			"博物館"
+		],
+		"children": [
+		]
+	},
+{
+		"domain": "紀念館",
+		"response": [
+			
+		],
+		"concepts": [
+			"紀念館"
+		],
+		"children": [
+		]
+	},
+{
+		"domain": "美術館",
+		"response": [
+			
+		],
+		"concepts": [
+			"美術館"
+		],
+		"children": [
+		]
+	},
+{
+		"domain": "捷運站",
+		"response": [
+			
+		],
+		"concepts": [
+			"捷運站"
+		],
+		"children": [
+		]
+	},
+{
+		"domain": "公車站",
+		"response": [
+			
+		],
+		"concepts": [
+			"公車站"
+		],
+		"children": [
+		]
+	},
+{
+		"domain": "火車站",
+		"response": [
+			
+		],
+		"concepts": [
+			"火車站"
+		],
+		"children": [
+		]
+	},
+{
+		"domain": "飯",
+		"response": [
+		],
+		"concepts": [
+			"飯"
+		],
+		"children": [
+			"咖哩飯",
+			"燒臘飯",
+			"炒飯",
+			"燴飯",
+			"燉飯"
+		]
+	},
+{
+		"domain": "咖哩飯",
+		"response": [
+		],
+		"concepts": [
+			"咖哩飯"
+		],
+		"children": [
+		]
+	},
+{
+		"domain": "燒臘飯",
+		"response": [
+		],
+		"concepts": [
+			"燒臘"
+		],
+		"children": [
+		]
+	},
+{
+		"domain": "炒飯",
+		"response": [
+		],
+		"concepts": [
+			"炒飯"
+		],
+		"children": [
+		]
+	},
+{
+		"domain": "燴飯",
+		"response": [
+		],
+		"concepts": [
+			"燴飯"
+		],
+		"children": [
+		]
+	},
+{
+		"domain": "燉飯",
+		"response": [
+		],
+		"concepts": [
+			"燉飯"
+		],
+		"children": [
+		]
+	},
+{
+		"domain": "麵",
+		"response": [
+		],
+		"concepts": [
+			"麵","拉麵","炒麵","意麵","泡麵","義大利麵","烏龍麵"
+		],
+		"children": [
+			"拉麵",
+			"炒麵",
+			"意麵",
+			"泡麵",
+			"義大利麵",
+			"烏龍麵"
+		]
+	},
+{
+		"domain": "拉麵",
+		"response": [
+		],
+		"concepts": [
+			"拉麵"
+		],
+		"children": [
+		]
+	},
+{
+		"domain": "炒麵",
+		"response": [
+		],
+		"concepts": [
+			"炒麵"
+		],
+		"children": [
+		]
+	},
+{
+		"domain": "意麵",
+		"response": [
+		],
+		"concepts": [
+			"意麵"
+		],
+		"children": [
+		]
+	},
+{
+		"domain": "泡麵",
+		"response": [
+		],
+		"concepts": [
+			"泡麵"
+		],
+		"children": [
+		]
+	},
+{
+		"domain": "義大利麵",
+		"response": [
+		],
+		"concepts": [
+			"義大利麵"
+		],
+		"children": [
+		]
+	},
+{
+		"domain": "烏龍麵",
+		"response": [
+		],
+		"concepts": [
+			"烏龍麵"
+		],
+		"children": [
+		]
+	},
+{
+		"domain": "火鍋",
+		"response": [
+		],
+		"concepts": [
+			"火鍋"
+		],
+		"children": [
+			
+		]
+	},
+{
+		"domain": "速食",
+		"response": [
+		],
+		"concepts": [
+			"速食"
+		],
+		"children": [
+			
+		]
+	},
+{
+		"domain": "西餐",
+		"response": [
+		],
+		"concepts": [
+			"西餐"
+		],
+		"children": [
+			
+		]
+	},
+{
+		"domain": "粥",
+		"response": [
+		],
+		"concepts": [
+			"粥"
+		],
+		"children": [
+			
+		]
+	},
+{
+		"domain": "茶",
+			
+		"response": [
+		],
+		"concepts": [
+			"茶","紅茶","綠茶","麥茶","冬瓜茶","奶茶","烏龍茶"
+		],
+		"children": [
+			
+		]
+	},
+{
+		"domain": "果汁",
+			
+		"response": [
+		],
+		"concepts": [
+			"果汁"
+		],
+		"children": [
+			
+		]
+	},
+{
+		"domain": "汽水",
+			
+		"response": [
+		],
+		"concepts": [
+			"汽水"
+		],
+		"children": [
+			
+		]
+	},
+	{
+		"domain": "牛奶",
+		"response": [
+		],
+		"concepts": [
+			"牛奶","鮮奶","奶粉"
+		],
+		"children": [
+			
+		]
+	}
+]
