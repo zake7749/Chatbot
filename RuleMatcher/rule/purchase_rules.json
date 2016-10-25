@@ -16,14 +16,6 @@
           "children": []
       },
       {
-          "domain": "購買食物",
-          "response": [],
-          "concepts": [
-              "食物","美食","小吃","零食"
-          ],
-          "children": []
-      },
-      {
           "domain": "購買家電",
           "response": [],
           "concepts": [
@@ -48,50 +40,10 @@
           "children": ["烹飪用品","清潔用品","文具","盥洗用品"]
       },
       {
-          "domain": "購買飲料",
-          "response": [],
-          "concepts": [
-              "飲料","喝","渴"
-          ],
-          "children": ["咖啡","水","運動飲料","茶"]
-      },
-      {
           "domain": "烹飪用品",
           "response": [],
           "concepts": [
               "炒菜鍋","鍋鏟","平底鍋","湯匙","筷子","叉子","碗","盤",""
-          ],
-          "children": []
-      },
-            {
-          "domain": "咖啡",
-          "response": [],
-          "concepts": [
-            "咖啡"
-          ],
-          "children": []
-      },
-      {
-          "domain": "茶",
-          "response": [],
-          "concepts": [
-              "茶","紅茶","綠茶","奶茶","烏龍茶"
-          ],
-          "children": []
-      },
-      {
-          "domain": "水",
-          "response": [],
-          "concepts": [
-              "水","礦泉水","瓶裝水"
-          ],
-          "children": []
-      },
-      {
-          "domain": "運動飲料",
-          "response": [],
-          "concepts": [
-              "運動飲料"
           ],
           "children": []
       },

@@ -12,6 +12,7 @@ import chatbot
 import random
 #from ..mysite import mysite
 import re
+# -*- coding: utf8 -*-
 
 class ArticleForm(forms.ModelForm):
 	class Meta:
@@ -48,19 +49,21 @@ def index(request):
 						break
 					#print(output[1])
 				output = chatb.listen(new_article.content)
+				#output0 = output[0].decode('utf8')
+				
 				if output[1] is not None:
 					Post.objects.create(iden=myid,content=output[1],domain = chatb.root_domain)
-					return json.dumps({'ID':str(myid),'reply':output[0]})
+					return HttpResponse(json.dumps({'ID':str(myid),'reply':output[0]}))
 					#return render(request, 'get.html', {'form': form,'data': str(myid)+"#"+output[0]})
 				#print(str(myid)+'#'+output[0])
 				else:
-					return json.dumps({'reply':output[0]})
+					return HttpResponse(json.dumps({'reply':output[0]}))
 					#return render(request, 'get.html', {'form': form,'data': output[0]})
 			else:
 				post = Post.objects.filter(iden=new_article.frontId)
 				if len(post) == 0:
 					print('your Id have ERROR!!')
-					return json.dumps({'reply':'your Id have ERROR!!'})
+					return HttpResponse(json.dumps({'reply':'your Id have ERROR!!'}))
 					#return render(request, 'get.html', {'form': form,'data': 'your Id have ERROR!!'})
 				else:
 					data = Post.objects.get(iden=new_article.frontId).content
@@ -81,11 +84,11 @@ def index(request):
 					print(len(temp))
 					if output[1] is not None:
 						Post.objects.filter(iden=new_article.frontId).update(content="".join(data))
-						return json.dumps({'ID':new_article.frontId,'reply':output[0]})
+						return HttpResponse(json.dumps({'ID':new_article.frontId,'reply':output[0]}))
 						#return render(request, 'get.html', {'form': form,'data': new_article.frontId+'#'+output[0]})
 					else:
 						Post.objects.get(iden=new_article.frontId).delete()
-						return json.dumps({'ID':new_article.frontId,'reply':output[0]})
+						return HttpResponse(json.dumps({'ID':new_article.frontId,'reply':output[0]}))
 						#return render(request, 'get.html', {'form': form,'data': output[0]})
 					#print(Post.objects.get(iden=new_article.frontId).content.split('#'))
 					
@@ -93,8 +96,9 @@ def index(request):
 		#	stdo = process.communicate(input=(new_article.content).encode())[0]
 		#	print(process.stdout.readline())
 		#	process.stdout.close()
-	global chatb
+
 	form = ArticleForm()
+	global chatb
 	chatb = chatbot.Chatbot()
 	
 	#process = Popen('python C:/Users/aa/proj_DB/mysite/Chatbot-master/chatbot.py', stdin=PIPE)
