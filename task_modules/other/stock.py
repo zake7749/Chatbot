@@ -3,6 +3,7 @@ import time
 import requests
 import csv
 import os
+import re
 class Stock(object):
 
 	def __init__(self, console):
@@ -61,13 +62,17 @@ class Stock(object):
 		file = open(os.path.dirname(__file__)+ '/data.csv','r') #定期在收盤前更新csv
 		next(file)
 		next(file)
-		csv_read = csv.DictReader(file)
+		#csv_read = csv.DictReader(file)
 		
 		stock_url = 'None'
-		for row in csv_read:
-			if stock_name in row['證券名稱']:
-				stock_no = row['證券代號']
-				stock_url = 'tse_'+str(stock_no).strip()+'.tw'
+		for col in file.readlines():
+			m = re.search('([0-9]{4}[ ]{2}|[0-9]{5}[ LRU]{1}|[0-9]6),([^ ]*)( *),',col)
+			if m:
+				print(m.group(2))
+				print(stock_name)
+				if stock_name == m.group(2):
+					stock_no = m.group(1)
+					stock_url = 'tse_'+str(stock_no).strip()+'.tw'
 		file.close()
 			
 		return stock_url

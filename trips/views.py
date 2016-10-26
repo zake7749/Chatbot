@@ -5,13 +5,14 @@ from django.http import HttpResponseRedirect
 from trips.models import Post
 from trips.models import Article
 import os
+import json
 import subprocess, sys
-import multiprocessing
-from subprocess import Popen, PIPE, STDOUT
 from django import forms
 import chatbot
 import random
+#from ..mysite import mysite
 import re
+# -*- coding: utf8 -*-
 
 class ArticleForm(forms.ModelForm):
 	class Meta:
@@ -21,7 +22,7 @@ class ArticleForm(forms.ModelForm):
 class PostForm(forms.ModelForm):
 	class Meta:
 		model = Post
-		fields = ['iden', 'content']
+		fields = ['iden', 'content','domain']
 
 def creates(request):
 	if request.method == 'POST':
@@ -35,12 +36,11 @@ def creates(request):
 	return render(request, 'create_article.html', {'form': form})
 
 def index(request):
+	global output
 	if request.method == 'POST':
 		form = ArticleForm(request.POST)
 		new_article = form.save()
 		if form.is_valid():
-			global output
-			output = chatb.listen(new_article.content)
 			if new_article.frontId == '':
 				while(1):
 					myid = random.randint(0,99)
@@ -48,19 +48,27 @@ def index(request):
 					if len(post) == 0:
 						break
 					#print(output[1])
+				output = chatb.listen(new_article.content)
+				#output0 = output[0].decode('utf8')
+				
 				if output[1] is not None:
-					Post.objects.create(iden=myid,content=output[1])
-					return render(request, 'get.html', {'form': form,'data': str(myid)+"#"+output[0]})
+					Post.objects.create(iden=myid,content=output[1],domain = chatb.root_domain)
+					return HttpResponse(json.dumps({'ID':str(myid),'reply':output[0]}))
+					#return render(request, 'get.html', {'form': form,'data': str(myid)+"#"+output[0]})
 				#print(str(myid)+'#'+output[0])
 				else:
-					return render(request, 'get.html', {'form': form,'data': output[0]})
+					return HttpResponse(json.dumps({'reply':output[0]}))
+					#return render(request, 'get.html', {'form': form,'data': output[0]})
 			else:
 				post = Post.objects.filter(iden=new_article.frontId)
 				if len(post) == 0:
 					print('your Id have ERROR!!')
-					return render(request, 'get.html', {'form': form,'data': 'your Id have ERROR!!'})
+					return HttpResponse(json.dumps({'reply':'your Id have ERROR!!'}))
+					#return render(request, 'get.html', {'form': form,'data': 'your Id have ERROR!!'})
 				else:
-					data = list(Post.objects.get(iden=new_article.frontId).content)
+					data = Post.objects.get(iden=new_article.frontId).content
+					chatb.root_domain = Post.objects.get(iden=new_article.frontId).domain
+					output = chatb.listen(new_article.content)
 					temp = list(output[1])
 					for i in range(0, len(temp), 1):
 						if temp[i] != data[i]:
@@ -76,12 +84,30 @@ def index(request):
 					print(len(temp))
 					if output[1] is not None:
 						Post.objects.filter(iden=new_article.frontId).update(content="".join(data))
-						return render(request, 'get.html', {'form': form,'data': new_article.frontId+'#'+output[0]})
+						return HttpResponse(json.dumps({'ID':new_article.frontId,'reply':output[0]}))
+						#return render(request, 'get.html', {'form': form,'data': new_article.frontId+'#'+output[0]})
 					else:
-						return render(request, 'get.html', {'form': form,'data': output[0]})
-	global chatb
+						Post.objects.get(iden=new_article.frontId).delete()
+						return HttpResponse(json.dumps({'ID':new_article.frontId,'reply':output[0]}))
+						#return render(request, 'get.html', {'form': form,'data': output[0]})
+					#print(Post.objects.get(iden=new_article.frontId).content.split('#'))
+					
+		#	process.stdin.write(str.encode(new_article.content))
+		#	stdo = process.communicate(input=(new_article.content).encode())[0]
+		#	print(process.stdout.readline())
+		#	process.stdout.close()
+
 	form = ArticleForm()
+	global chatb
 	chatb = chatbot.Chatbot()
+	
+	#process = Popen('python C:/Users/aa/proj_DB/mysite/Chatbot-master/chatbot.py', stdin=PIPE)
+	#for line in iter(process.stdout.readline,''):
+	#	print("test:", line.rstrip())
+	#	if line.rstrip() == b'[Console] Initialized successfully :>':
+	#		print("I am break")
+	#		break
+	#subprocess.Popen('python C:/Users/aa/proj_DB/mysite/Chatbot-master/chatbot.py', stdin=PIPE, stderr=STDOUT,executable=None, shell=False)
 	return render(request, 'create_article.html', {'form': form})
 
 
@@ -90,10 +116,12 @@ def request_data(request):
 		form = ArticleForm(request.POST)
 		if form.is_valid():
 			new_article = form.save()
-
+	#		print(process.stdout.readline())
+	#		process.stdout.close()
 			return render(request, 'get.html', {'form': form,'data': new_article.content})
 
 	form = ArticleForm()
+	#subprocess.Popen('python C:/Users/aa/proj_DB/mysite/Chatbot-master/chatbot.py', stdin=PIPE, stderr=STDOUT,executable=None, shell=False)
 	return render(request, 'get.html', {'form': form})
 	
 def submit(request, pk, data):

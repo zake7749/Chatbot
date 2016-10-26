@@ -40,9 +40,7 @@ class PurchaseOperator(Task):
             - target_attr : String, 預詢問的目標屬性為何
             - candiates  : List, 對該詢問預設的答案列表 (bubble buttons)
         """
-        if self.current_domain == "茶":
-            return [None,None]
-
+        pass
     def restore(self, memory):
         """
         Args:
@@ -51,8 +49,7 @@ class PurchaseOperator(Task):
         """
 
     def get_suggest(self):
-        if self.current_domain is "茶":
-            return "五十嵐"
+        pass
     def debug(self):
 
         pass
