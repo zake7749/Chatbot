@@ -27,8 +27,12 @@ class Console(object):
 
             # build the rulebase.
             self.rb = rulebase.RuleBase()
+            print("[Console] Loading vector model...")
             self.rb.load_model(model_path)
+            print("[Console] Vector model has loaded.")
+            print("[Console] Loading pre-defined rules.")
             self.rb.load_rules_from_dic(rule_path)
+            print("[Console] Rules have loaded.")
             print("*********************************")
             print("[Console] Initialized successfully :>")
         except Exception as e:
