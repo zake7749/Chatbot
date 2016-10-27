@@ -1,11 +1,8 @@
 # -*- coding: utf-8 -*-
+import os
 
 import console
 import task_modules.module_switch as module_switch
-
-def main():
-    chatbot = Chatbot()
-    chatbot.waiting_loop()
 
 class Chatbot(object):
 
@@ -21,7 +18,11 @@ class Chatbot(object):
         self.root_domain = None      # The root domain of user's input.
         self.domain_similarity = 0.0 # The similarity between domain and speech.
 
+        cur_dir = os.getcwd()
+        os.chdir(os.path.dirname(__file__))
         self.extract_attr_log = open('log/extract_arrt.log','w',encoding='utf-8')
+        os.chdir(cur_dir)
+
         self.console = console.Console(model_path="model/ch-corpus-3sg.bin")
 
     def waiting_loop(self):
@@ -32,6 +33,13 @@ class Chatbot(object):
             speech = input()
             res = self.listenForDomains(speech)
             print(res[0])
+
+    def listen(self, sentence, target=None, apiKey=None):
+
+        """
+        """
+        self.listenForDomains(sentence,target,apiKey)
+        self.listenForQuestionAnswering(sentence)
 
     def listenForDomains(self, sentence, target=None, apiKey=None):
 
@@ -161,6 +169,3 @@ class Chatbot(object):
         """
         #TODO
         return None
-
-if __name__ == '__main__':
-    main()

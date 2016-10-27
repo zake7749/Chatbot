@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import random
+import os
 
 import jieba
 import jieba.analyse
@@ -9,7 +10,6 @@ import RuleMatcher.rulebase as rulebase
 def main():
     console = Console()
     console.listen() # goto interactive mode.
-
 
 class Console(object):
 
@@ -21,6 +21,11 @@ class Console(object):
         print("[Console] Building a console...")
         print("*********************************")
         try:
+
+            cur_dir = os.getcwd()
+            curPath = os.path.dirname(__file__)
+            os.chdir(curPath)
+
             # jieba custom setting.
             self.init_jieba(jieba_dic, jieba_user_dic)
             self.stopword = self.load_stopword(stopword)
@@ -35,6 +40,9 @@ class Console(object):
             print("[Console] Rules have loaded.")
             print("*********************************")
             print("[Console] Initialized successfully :>")
+
+            os.chdir(cur_dir)
+
         except Exception as e:
             print("[Console] Opps! Initialized Error.")
             print(repr(e))

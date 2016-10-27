@@ -155,7 +155,6 @@ class RuleBase(object):
             self.rules.clear()
 
         with open(path, 'r', encoding='utf-8') as input:
-            print(path)
             json_data = json.load(input)
             # load rule and build an instance
             for data in json_data:
