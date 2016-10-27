@@ -37,7 +37,7 @@ Chatbot 透過將語句向量化來計算主題相似度，再依結果提供迎
 * 安裝 [jieba 结巴中文分词 ](https://github.com/fxsjy/jieba)
 * 有已訓練好的中文詞向量，並根據檔案位置調整 `Console class` 的初始化參數。
 ```python
-import console
+import Chatbot.console as console
 c = console.Console(model_path='your_model')
 ```
 
@@ -50,7 +50,7 @@ c = console.Console(model_path='your_model')
 ### 計算匹配度
 
 ```python
-import console
+import Chatbot.console as console
 
 c = console.Console(model_path='your_model')
 speech = input('Input a sentence:')
