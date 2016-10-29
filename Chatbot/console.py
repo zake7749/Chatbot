@@ -5,7 +5,9 @@ import os
 
 import jieba
 import jieba.analyse
+
 import RuleMatcher.rulebase as rulebase
+import RuleMatcher.customRuleBase as crb
 
 def main():
     console = Console()
@@ -13,13 +15,16 @@ def main():
 
 class Console(object):
 
+    """
+    Build some nlp function as an package.
+    """
+
     def __init__(self,model_path="model/ch-corpus-3sg.bin",
                  rule_path="RuleMatcher/rule/",
                  stopword="jieba_dict/stopword.txt",
                  jieba_dic="jieba_dict/dict.txt.big",
                  jieba_user_dic="jieba_dict/userdict.txt"):
         print("[Console] Building a console...")
-        print("*********************************")
         try:
 
             cur_dir = os.getcwd()
@@ -34,11 +39,8 @@ class Console(object):
             self.rb = rulebase.RuleBase()
             print("[Console] Loading vector model...")
             self.rb.load_model(model_path)
-            print("[Console] Vector model has loaded.")
             print("[Console] Loading pre-defined rules.")
             self.rb.load_rules_from_dic(rule_path)
-            print("[Console] Rules have loaded.")
-            print("*********************************")
             print("[Console] Initialized successfully :>")
 
             os.chdir(cur_dir)
@@ -47,6 +49,9 @@ class Console(object):
             print("[Console] Opps! Initialized Error.")
             print(repr(e))
             exit()
+
+        self.cusRuleBase = crb.CustomRuleBase()
+        self.cusRuleBase.model = self.rb.model
 
     def listen(self):
         #into interactive console
@@ -141,7 +146,7 @@ class Console(object):
                 keyword.append(word)
         return keyword
 
-    def rule_match(self, sentence, best_only=False, search_from=None, segmented=False):
+    def rule_match(self, sentence, best_only=False, search_from=None, segmented=False, api_key=None):
 
         """
         Match the sentence with rules.
@@ -152,6 +157,7 @@ class Console(object):
             - root      : a domain name, then the rule match will start
                           at searching from that domain, not from forest roots.
             - segmented : the sentence is segmented or not.
+            - api_key   : a key to fetch custom rules in the database.
         Return:
             - a list of candiate rule
             - the travel path of classification tree.
@@ -162,15 +168,19 @@ class Console(object):
         else:
             keyword = self.word_segment(sentence)
 
-        if search_from is None: # use for rule matching.
-            result_list,path = self.rb.match(keyword,threshold=0.1)
-        else:  # use for reasoning.
-            result_list,path = self.rb.match(keyword,threshold=0.1,root=search_from)
+        if api_key is None:
+            if search_from is None: # use for classification (rule matching).
+                result_list,path = self.rb.match(keyword,threshold=0.1)
+            else:  # use for reasoning.
+                result_list,path = self.rb.match(keyword,threshold=0.1,root=search_from)
+        else:
+            result_list,path = self.cusRuleBase.customMatch()
 
         if best_only:
             return [result_list[0], path]
         else:
             return [result_list, path]
+
 
     def get_response(self, rule_id):
 

@@ -158,11 +158,6 @@ class Chatbot(object):
 
         return handler
 
-    def getCustomDomainRules(self, key):
-        """
-        """
-        #TODO
-        return None
 
     def getCustomQARules(self, key):
         """
