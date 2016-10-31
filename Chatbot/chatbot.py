@@ -3,6 +3,7 @@ import os
 
 import console
 import task_modules.module_switch as module_switch
+import RuleMatcher.customRuleBase as crb
 
 class Chatbot(object):
 
@@ -25,6 +26,9 @@ class Chatbot(object):
 
         self.console = console.Console(model_path="model/ch-corpus-3sg.bin")
 
+        self.customRulebase = crb.CustomRuleBase() # for one time matching.
+        self.customRulebase.model = self.console.rb.model # pass word2vec model
+
     def waiting_loop(self):
 
         print("你好，我是 " + self.name)
@@ -36,24 +40,38 @@ class Chatbot(object):
 
     def listen(self, sentence, target=None, apiKey=None):
 
-        """
-        """
-        self.listenForDomains(sentence,target,apiKey)
-        self.listenForQuestionAnswering(sentence)
+        #FIXME
+        # @zake7749
+        # 區隔 custom rule 與 root rule 匹配的原因是 custom rule 並不支援多段式應答
+        # 若後續在模組上進行更動，可考慮將兩者合併，透過辨識 apiKey 的有無來修改操作
 
-    def listenForDomains(self, sentence, target=None, apiKey=None):
+        # find the most similar domain with speech.
+        if apiKey is not None:
+            self.rule_match
+
+
+
+        inDomain = self.rule_match(sentence, threshold=0.4)
+        if inDomain:
+            response,stauts,target,candiates = self.getResponseOnRootDomains(target,apiKey)
+            return response,stauts,target,candiates
+        else:
+            self.GeneralQuestionAnswering(sentence)
+            return response,None,None,None
+
+    def getResponseOnRootDomains(self, target=None):
 
         """
-        Listen user's input. If this input match any pre-defined domain,
-        and then send back a response from that domain.
+
+
+        Send back a response and some history information based on the former
+        result that came from rule_match().
 
         Args:
-            - sentence: User's input from frontend.
             - target  : Optional. It is to define the user's input is in form of
             a sentence or a given answer by pressing the bubble buttom.
             If it is come from a button's text, target is the attribute name our
             module want to confirm.
-            - apiKey  : This key is for recognizing a user.
 
         Return:
             - response : Based on the result of modules or a default answer.
@@ -65,16 +83,15 @@ class Chatbot(object):
         status   = None
         response = None
 
-        inDomain = self.rule_match(sentence, threshold=0.4) # find the most similar domain with speech.
-        if inDomain:
-            handler = self.get_task_handler()
+        handler = self.get_task_handler()
 
-            try:
-                status,response = handler.get_response(self.speech, self.speech_domain, target)
-            except AttributeError:
-                # It will happen when we call a module which have not implemented.
-                # For more detail, please refer task_modules/module_switch.py, task.py
-                print("Handler of '%s' have not implemented" % self.root_domain)
+        try:
+            status,response = handler.get_response(self.speech, self.speech_domain, target)
+        except AttributeError:
+            # It will happen when we call a module which have not implemented.
+            # For more detail, please refer task_modules/module_switch.py, task.py
+            print("Handler of '%s' have not implemented" % self.root_domain)
+            return [None,None,None,None]
 
         if response is None:
             response = self.get_response()
@@ -86,6 +103,7 @@ class Chatbot(object):
             target,candiates = handler.get_query()
             handler.debug(self.extract_attr_log)
             return [response,status,target,candiates]
+
 
     def listenForQuestionAnswering(self, sentence, apiKey=None):
 
