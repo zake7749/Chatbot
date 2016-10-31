@@ -26,8 +26,8 @@ class Chatbot(object):
 
         self.console = console.Console(model_path="model/ch-corpus-3sg.bin")
 
-        self.customRulebase = crb.CustomRuleBase() # for one time matching.
-        self.customRulebase.model = self.console.rb.model # pass word2vec model
+        self.custom_rulebase = crb.CustomRuleBase() # for one time matching.
+        self.custom_rulebase.model = self.console.rb.model # pass word2vec model
 
     def waiting_loop(self):
 
@@ -35,25 +35,29 @@ class Chatbot(object):
         while True:
 
             speech = input()
-            res = self.listenForDomains(speech)
+            res = self.listen(speech)
             print(res[0])
 
-    def listen(self, sentence, target=None, apiKey=None):
+    def listen(self, sentence, target=None, api_key=None):
 
         """
-        listen function is to encapsulate the following getResponse methods.
+        listen function is to encapsulate the following getResponse methods:
 
-        1.getResponseOnCustomDomain(sentence,apiKey)
-        2.getResponseOnRootDomains(sentence,target)
-        3.getResponseForCustomQA(sentence,apiKey)
-        4.getResponseForGeneralQA(sentence)
+            1.getResponseOnCustomDomain(sentence,api_key)
+            2.getResponseOnRootDomains(sentence,target)
+            3.getResponseForCustomQA(sentence,api_key)
+            4.getResponseForGeneralQA(sentence)
+
+        1,2 is to measure the consine similarity between keywords and sentence.
+        3,4 is to measure the levenshtein distance between sentence and the questions
+        in database/corpus.
 
         Args:
             - target : Optional. It is to define the user's input is in form of
             a sentence or a given answer by pressing the bubble buttom.
             If it is come from a button's text, target is the attribute name our
             module want to confirm.
-            - apiKey : is for recognizing the user and get his custom rule/QAs.
+            - api_key : for recognizing the user and get his custom rule/QAs.
 
         Return:
             - response : Based on the result of modules or a default answer.
@@ -66,19 +70,28 @@ class Chatbot(object):
         #FIXME
         # @zake7749
         # 區隔 custom rule 與 root rule 匹配的原因是 custom rule 並不支援多段式應答
-        # 若後續在模組上進行更動，可考慮將兩者合併，透過辨識 apiKey 的有無來修改操作
+        # 若後續在模組上進行更動，可考慮將兩者合併，透過辨識 api_key 的有無來修改操作
 
-        # find the most similar domain with speech.
-        if apiKey is not None:
-            response = self.getResponseOnCustomDomain(sentence, apiKey)
+        # matching on custom rules.
+        response = self.getResponseOnCustomDomain(sentence, api_key)
+        if response is not None:
             return response,None,None,None
 
-        inDomain = self.rule_match(sentence, threshold=0.4)
-        if inDomain:
-            response,stauts,target,candiates = self.getResponseOnRootDomains(target,apiKey)
+        # if the confidence of the custom rule matching is too low,
+        # do the original rule matching.
+        is_confident = self.rule_match(sentence, threshold=0.4)
+
+        if is_confident:
+            response,stauts,target,candiates = self.getResponseOnRootDomains(target,api_key)
             return response,stauts,target,candiates
+
+        # The result based on custom rules and general rules are not confident.
+        # Assume that there are no intent in the sentence, do query matching for
+        # question answering.
         else:
-            self.GeneralQuestionAnswering(sentence)
+            response = self.getResponseForCustomQA(sentence,api_key)
+            if response is None:
+                response = self.getResponseForGeneralQA(sentence)
             return response,None,None,None
 
     def getResponseOnRootDomains(self, target=None):
@@ -125,16 +138,37 @@ class Chatbot(object):
             handler.debug(self.extract_attr_log)
             return [response,status,target,candiates]
 
-    def getResponseOnCustomDomain(self, sentence, apiKey):
+    def getResponseOnCustomDomain(self, sentence, api_key):
+        """
+        Fetch user's custom rules by api_key and then match the sentence with
+        custom rules.
 
+        Args:
+            - sentence: user's raw input. (not segmented)
+            - api_key
+        """
+        if api_key is None:
+            return None
+        else:
+            pass
 
-    def listenForQuestionAnswering(self, sentence, apiKey=None):
+    def getResponseForGeneralQA(self, sentence):
 
         """
-        Listen user's input and return a response which is based on
-        our or cutsom knowledge base.(if apiKey has given.)
+        Listen user's input and return a response which is based on our
+        knowledge base.
         """
         pass
+
+    def getResponseForCustomQA(self,sentence,api_key):
+
+        """
+        Listen user's input and return a response which is based on a cutsom
+        knowledge base.
+        """
+        if api_key is None:
+            return None
+        
 
     def getLoggerData(self):
         return [self.root_domain,
