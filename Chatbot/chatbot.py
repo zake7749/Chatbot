@@ -40,6 +40,29 @@ class Chatbot(object):
 
     def listen(self, sentence, target=None, apiKey=None):
 
+        """
+        listen function is to encapsulate the following getResponse methods.
+
+        1.getResponseOnCustomDomain(sentence,apiKey)
+        2.getResponseOnRootDomains(sentence,target)
+        3.getResponseForCustomQA(sentence,apiKey)
+        4.getResponseForGeneralQA(sentence)
+
+        Args:
+            - target : Optional. It is to define the user's input is in form of
+            a sentence or a given answer by pressing the bubble buttom.
+            If it is come from a button's text, target is the attribute name our
+            module want to confirm.
+            - apiKey : is for recognizing the user and get his custom rule/QAs.
+
+        Return:
+            - response : Based on the result of modules or a default answer.
+            - status   : It would be the module's current status if the user has
+                         been sent into any module and had not left it.
+            - target   : Refer to get_query() in task_modules/task.py
+            - candiates: Refer to get_query() in task_modules/task.py
+        """
+
         #FIXME
         # @zake7749
         # 區隔 custom rule 與 root rule 匹配的原因是 custom rule 並不支援多段式應答
@@ -47,9 +70,8 @@ class Chatbot(object):
 
         # find the most similar domain with speech.
         if apiKey is not None:
-            self.rule_match
-
-
+            response = self.getResponseOnCustomDomain(sentence, apiKey)
+            return response,None,None,None
 
         inDomain = self.rule_match(sentence, threshold=0.4)
         if inDomain:
@@ -62,8 +84,6 @@ class Chatbot(object):
     def getResponseOnRootDomains(self, target=None):
 
         """
-
-
         Send back a response and some history information based on the former
         result that came from rule_match().
 
@@ -88,8 +108,9 @@ class Chatbot(object):
         try:
             status,response = handler.get_response(self.speech, self.speech_domain, target)
         except AttributeError:
-            # It will happen when we call a module which have not implemented.
-            # For more detail, please refer task_modules/module_switch.py, task.py
+            # It will happen when calling a module which have not implemented.
+            # If you require more detailed information,
+            # please refer module_switch.py and  task.py in the folder "task_modules".
             print("Handler of '%s' have not implemented" % self.root_domain)
             return [None,None,None,None]
 
@@ -103,6 +124,8 @@ class Chatbot(object):
             target,candiates = handler.get_query()
             handler.debug(self.extract_attr_log)
             return [response,status,target,candiates]
+
+    def getResponseOnCustomDomain(self, sentence, apiKey):
 
 
     def listenForQuestionAnswering(self, sentence, apiKey=None):
@@ -175,10 +198,3 @@ class Chatbot(object):
         handler = switch.get_handler(domain)
 
         return handler
-
-
-    def getCustomQARules(self, key):
-        """
-        """
-        #TODO
-        return None

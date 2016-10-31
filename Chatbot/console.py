@@ -8,10 +8,6 @@ import jieba.analyse
 
 import RuleMatcher.rulebase as rulebase
 
-def main():
-    console = Console()
-    console.listen() # goto interactive mode.
-
 class Console(object):
 
     """
