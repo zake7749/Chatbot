@@ -50,7 +50,7 @@ class MedicalListener(Task):
 
         if log is not None:
             log.write("Current status is:\n")
-            log.write(json.dumps(self.symptom_dic, indent=2))
+            log.write(json.dumps(self.symptom_dic, indent=2,ensure_ascii=False))
 
     def restore(self, memory):
 
