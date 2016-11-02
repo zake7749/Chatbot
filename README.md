@@ -45,7 +45,12 @@ c = console.Console(model_path='your_model')
 
 ### 聊天機器人
 
-演示可見 `python3 chatbot.py`
+```python
+import Chatbot.chatbot as chatbot
+
+chatter = chatbot.Chatbot()
+chatter.waiting_loop()
+```
 
 ### 計算匹配度
 
