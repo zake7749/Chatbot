@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import os
+import random
 
 import console
 import task_modules.module_switch as module_switch
@@ -22,12 +23,19 @@ class Chatbot(object):
         cur_dir = os.getcwd()
         os.chdir(os.path.dirname(__file__))
         self.extract_attr_log = open('log/extract_arrt.log','w',encoding='utf-8')
+        self.exception_log = open('log/exception.log','w',encoding='utf-8')
         os.chdir(cur_dir)
 
         self.console = console.Console(model_path="model/ch-corpus-3sg.bin")
 
         self.custom_rulebase = crb.CustomRuleBase() # for one time matching.
         self.custom_rulebase.model = self.console.rb.model # pass word2vec model
+
+        self.default_response = [
+            "是嗎?",
+            "我不太明白你的意思",
+            "原來如此"
+        ]
 
     def waiting_loop(self):
 
@@ -59,7 +67,7 @@ class Chatbot(object):
             module want to confirm.
             - api_key : for recognizing the user and get his custom rule/QAs.
 
-        Return:
+        Return: [response,status,target,candiates]
             - response : Based on the result of modules or a default answer.
             - status   : It would be the module's current status if the user has
                          been sent into any module and had not left it.
@@ -82,7 +90,7 @@ class Chatbot(object):
         is_confident = self.rule_match(sentence, threshold=0.4)
 
         if is_confident:
-            response,stauts,target,candiates = self.getResponseOnRootDomains(target,api_key)
+            response,stauts,target,candiates = self.getResponseOnRootDomains(target)
             return response,stauts,target,candiates
 
         # The result based on custom rules and general rules are not confident.
@@ -92,7 +100,12 @@ class Chatbot(object):
             response = self.getResponseForCustomQA(sentence,api_key)
             if response is None:
                 response = self.getResponseForGeneralQA(sentence)
-            return response,None,None,None
+            if response is not None:
+                return response,None,None,None
+            else:
+                # This query has too low similarity for all matching methods.
+                # We can only send back a default response.
+                return self.getDefaultResponse(),None,None,None
 
     def getResponseOnRootDomains(self, target=None):
 
@@ -124,11 +137,13 @@ class Chatbot(object):
             # It will happen when calling a module which have not implemented.
             # If you require more detailed information,
             # please refer module_switch.py and  task.py in the folder "task_modules".
-            print("Handler of '%s' have not implemented" % self.root_domain)
-            return [None,None,None,None]
+            exception = "Handler of '%s' have not implemented" % self.root_domain
+            print(exception)
+            self.exception_log.write(exception)
+            return [self.getDomainResponse(),None,None,None]
 
         if response is None:
-            response = self.get_response()
+            response = self.getDomainResponse()
 
         if status is None:
             # One pass talking, this sentence does not belong to any task.
@@ -150,6 +165,7 @@ class Chatbot(object):
         if api_key is None:
             return None
         else:
+            #TODO 根據 api_key 調適 self.custom_rulebase
             pass
 
     def getResponseForGeneralQA(self, sentence):
@@ -158,6 +174,7 @@ class Chatbot(object):
         Listen user's input and return a response which is based on our
         knowledge base.
         """
+        #TODO 接上 QA bot
         pass
 
     def getResponseForCustomQA(self,sentence,api_key):
@@ -168,7 +185,9 @@ class Chatbot(object):
         """
         if api_key is None:
             return None
-        
+
+        #TODO 接上 QA bot
+        return None
 
     def getLoggerData(self):
         return [self.root_domain,
@@ -194,20 +213,27 @@ class Chatbot(object):
         else:
             return True
 
-    def get_response(self, domain=None):
+    def getDomainResponse(self, domain=None):
         """
         Generate a response to user's speech.
-        Please note that this response is pre-defined in the json file,
+        Please note that this response is *pre-defined in the json file*,
         is not the result return by sub_module.
         """
         if domain is None:
             domain = self.speech_domain
         response = self.console.get_response(domain)
+        return response
 
-        if response is None:
-            return "我猜你提的和「%s」有關, 不過目前還不知道該怎麼回應 :<" % self.speech_domain
-        else:
-            return response
+    def getDefaultResponse(self, query=None):
+
+        """
+        Send back a default response.
+        """
+
+        #TODO 根據 Query 的類型調整 default response
+        # 如問句 -> 是嗎
+        # 問關於 Chatbot 本身的行為 -> 別再提我的事了 etc
+        return self.default_response[random.randrange(0,len(self.default_response))]
 
     def _set_root_domain(self):
 
