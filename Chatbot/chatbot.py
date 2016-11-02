@@ -107,6 +107,9 @@ class Chatbot(object):
                 # We can only send back a default response.
                 return self.getDefaultResponse(),None,None,None
 
+                #TODO 
+                # Use generative model to solve this case
+
     def getResponseOnRootDomains(self, target=None):
 
         """
