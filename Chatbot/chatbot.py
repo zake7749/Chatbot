@@ -5,6 +5,7 @@ import random
 import console
 import task_modules.module_switch as module_switch
 import RuleMatcher.customRuleBase as crb
+import QuestionAnswering.qaBase as qa
 
 class Chatbot(object):
 
@@ -26,10 +27,13 @@ class Chatbot(object):
         self.exception_log = open('log/exception.log','w',encoding='utf-8')
         os.chdir(cur_dir)
 
+        # For rule matching
         self.console = console.Console(model_path="model/ch-corpus-3sg.bin")
-
         self.custom_rulebase = crb.CustomRuleBase() # for one time matching.
         self.custom_rulebase.model = self.console.rb.model # pass word2vec model
+
+        # For QA
+        self.answerer = qa.Answerer()
 
         self.default_response = [
             "是嗎?",
@@ -107,7 +111,7 @@ class Chatbot(object):
                 # We can only send back a default response.
                 return self.getDefaultResponse(),None,None,None
 
-                #TODO 
+                #TODO
                 # Use generative model to solve this case
 
     def getResponseOnRootDomains(self, target=None):
@@ -177,8 +181,7 @@ class Chatbot(object):
         Listen user's input and return a response which is based on our
         knowledge base.
         """
-        #TODO 接上 QA bot
-        pass
+        return self.answerer.getResponse(sentence)
 
     def getResponseForCustomQA(self,sentence,api_key):
 
@@ -188,9 +191,7 @@ class Chatbot(object):
         """
         if api_key is None:
             return None
-
-        #TODO 接上 QA bot
-        return None
+        return self.answerer.getResponse(sentence,api_key)
 
     def getLoggerData(self):
         return [self.root_domain,

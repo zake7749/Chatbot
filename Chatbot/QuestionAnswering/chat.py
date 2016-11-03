@@ -10,7 +10,7 @@ import logging
 def main():
 
     chatter = GossipBot()
-    #chatter.randomTalks()
+    #chatter.randomTalks(num=1000)
     chatter.chatTime()
 
 
@@ -57,7 +57,11 @@ class GossipBot(object):
             return reply
 
     def randomPick(self, answers):
-        return answers[random.randrange(0,len(answers))][0]
+        try:
+            answer = answers[random.randrange(0,len(answers))][0]
+        except:
+            answer = "沒有資料"
+        return answer
 
     def randomTalks(self, num=100):
         with open("data/Titles.txt",'r',encoding='utf-8') as data:
@@ -65,7 +69,7 @@ class GossipBot(object):
         for i in range(0,num):
             query = titles[random.randrange(0,len(titles))]
             print("User: " + query)
-            print("MianBot: " +self.getResponse(query))
+            print("MianBot: " +self.getResponse(query) + "\n")
 
 if __name__=="__main__":
     main()

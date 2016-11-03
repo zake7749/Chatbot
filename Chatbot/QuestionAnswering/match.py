@@ -2,13 +2,10 @@ import json
 import os
 import random
 
-from responsesEvaluate import Evaluator
-from Matcher.fuzzyMatcher import FuzzyMatcher
-from Matcher.wordWeightMatcher import WordWeightMatcher
-from Matcher.matcher import Matcher
-
-def main():
-    matcherTesting("Fuzzy",removeStopWords=False)
+from .responsesEvaluate import Evaluator
+from .Matcher.fuzzyMatcher import FuzzyMatcher
+from .Matcher.wordWeightMatcher import WordWeightMatcher
+from .Matcher.matcher import Matcher
 
 def getMatcher(matcherType,removeStopWords=False):
 
@@ -38,13 +35,15 @@ def getMatcher(matcherType,removeStopWords=False):
 def matcherTesting(matcherType,removeStopWords=False):
 
     matcher = getMatcher(matcherType,removeStopWords)
+    cur_path = os.path.dirname(__file__)
+
     while True:
         query = input("隨便說些什麼吧: ")
         title,index = matcher.match(query)
         sim = matcher.getSimilarity()
         print("最為相似的標題是 %s ，相似度為 %d " % (title,sim))
 
-        res = json.load(open(os.path.join("data/processed/reply/",str(int(index/1000))+'.json'),'r',encoding='utf-8'))
+        res = json.load(open(os.path.join(cur_path+"data/processed/reply/",str(int(index/1000))+'.json'),'r',encoding='utf-8'))
         targetId = index % 1000
         #randomId = random.randrange(0,len(res[targetId]))
 
@@ -63,8 +62,11 @@ def woreWeightMatch():
 
 def fuzzyMatch(cleansw=False):
 
+    cur_dir = os.getcwd()
+    os.chdir(os.path.dirname(__file__))
     fuzzyMatcher = FuzzyMatcher(segLib="Taiba",removeStopWords=cleansw)
     fuzzyMatcher.loadTitles(path="data/Titles.txt")
+    os.chdir(cur_dir)
 
     if cleansw:
         fuzzyMatcher.TitlesSegmentation(cleansw)
@@ -79,7 +81,3 @@ def fuzzyMatch(cleansw=False):
     #fuzzyMatcher.loadStopWords(path="data/stopwords/chinese_sw.txt")
     #fuzzyMatcher.loadStopWords(path="data/stopwords/ptt_words.txt")
     #fuzzyMatcher.loadStopWords(path="data/stopwords/specialMarks.txt")
-
-
-if __name__ == '__main__':
-    main()

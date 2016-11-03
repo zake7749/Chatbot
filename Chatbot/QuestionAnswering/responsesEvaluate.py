@@ -7,7 +7,7 @@ from collections import defaultdict
 from gensim import corpora
 
 # 引入斷詞與停用詞的配置
-from Matcher.matcher import Matcher
+from .Matcher.matcher import Matcher
 
 class Evaluator(Matcher):
     """
@@ -21,7 +21,8 @@ class Evaluator(Matcher):
         self.segResponses = []
         self.totalWords = 0
 
-        self.debugLog = open("data/EvaluateLog.txt",'w',encoding="utf-8")
+        self.path = os.path.dirname(__file__)
+        self.debugLog = open(self.path + "/data/EvaluateLog.txt",'w',encoding="utf-8")
 
         self.filteredWords = set() # 必須濾除的回應
 
@@ -29,9 +30,9 @@ class Evaluator(Matcher):
         self.tokenDictionary = None # 用於分配詞 id，與建置詞袋
 
         # 中文停用詞與特殊符號加載
-        self.loadStopWords(path="data/stopwords/chinese_sw.txt")
-        self.loadStopWords(path="data/stopwords/specialMarks.txt")
-        self.loadFilterdWord(path="data/stopwords/ptt_words.txt")
+        self.loadStopWords(path=self.path + "/data/stopwords/chinese_sw.txt")
+        self.loadStopWords(path=self.path + "/data/stopwords/specialMarks.txt")
+        self.loadFilterdWord(path=self.path + "/data/stopwords/ptt_words.txt")
 
     def cleanFormerResult(self):
         """
