@@ -138,7 +138,7 @@ class Evaluator(Matcher):
                     meanful += math.log(wordWeight,10)
                 cur_grade += wordWeight
 
-            cur_grade = cur_grade * meanful / math.log(len(self.segResponses[i])+1,avgWords)
+            cur_grade = cur_grade * meanful / (math.log(len(self.segResponses[i])+1,avgWords) + 1)
             candiates.append([self.responses[i],cur_grade])
 
             if debug:
