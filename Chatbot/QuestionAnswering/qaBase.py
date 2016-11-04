@@ -14,10 +14,10 @@ class Answerer(object):
 
         self.matcher = getMatcher(matcherType="Fuzzy")
         self.evaluator = Evaluator()
-        self.testSegment()
+        self.moduleTest()
 
-    def testSegment(self):
-        logging.info("測試斷詞模塊中")
+    def moduleTest(self):
+        logging.info("測試問答與斷詞模塊中...")
         try:
             self.matcher.wordSegmentation("測試一下斷詞")
             logging.info("測試成功")

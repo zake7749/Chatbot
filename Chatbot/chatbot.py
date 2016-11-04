@@ -33,7 +33,9 @@ class Chatbot(object):
         self.custom_rulebase.model = self.console.rb.model # pass word2vec model
 
         # For QA
-        self.answerer = qa.Answerer()
+        self.github_qa_unupdated = False
+        if not self.github_qa_unupdated:
+            self.answerer = qa.Answerer()
 
         self.default_response = [
             "是嗎?",
@@ -78,6 +80,10 @@ class Chatbot(object):
             - target   : Refer to get_query() in task_modules/task.py
             - candiates: Refer to get_query() in task_modules/task.py
         """
+        response = None
+        stauts = None
+        target = None
+        candiates = None
 
         #FIXME
         # @zake7749
@@ -181,6 +187,9 @@ class Chatbot(object):
         Listen user's input and return a response which is based on our
         knowledge base.
         """
+        if self.github_qa_unupdated:
+            return None
+
         return self.answerer.getResponse(sentence)
 
     def getResponseForCustomQA(self,sentence,api_key):
@@ -189,6 +198,9 @@ class Chatbot(object):
         Listen user's input and return a response which is based on a cutsom
         knowledge base.
         """
+        if self.github_qa_unupdated:
+            return None
+
         if api_key is None:
             return None
         return self.answerer.getResponse(sentence,api_key)

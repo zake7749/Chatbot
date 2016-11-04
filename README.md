@@ -35,11 +35,13 @@ Chatbot 透過將語句向量化來計算主題相似度，再依結果提供迎
 * 安裝 python3 開發環境
 * 安裝 [gensim – Topic Modelling in Python](https://github.com/RaRe-Technologies/gensim)
 * 安裝 [jieba 结巴中文分词 ](https://github.com/fxsjy/jieba)
+* 安裝 [Taiba 中文分詞](https://github.com/fann1993814/Taiba) : QA 使用，可以更換為 jieba 模組
 * 有已訓練好的中文詞向量，並根據檔案位置調整 `Console class` 的初始化參數。
 ```python
 import Chatbot.console as console
 c = console.Console(model_path='your_model')
 ```
+* *目前問答系統的資料集尚未上傳至 Github，預設關閉問答模組 `self.github_qa_unupdated=True`*
 
 ## 使用方式
 
@@ -113,4 +115,3 @@ c.write_output(speech,res,path)
 ## TODO
 * 追加規則案例
 * 實作平台 adapter
-
