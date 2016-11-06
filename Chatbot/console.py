@@ -5,13 +5,14 @@ import os
 
 import jieba
 import jieba.analyse
+
 import RuleMatcher.rulebase as rulebase
 
-def main():
-    console = Console()
-    console.listen() # goto interactive mode.
-
 class Console(object):
+
+    """
+    Build some nlp function as an package.
+    """
 
     def __init__(self,model_path="model/ch-corpus-3sg.bin",
                  rule_path="RuleMatcher/rule/",
@@ -19,7 +20,6 @@ class Console(object):
                  jieba_dic="jieba_dict/dict.txt.big",
                  jieba_user_dic="jieba_dict/userdict.txt"):
         print("[Console] Building a console...")
-        print("*********************************")
         try:
 
             cur_dir = os.getcwd()
@@ -34,11 +34,8 @@ class Console(object):
             self.rb = rulebase.RuleBase()
             print("[Console] Loading vector model...")
             self.rb.load_model(model_path)
-            print("[Console] Vector model has loaded.")
             print("[Console] Loading pre-defined rules.")
             self.rb.load_rules_from_dic(rule_path)
-            print("[Console] Rules have loaded.")
-            print("*********************************")
             print("[Console] Initialized successfully :>")
 
             os.chdir(cur_dir)
@@ -162,7 +159,7 @@ class Console(object):
         else:
             keyword = self.word_segment(sentence)
 
-        if search_from is None: # use for rule matching.
+        if search_from is None: # use for classification (rule matching).
             result_list,path = self.rb.match(keyword,threshold=0.1)
         else:  # use for reasoning.
             result_list,path = self.rb.match(keyword,threshold=0.1,root=search_from)
@@ -171,6 +168,7 @@ class Console(object):
             return [result_list[0], path]
         else:
             return [result_list, path]
+
 
     def get_response(self, rule_id):
 

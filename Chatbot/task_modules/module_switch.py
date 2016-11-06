@@ -1,7 +1,10 @@
+# coding=utf-8
+
 """
 This class is for building and return a task handler
 based on the task's domain.
 """
+
 from .medicine import medicine
 from .other.weather import Weather
 from .other.stock import Stock

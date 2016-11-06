@@ -204,6 +204,9 @@ class RuleBase(object):
         Return:
             a list holds the top k-th rules and the classification tree travel path.
         """
+
+        log = open("matching_log.txt",'w',encoding='utf-8')
+
         assert self.model is not None, "Please load the model before any match."
 
         result_list  = []
@@ -224,6 +227,14 @@ class RuleBase(object):
 
             result_list = sorted(result_list, reverse=True , key=lambda k: k[0])
             top_domain  = result_list[0][1] # get the best matcher's term.
+
+            #Output matching_log.
+            log.write("---")
+            for result in result_list:
+                s,d,m = result
+                log.write("Sim: %f, Domain: %s, Matchee: %s\n" % (s,d,m))
+            log.write("---")
+
 
             if self.rules[top_domain].has_child():
                 result_list = []
