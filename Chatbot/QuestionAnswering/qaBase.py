@@ -40,14 +40,14 @@ class Answerer(object):
         title,index = self.matcher.match(query)
         sim = self.matcher.getSimilarity()
         if sim < threshold:
-            return None
+            return None,0
         else:
             res = json.load(open(os.path.join(self.path+"/data/processed/reply/",str(int(index/1000))+'.json'),
                             'r',encoding='utf-8'))
             targetId = index % 1000
             candiates = self.evaluator.getBestResponse(res[targetId],topk=3)
             reply = self.randomPick(candiates)
-            return reply
+            return reply,sim
 
     def randomPick(self, answers):
         try:
@@ -56,8 +56,8 @@ class Answerer(object):
             answer = None
         return answer
 
-    def getCustomQA(self, sentence, api_key):
+    def getCustomQA(self, sentence, api_key, threshold=50):
 
         #TODO GET USER'S QA BY api_key
         #customqa_list = json.loads(getUserQA(api_key))
-        return None
+        return None,0

@@ -33,7 +33,7 @@ class Chatbot(object):
         self.custom_rulebase.model = self.console.rb.model # pass word2vec model
 
         # For QA
-        self.github_qa_unupdated = True
+        self.github_qa_unupdated = False
         if not self.github_qa_unupdated:
             self.answerer = qa.Answerer()
 
@@ -52,7 +52,7 @@ class Chatbot(object):
             res = self.listen(speech)
             print(res[0])
 
-    def listen(self, sentence, target=None, api_key=None):
+    def listen(self, sentence, target=None, api_key=None, qa_block_threshold=80):
 
         """
         listen function is to encapsulate the following getResponse methods:
@@ -90,6 +90,15 @@ class Chatbot(object):
         # 區隔 custom rule 與 root rule 匹配的原因是 custom rule 並不支援多段式應答
         # 若後續在模組上進行更動，可考慮將兩者合併，透過辨識 api_key 的有無來修改操作
 
+        # First of all,
+        # Assume this sentence is for qa, but use a very high threshold.
+        cqa_response,cqa_sim = self.getResponseForCustomQA(sentence,api_key)
+        if cqa_sim > qa_block_threshold:
+            return cus_response,None,None,None
+        gqa_response,gqa_sim = self.getResponseForGeneralQA(sentence)
+        if gqa_sim > qa_block_threshold:
+            return gqa_response,None,None,None
+
         # matching on custom rules.
         response = self.getResponseOnCustomDomain(sentence, api_key)
         if response is not None:
@@ -104,14 +113,13 @@ class Chatbot(object):
             return response,stauts,target,candiates
 
         # The result based on custom rules and general rules are not confident.
-        # Assume that there are no intent in the sentence, do query matching for
-        # question answering.
+        # Assume that there are no intent in the sentence, consider this questions
+        # is qa again, but this time use a smaller threshold.
         else:
-            response = self.getResponseForCustomQA(sentence,api_key)
-            if response is None:
-                response = self.getResponseForGeneralQA(sentence)
-            if response is not None:
-                return response,None,None,None
+            if cqa_sim > 50:
+                return cus_response,None,None,None
+            elif gqa_sim > 50:
+                return gqa_response,None,None,None
             else:
                 # This query has too low similarity for all matching methods.
                 # We can only send back a default response.
@@ -186,9 +194,12 @@ class Chatbot(object):
         """
         Listen user's input and return a response which is based on our
         knowledge base.
+
+        Return:
+            answer, similarity
         """
         if self.github_qa_unupdated:
-            return None
+            return None, 0
 
         return self.answerer.getResponse(sentence)
 
@@ -197,12 +208,15 @@ class Chatbot(object):
         """
         Listen user's input and return a response which is based on a cutsom
         knowledge base.
+
+        Return:
+            answer, similarity
         """
         if self.github_qa_unupdated:
-            return None
+            return None, 0
 
         if api_key is None:
-            return None
+            return None, 0
         return self.answerer.getResponse(sentence,api_key)
 
     def getLoggerData(self):
