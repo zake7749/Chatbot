@@ -52,7 +52,7 @@ class Chatbot(object):
             res = self.listen(speech)
             print(res[0])
 
-    def listen(self, sentence, target=None, api_key=None, qa_block_threshold=80):
+    def listen(self, sentence, target=None, api_key=None, qa_threshold=50, qa_block_threshold=80):
 
         """
         listen function is to encapsulate the following getResponse methods:
@@ -92,12 +92,7 @@ class Chatbot(object):
 
         # First of all,
         # Assume this sentence is for qa, but use a very high threshold.
-        cqa_response,cqa_sim = self.getResponseForCustomQA(sentence,api_key)
-        if cqa_sim > qa_block_threshold:
-            return cus_response,None,None,None
-        gqa_response,gqa_sim = self.getResponseForGeneralQA(sentence)
-        if gqa_sim > qa_block_threshold:
-            return gqa_response,None,None,None
+
 
         # matching on custom rules.
         response = self.getResponseOnCustomDomain(sentence, api_key)
@@ -188,6 +183,21 @@ class Chatbot(object):
         else:
             #TODO 根據 api_key 調適 self.custom_rulebase
             pass
+
+    def getResponseForQA(self, sentence, api_key, threshold):
+        """
+        Encapsulate getResponseForGeneralQA, getResponseForCustomQA
+        """
+        cqa_response,cqa_sim = self.getResponseForCustomQA(sentence,api_key)
+        if cqa_sim > threshold:
+            return cus_response,cqa_sim
+
+        gqa_response,gqa_sim = self.getResponseForGeneralQA(sentence)
+        if gqa_sim > threshold:
+            return gqa_response,gqa_sim
+        elif:
+            return None,0
+
 
     def getResponseForGeneralQA(self, sentence):
 

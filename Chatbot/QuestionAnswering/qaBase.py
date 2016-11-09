@@ -35,7 +35,7 @@ class Answerer(object):
             response = self.getGeneralQA(sentence)
         return response
 
-    def getGeneralQA(self,query,threshold=50):
+    def getGeneralQA(self,query,threshold=0):
 
         title,index = self.matcher.match(query)
         sim = self.matcher.getSimilarity()
