@@ -52,7 +52,7 @@ class Chatbot(object):
             res = self.listen(speech)
             print(res[0])
 
-    def listen(self, sentence, target=None, api_key=None, qa_threshold=50, qa_block_threshold=80):
+    def listen(self, sentence, target=None, api_key=None, qa_threshold=50, qa_block_threshold=75):
 
         """
         listen function is to encapsulate the following getResponse methods:
@@ -92,7 +92,9 @@ class Chatbot(object):
 
         # First of all,
         # Assume this sentence is for qa, but use a very high threshold.
-
+        qa_response, qa_sim = self.getResponseForQA(sentence,api_key,qa_threshold)
+        if qa_sim > qa_block_threshold:
+            return qa_response,None,None,None,None
 
         # matching on custom rules.
         response = self.getResponseOnCustomDomain(sentence, api_key)
@@ -111,10 +113,8 @@ class Chatbot(object):
         # Assume that there are no intent in the sentence, consider this questions
         # is qa again, but this time use a smaller threshold.
         else:
-            if cqa_sim > 50:
-                return cus_response,None,None,None
-            elif gqa_sim > 50:
-                return gqa_response,None,None,None
+            if qa_sim > 60:
+                return qa_response,None,None,None
             else:
                 # This query has too low similarity for all matching methods.
                 # We can only send back a default response.
@@ -187,17 +187,18 @@ class Chatbot(object):
     def getResponseForQA(self, sentence, api_key, threshold):
         """
         Encapsulate getResponseForGeneralQA, getResponseForCustomQA
+
+        Return:
+            - response, similarity
+            if the similarity < threshold will return None,0.
         """
         cqa_response,cqa_sim = self.getResponseForCustomQA(sentence,api_key)
         if cqa_sim > threshold:
             return cus_response,cqa_sim
-
         gqa_response,gqa_sim = self.getResponseForGeneralQA(sentence)
         if gqa_sim > threshold:
             return gqa_response,gqa_sim
-        elif:
-            return None,0
-
+        return None,0
 
     def getResponseForGeneralQA(self, sentence):
 
