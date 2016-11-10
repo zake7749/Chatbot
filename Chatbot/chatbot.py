@@ -9,7 +9,7 @@ import QuestionAnswering.qaBase as qa
 
 class Chatbot(object):
 
-    def __init__(self, name="NCKU"):
+    def __init__(self, name="MianBot"):
         self.name = name             # The name of chatbot.
 
         self.speech = ''             # The lastest user's input
@@ -52,7 +52,7 @@ class Chatbot(object):
             res = self.listen(speech)
             print(res[0])
 
-    def listen(self, sentence, target=None, api_key=None, qa_threshold=50, qa_block_threshold=75):
+    def listen(self, sentence, target=None, api_key=None, qa_threshold=50, qa_block_threshold=80):
 
         """
         listen function is to encapsulate the following getResponse methods:
@@ -192,6 +192,11 @@ class Chatbot(object):
             - response, similarity
             if the similarity < threshold will return None,0.
         """
+
+        #FIXME Remove this flag when all have done.
+        if self.github_qa_unupdated:
+            return None, 0
+
         cqa_response,cqa_sim = self.getResponseForCustomQA(sentence,api_key)
         if cqa_sim > threshold:
             return cus_response,cqa_sim
@@ -223,11 +228,9 @@ class Chatbot(object):
         Return:
             answer, similarity
         """
-        if self.github_qa_unupdated:
-            return None, 0
-
         if api_key is None:
             return None, 0
+
         return self.answerer.getResponse(sentence,api_key)
 
     def getLoggerData(self):
