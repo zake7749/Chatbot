@@ -1,6 +1,6 @@
 # coding=utf-8
-
 import json
+import random
 
 from .rulebase import RuleBase
 
@@ -20,6 +20,9 @@ class CustomRuleBase(RuleBase):
         Args:
             - sentence : 用戶輸入
             - apiKey   : 該名會員的聊天機器人金鑰
+
+        Return: response, 暫時目標 FIXME
+            - response : 批配出最適合的主題後，挑選用戶於該主題定義的句子隨機挑一回覆
         """
         # 清空之前讀入的規則
         self.rules.clear()
@@ -30,7 +33,12 @@ class CustomRuleBase(RuleBase):
         self.buildCustomRules(customRules)
 
         # 進行比對
-        return self.match(sentence, threshold=customThreshold, root=apiKey)
+        result_list,path = self.match(sentence, threshold=0.4, root=apiKey)
+
+        # 取出最佳主題的自訂回覆集, 並隨機挑一句回覆
+        bestResult = customRules[result_list[0]]
+        return bestResult["response"][random.randrange(0,len(bestResult["response"]))]
+
 
     def buildCustomRules(self, rules):
 

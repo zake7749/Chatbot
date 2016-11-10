@@ -180,9 +180,9 @@ class Chatbot(object):
         """
         if api_key is None:
             return None
-        else:
-            #TODO 根據 api_key 調適 self.custom_rulebase
-            pass
+
+        #TODO 調適為能夠進行「多段式對話」
+        return customMatch(sentence, api_key)
 
     def getResponseForQA(self, sentence, api_key, threshold):
         """
