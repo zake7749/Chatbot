@@ -2,7 +2,7 @@
 import json
 import random
 
-from .rulebase import RuleBase
+from .rulebase import RuleBase,Rule
 
 class CustomRuleBase(RuleBase):
 
@@ -12,14 +12,14 @@ class CustomRuleBase(RuleBase):
 
     #TODO 客製化的「階段式對話」
 
-    def customMatch(self, sentence, apiKey):
+    def customMatch(self, sentence, api_key):
 
         """
         比對 sentence 與用戶自定義的規則
 
         Args:
             - sentence : 用戶輸入
-            - apiKey   : 該名會員的聊天機器人金鑰
+            - api_key   : 該名會員的聊天機器人金鑰
 
         Return: response, 暫時目標 FIXME
             - response : 批配出最適合的主題後，挑選用戶於該主題定義的句子隨機挑一回覆
@@ -28,17 +28,19 @@ class CustomRuleBase(RuleBase):
         self.rules.clear()
 
         # 重新建構規則表
-        customRules = self.getCustomDomainRules(apiKey)
-        customRules = json.loads(customRules)
-        self.buildCustomRules(customRules)
+        custom_rules = self.getCustomDomainRules(api_key)
+        custom_rules = json.loads(custom_rules)
+        self.buildCustomRules(custom_rules)
 
         # 進行比對
-        result_list,path = self.match(sentence, threshold=0.4, root=apiKey)
+        result_list,path = self.match(sentence, threshold=0.4, root=api_key)
 
         # 取出最佳主題的自訂回覆集, 並隨機挑一句回覆
-        bestResult = customRules[result_list[0]]
-        return bestResult["response"][random.randrange(0,len(bestResult["response"]))]
+        best_domain = result_list[0][1]
+        target_rule = self.rules[best_domain]
+        res_num = target_rule.has_response()
 
+        return target_rule.response[random.randrange(0,res_num)]
 
     def buildCustomRules(self, rules):
 
