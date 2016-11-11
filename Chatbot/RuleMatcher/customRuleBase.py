@@ -12,7 +12,7 @@ class CustomRuleBase(RuleBase):
 
     #TODO 客製化的「階段式對話」
 
-    def customMatch(self, sentence, api_key):
+    def customMatch(self, sentence, api_key, threshold):
 
         """
         比對 sentence 與用戶自定義的規則
@@ -35,6 +35,10 @@ class CustomRuleBase(RuleBase):
         # 進行比對
         result_list,path = self.match(sentence, threshold=0.4, root=api_key)
 
+        # 確認最佳回應的有效性
+        if result_list[0][0] < threshold:
+            return None
+            
         # 取出最佳主題的自訂回覆集, 並隨機挑一句回覆
         best_domain = result_list[0][1]
         target_rule = self.rules[best_domain]

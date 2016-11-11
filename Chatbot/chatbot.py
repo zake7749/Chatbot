@@ -146,7 +146,7 @@ class Chatbot(object):
         status   = None
         response = None
 
-        handler = self.get_task_handler()
+        handler = self._get_task_handler()
 
         try:
             status,response = handler.get_response(self.speech, self.speech_domain, target)
@@ -170,20 +170,22 @@ class Chatbot(object):
             handler.debug(self.extract_attr_log)
             return [response,status,target,candiates]
 
-    def getResponseOnCustomDomain(self, sentence, api_key):
+    def getResponseOnCustomDomain(self, sentence, api_key, threshold=.4):
         """
         Fetch user's custom rules by api_key and then match the sentence with
         custom rules.
 
         Args:
             - sentence: user's raw input. (not segmented)
-            - api_key
+            - api_key : a string to recognize the user and get rules defined by him/she.
+            - threshold : a value between 0 to 1, to block the response which
+              has a similarity lower than threshold.
         """
         if api_key is None:
             return None
 
         #TODO 調適為能夠進行「多段式對話」
-        return self.custom_rulebase.customMatch(sentence, api_key)
+        return self.custom_rulebase.customMatch(sentence, api_key, threshold)
 
     def getResponseForQA(self, sentence, api_key, threshold):
         """
@@ -290,7 +292,7 @@ class Chatbot(object):
         else:
             self.root_domain = self.last_path.split('>')[0]
 
-    def get_task_handler(self, domain=None):
+    def _get_task_handler(self, domain=None):
 
         """
         Get the instance of task handler based on the given domain.
