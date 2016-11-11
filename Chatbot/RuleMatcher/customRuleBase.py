@@ -60,9 +60,8 @@ class CustomRuleBase(RuleBase):
             if domain not in self.rules:
                 rule = Rule(domain, concepts_list, children_list, response, self.model)
                 self.rules[domain] = rule
-                if is_root:
-                    self.forest_base_roots.append(rule)
             else:
+                #TODO Block invalided rule type on front end.
                 print("[Rules]: Detect a duplicate domain name '%s'." % domain)
 
     def getCustomDomainRules(self, key):
@@ -70,4 +69,8 @@ class CustomRuleBase(RuleBase):
         依照 apiKey 取得該用戶的規則集
         """
         #TODO
-        return None
+        #FIXME 採用正規方式驗證
+
+        data = '[{"domain": "TESTING","response": ["這是個測試客製化規則的回覆1","這是個測試客製化規則的回覆2"],"concepts": ["測試"],"children": []}]'
+
+        return data

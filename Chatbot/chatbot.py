@@ -97,7 +97,8 @@ class Chatbot(object):
             return qa_response,None,None,None,None
 
         # matching on custom rules.
-        response = self.getResponseOnCustomDomain(sentence, api_key)
+        # FIXME Remove api_key TESTING VALUE
+        response = self.getResponseOnCustomDomain(sentence, api_key="TESTING")
         if response is not None:
             return response,None,None,None
 
@@ -182,7 +183,7 @@ class Chatbot(object):
             return None
 
         #TODO 調適為能夠進行「多段式對話」
-        return customMatch(sentence, api_key)
+        return self.custom_rulebase.customMatch(sentence, api_key)
 
     def getResponseForQA(self, sentence, api_key, threshold):
         """
