@@ -92,7 +92,8 @@ class Chatbot(object):
 
         # First of all,
         # Assume this sentence is for qa, but use a very high threshold.
-        qa_response, qa_sim = self.getResponseForQA(sentence,api_key,qa_threshold)
+        # FIXME Remove api_key TESTING VALUE
+        qa_response, qa_sim = self.getResponseForQA(sentence,"TESTING",qa_threshold)
         if qa_sim > qa_block_threshold:
             return qa_response,None,None,None,None
 
@@ -202,7 +203,7 @@ class Chatbot(object):
 
         cqa_response,cqa_sim = self.getResponseForCustomQA(sentence,api_key)
         if cqa_sim > threshold:
-            return cus_response,cqa_sim
+            return cqa_response,cqa_sim
         gqa_response,gqa_sim = self.getResponseForGeneralQA(sentence)
         if gqa_sim > threshold:
             return gqa_response,gqa_sim

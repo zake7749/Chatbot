@@ -50,6 +50,7 @@ class Answerer(object):
             return reply,sim
 
     def randomPick(self, answers):
+
         try:
             answer = answers[random.randrange(0,len(answers))][0]
         except:
@@ -64,6 +65,13 @@ class Answerer(object):
         #customqa_list = json.loads(getUserQA(api_key))
 
         data = '[{"Question":"你媽長得像魚人","Answers":["你媽也長得像魚人","你比痲瘋地精還臭"]}]'
-        customqa_list = json.load(data)
+        customqa_list = json.loads(data)
 
-        return None,0
+        # Load question to a list.
+        q_list = [qa["Question"] for qa in customqa_list]
+        #TODO  customized threshold.
+        title,index = self.matcher.match(sentence,custom_title=q_list)
+        sim = self.matcher.getSimilarity()
+        if sim < threshold:
+            return None,0
+        return customqa_list[index]["Answers"][random.randrange(0,len(customqa_list[index]["Answers"]))],sim
