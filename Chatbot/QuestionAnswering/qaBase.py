@@ -29,10 +29,10 @@ class Answerer(object):
 
     def getResponse(self, sentence, api_key=None):
 
-        if api_key is not None:
-            response = self.getCustomQA(sentence,api_key)
-        else:
+        if api_key is None:
             response = self.getGeneralQA(sentence)
+        else:
+            response = self.getCustomQA(sentence,api_key)
         return response
 
     def getGeneralQA(self,query,threshold=0):
@@ -59,5 +59,11 @@ class Answerer(object):
     def getCustomQA(self, sentence, api_key, threshold=50):
 
         #TODO GET USER'S QA BY api_key
+        #FIXME REPLACE TESTING DATA TO FORMAL ONE(GET BY DATABASE).
+        #i.e IMPLEMENT getUserQA(api_key)
         #customqa_list = json.loads(getUserQA(api_key))
+
+        data = '[{"Question":"你媽長得像魚人","Answers":["你媽也長得像魚人","你比痲瘋地精還臭"]}]'
+        customqa_list = json.load(data)
+
         return None,0
