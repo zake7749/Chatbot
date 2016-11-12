@@ -42,13 +42,14 @@ class FuzzyMatcher(Matcher):
         else:
             return (raw2,j)
 
-    def match(self, query):
+    def match(self, query, custom_title=None):
         """
         讀入使用者 query，若語料庫中存在類似的句子，便回傳該句子與標號
 
         Args:
             - query: 使用者欲查詢的語句
             - removeStopWords: 清除 stopwords
+            - custom_title: 使用者欲比對的問題集
         """
         ratio  = -1
         target = ""
@@ -60,7 +61,10 @@ class FuzzyMatcher(Matcher):
             mQuery = "".join(mQuery)
             title_list = self.segTitles
         else:
-            title_list = self.titles
+            if custom_title is None:
+                title_list = self.titles
+            else:
+                title_list = custom_title
             mQuery = query
 
         for index,title in enumerate(title_list):

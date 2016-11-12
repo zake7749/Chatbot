@@ -29,35 +29,49 @@ class Answerer(object):
 
     def getResponse(self, sentence, api_key=None):
 
-        if api_key is not None:
-            response = self.getCustomQA(sentence,api_key)
-        else:
+        if api_key is None:
             response = self.getGeneralQA(sentence)
+        else:
+            response = self.getCustomQA(sentence,api_key)
         return response
 
-    def getGeneralQA(self,query,threshold=50):
+    def getGeneralQA(self,query,threshold=0):
 
         title,index = self.matcher.match(query)
         sim = self.matcher.getSimilarity()
         if sim < threshold:
-            return None
+            return None,0
         else:
             res = json.load(open(os.path.join(self.path+"/data/processed/reply/",str(int(index/1000))+'.json'),
                             'r',encoding='utf-8'))
             targetId = index % 1000
             candiates = self.evaluator.getBestResponse(res[targetId],topk=3)
             reply = self.randomPick(candiates)
-            return reply
+            return reply,sim
 
     def randomPick(self, answers):
+
         try:
             answer = answers[random.randrange(0,len(answers))][0]
         except:
             answer = None
         return answer
 
-    def getCustomQA(self, sentence, api_key):
+    def getCustomQA(self, sentence, api_key, threshold=50):
 
         #TODO GET USER'S QA BY api_key
+        #FIXME REPLACE TESTING DATA TO FORMAL ONE(GET BY DATABASE).
+        #i.e IMPLEMENT getUserQA(api_key)
         #customqa_list = json.loads(getUserQA(api_key))
-        return None
+
+        data = '[{"Question":"你媽長得像魚人","Answers":["你媽也長得像魚人","你比痲瘋地精還臭"]}]'
+        customqa_list = json.loads(data)
+
+        # Load question to a list.
+        q_list = [qa["Question"] for qa in customqa_list]
+        #TODO  customized threshold.
+        title,index = self.matcher.match(sentence,custom_title=q_list)
+        sim = self.matcher.getSimilarity()
+        if sim < threshold:
+            return None,0
+        return customqa_list[index]["Answers"][random.randrange(0,len(customqa_list[index]["Answers"]))],sim
