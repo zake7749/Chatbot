@@ -9,7 +9,7 @@ class Stock(object):
 	def __init__(self, console):
 		self.console  = console
 		self.is_close = False
-		
+    
 	def get_response(self,user_input, domain, target):
 		"""
 		Return:
