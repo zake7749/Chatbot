@@ -24,17 +24,16 @@ class Switch(object):
             handler = medicine.MedicalListener(self.console)
         elif domain=="天氣":
             handler = Weather(self.console)
-        elif domain=="股票":
-            handler = Stock(self.console)
-        elif domain=="購買":
-            handler = purchase.PurchaseOperator(self.console)
-        elif domain=="吃喝玩樂":
-            handler = entertainment.entertainment(self.console)
-        elif domain=="住宿":
-            handler = hotel.HotelListener(self.console)
-        else:
-            pass    
-        """
 
-        """
+        #elif domain=="股票":
+        #    handler = Stock(self.console)
+        #elif domain=="購買":
+        #    handler = purchase.PurchaseOperator(self.console)
+        #elif domain=="吃喝玩樂":
+        #    handler = entertainment.entertainment(self.console)
+        #elif domain=="住宿":
+        #    handler = hotel.HotelListener(self.console)
+        else:
+            pass
+            #print("[module_switch]: undefined module name '%s'" % domain)
         return handler
