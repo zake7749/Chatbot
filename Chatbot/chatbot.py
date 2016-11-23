@@ -158,7 +158,7 @@ class Chatbot(object):
             exception = "Handler of '%s' have not implemented" % self.root_domain
             print(exception)
             self.exception_log.write(exception)
-            return [self.getDomainResponse(self.speech_domain),None,None,None]
+            return [self.getDomainResponse(),None,None,None]
 
         if response is None:
             response = self.getDomainResponse()
