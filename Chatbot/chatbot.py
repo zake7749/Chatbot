@@ -1,13 +1,15 @@
 # -*- coding: utf-8 -*-
 import os
+import random
 
 import console
 import task_modules.module_switch as module_switch
 import RuleMatcher.customRuleBase as crb
+import QuestionAnswering.qaBase as qa
 
 class Chatbot(object):
 
-    def __init__(self, name="NCKU"):
+    def __init__(self, name="MianBot"):
         self.name = name             # The name of chatbot.
 
         self.speech = ''             # The lastest user's input
@@ -22,12 +24,24 @@ class Chatbot(object):
         cur_dir = os.getcwd()
         os.chdir(os.path.dirname(__file__))
         self.extract_attr_log = open('log/extract_arrt.log','w',encoding='utf-8')
+        self.exception_log = open('log/exception.log','w',encoding='utf-8')
         os.chdir(cur_dir)
 
+        # For rule matching
         self.console = console.Console(model_path="model/ch-corpus-3sg.bin")
-
         self.custom_rulebase = crb.CustomRuleBase() # for one time matching.
         self.custom_rulebase.model = self.console.rb.model # pass word2vec model
+
+        # For QA
+        self.github_qa_unupdated = True
+        if not self.github_qa_unupdated:
+            self.answerer = qa.Answerer()
+
+        self.default_response = [
+            "是嗎?",
+            "我不太明白你的意思",
+            "原來如此"
+        ]
 
     def waiting_loop(self):
 
@@ -38,7 +52,7 @@ class Chatbot(object):
             res = self.listen(speech)
             print(res[0])
 
-    def listen(self, sentence, target=None, api_key=None):
+    def listen(self, sentence, target=None, api_key=None, qa_threshold=50, qa_block_threshold=80):
 
         """
         listen function is to encapsulate the following getResponse methods:
@@ -59,21 +73,33 @@ class Chatbot(object):
             module want to confirm.
             - api_key : for recognizing the user and get his custom rule/QAs.
 
-        Return:
+        Return: [response,status,target,candiates]
             - response : Based on the result of modules or a default answer.
             - status   : It would be the module's current status if the user has
                          been sent into any module and had not left it.
             - target   : Refer to get_query() in task_modules/task.py
             - candiates: Refer to get_query() in task_modules/task.py
         """
+        response = None
+        stauts = None
+        target = None
+        candiates = None
 
         #FIXME
         # @zake7749
         # 區隔 custom rule 與 root rule 匹配的原因是 custom rule 並不支援多段式應答
         # 若後續在模組上進行更動，可考慮將兩者合併，透過辨識 api_key 的有無來修改操作
 
+        # First of all,
+        # Assume this sentence is for qa, but use a very high threshold.
+        # FIXME Remove api_key TESTING VALUE
+        qa_response, qa_sim = self.getResponseForQA(sentence,"TESTING",qa_threshold)
+        if qa_sim > qa_block_threshold:
+            return qa_response,None,None,None,None
+
         # matching on custom rules.
-        response = self.getResponseOnCustomDomain(sentence, api_key)
+        # FIXME Remove api_key TESTING VALUE
+        response = self.getResponseOnCustomDomain(sentence, api_key="TESTING")
         if response is not None:
             return response,None,None,None
 
@@ -82,17 +108,22 @@ class Chatbot(object):
         is_confident = self.rule_match(sentence, threshold=0.4)
 
         if is_confident:
-            response,stauts,target,candiates = self.getResponseOnRootDomains(target,api_key)
+            response,stauts,target,candiates = self.getResponseOnRootDomains(target)
             return response,stauts,target,candiates
 
         # The result based on custom rules and general rules are not confident.
-        # Assume that there are no intent in the sentence, do query matching for
-        # question answering.
+        # Assume that there are no intent in the sentence, consider this questions
+        # is qa again, but this time use a smaller threshold.
         else:
-            response = self.getResponseForCustomQA(sentence,api_key)
-            if response is None:
-                response = self.getResponseForGeneralQA(sentence)
-            return response,None,None,None
+            if qa_sim > 60:
+                return qa_response,None,None,None
+            else:
+                # This query has too low similarity for all matching methods.
+                # We can only send back a default response.
+                return self.getDefaultResponse(),None,None,None
+
+                #TODO
+                # Use generative model to solve this case
 
     def getResponseOnRootDomains(self, target=None):
 
@@ -116,7 +147,7 @@ class Chatbot(object):
         status   = None
         response = None
 
-        handler = self.get_task_handler()
+        handler = self._get_task_handler()
 
         try:
             status,response = handler.get_response(self.speech, self.speech_domain, target)
@@ -124,11 +155,13 @@ class Chatbot(object):
             # It will happen when calling a module which have not implemented.
             # If you require more detailed information,
             # please refer module_switch.py and  task.py in the folder "task_modules".
-            print("Handler of '%s' have not implemented" % self.root_domain)
-            return [None,None,None,None]
+            exception = "Handler of '%s' have not implemented" % self.root_domain
+            print(exception)
+            self.exception_log.write(exception)
+            return [self.getDomainResponse(self.speech_domain),None,None,None]
 
         if response is None:
-            response = self.get_response()
+            response = self.getDomainResponse()
 
         if status is None:
             # One pass talking, this sentence does not belong to any task.
@@ -138,37 +171,71 @@ class Chatbot(object):
             handler.debug(self.extract_attr_log)
             return [response,status,target,candiates]
 
-    def getResponseOnCustomDomain(self, sentence, api_key):
+    def getResponseOnCustomDomain(self, sentence, api_key, threshold=.4):
         """
         Fetch user's custom rules by api_key and then match the sentence with
         custom rules.
 
         Args:
             - sentence: user's raw input. (not segmented)
-            - api_key
+            - api_key : a string to recognize the user and get rules defined by him/she.
+            - threshold : a value between 0 to 1, to block the response which
+              has a similarity lower than threshold.
         """
         if api_key is None:
             return None
-        else:
-            pass
+
+        #TODO 調適為能夠進行「多段式對話」
+        return self.custom_rulebase.customMatch(sentence, api_key, threshold)
+
+    def getResponseForQA(self, sentence, api_key, threshold):
+        """
+        Encapsulate getResponseForGeneralQA, getResponseForCustomQA
+
+        Return:
+            - response, similarity
+            if the similarity < threshold will return None,0.
+        """
+
+        #FIXME Remove this flag when all have done.
+        if self.github_qa_unupdated:
+            return None, 0
+
+        cqa_response,cqa_sim = self.getResponseForCustomQA(sentence,api_key)
+        if cqa_sim > threshold:
+            return cqa_response,cqa_sim
+        gqa_response,gqa_sim = self.getResponseForGeneralQA(sentence)
+        if gqa_sim > threshold:
+            return gqa_response,gqa_sim
+        return None,0
 
     def getResponseForGeneralQA(self, sentence):
 
         """
         Listen user's input and return a response which is based on our
         knowledge base.
+
+        Return:
+            answer, similarity
         """
-        pass
+        if self.github_qa_unupdated:
+            return None, 0
+
+        return self.answerer.getResponse(sentence)
 
     def getResponseForCustomQA(self,sentence,api_key):
 
         """
         Listen user's input and return a response which is based on a cutsom
         knowledge base.
+
+        Return:
+            answer, similarity
         """
         if api_key is None:
-            return None
-        
+            return None, 0
+
+        return self.answerer.getResponse(sentence,api_key)
 
     def getLoggerData(self):
         return [self.root_domain,
@@ -194,20 +261,27 @@ class Chatbot(object):
         else:
             return True
 
-    def get_response(self, domain=None):
+    def getDomainResponse(self, domain=None):
         """
         Generate a response to user's speech.
-        Please note that this response is pre-defined in the json file,
+        Please note that this response is *pre-defined in the json file*,
         is not the result return by sub_module.
         """
         if domain is None:
             domain = self.speech_domain
         response = self.console.get_response(domain)
+        return response
 
-        if response is None:
-            return "我猜你提的和「%s」有關, 不過目前還不知道該怎麼回應 :<" % self.speech_domain
-        else:
-            return response
+    def getDefaultResponse(self, query=None):
+
+        """
+        Send back a default response.
+        """
+
+        #TODO 根據 Query 的類型調整 default response
+        # 如問句 -> 是嗎
+        # 問關於 Chatbot 本身的行為 -> 別再提我的事了 etc
+        return self.default_response[random.randrange(0,len(self.default_response))]
 
     def _set_root_domain(self):
 
@@ -219,7 +293,7 @@ class Chatbot(object):
         else:
             self.root_domain = self.last_path.split('>')[0]
 
-    def get_task_handler(self, domain=None):
+    def _get_task_handler(self, domain=None):
 
         """
         Get the instance of task handler based on the given domain.

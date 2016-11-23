@@ -178,6 +178,8 @@ class MedicalListener(Task):
             return "胃痛"
         elif subject=="腹部" and description == "痛推理":
             return "腹痛"
+        elif subject=="腹部" and description == "不舒服推理":
+            return "腹脹"
         elif subject=="腹部" and description == "瀉推理":
             return "腹瀉"
         elif subject=="心臟" and description == "痛推理":

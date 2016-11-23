@@ -1,7 +1,10 @@
+# coding=utf-8
+
 """
 This class is for building and return a task handler
 based on the task's domain.
 """
+
 from .medicine import medicine
 from .other.weather import Weather
 from .other.stock import Stock
@@ -23,14 +26,14 @@ class Switch(object):
             handler = Weather(self.console)
         elif domain=="股票":
             handler = Stock(self.console)
-        elif domain=="購買":
-            handler = purchase.PurchaseOperator(self.console)
-        elif domain=="吃喝玩樂":
-            handler = entertainment.entertainment(self.console)
-        elif domain=="住宿":
-            handler = hotel.HotelListener(self.console)
+        #elif domain=="購買":
+        #    handler = purchase.PurchaseOperator(self.console)
+        #elif domain=="吃喝玩樂":
+        #    handler = entertainment.entertainment(self.console)
+        #elif domain=="住宿":
+        #    handler = hotel.HotelListener(self.console)
         else:
-            pass    
+            pass
         """
 
         """

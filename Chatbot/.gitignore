@@ -1,0 +1,11 @@
+*.bin
+__pycache__
+*.pyc
+*.train
+*.model
+*.log
+.DS_Store
+*log.txt
+Taiba
+QuestionAnswering/data/processed/reply
+jieba_dictionary/dict.txt.big
