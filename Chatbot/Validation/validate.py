@@ -22,7 +22,7 @@ class Validator(object):
         with open(path,'r',encoding='utf-8') as input:
             self.sentences = [line.strip('\n') for line in input]
 
-    def valiate(self, match, root_only=False):
+    def validate(self, match, root_only=False):
 
         """
         # TODO APPEND TO TRAINING MODULE
@@ -42,6 +42,7 @@ class Validator(object):
             for sentence in self.sentences:
                 sim,path = match(sentence)
                 if root_only:
+                    #TODO
                     pass
                 else:
                     if path != self.paths[i]:
