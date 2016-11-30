@@ -60,7 +60,7 @@ class MedicalListener(Task):
         Args:
             - memory: 為先前的任務紀錄，儲存已知的症狀
         """
-        self.symptom_dic = json.load(memory)
+        self.symptom_dic = json.loads(memory)
 
     def get_suggest(self):
         return self.doctor_suggest
