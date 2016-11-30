@@ -37,7 +37,7 @@ class MedicalListener(Task):
         if self.doctor_mode:
             return self.doctor_target_attr,["會","不會"]
         else:
-            return None,None
+            return self.doctor_target_attr,None
 
     def debug(self,log=None):
 
