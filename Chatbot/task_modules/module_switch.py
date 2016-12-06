@@ -24,7 +24,6 @@ class Switch(object):
             handler = medicine.MedicalListener(self.console)
         elif domain=="天氣":
             handler = Weather(self.console)
-
         #elif domain=="股票":
         #    handler = Stock(self.console)
         #elif domain=="購買":

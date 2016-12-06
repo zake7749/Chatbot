@@ -14,7 +14,7 @@ class Answerer(object):
         self.general_questions = []
         self.path = os.path.dirname(__file__)
 
-        self.matcher = getMatcher(matcherType="Fuzzy")
+        self.matcher = getMatcher(matcherType="bm25")
         self.evaluator = Evaluator()
         self.moduleTest()
 
