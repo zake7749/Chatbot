@@ -115,7 +115,7 @@ class Chatbot(object):
         # Assume that there are no intent in the sentence, consider this questions
         # is qa again, but this time use a smaller threshold.
         else:
-            if qa_sim > 60:
+            if qa_sim > qa_threshold:
                 return qa_response,None,None,None
             else:
                 # This query has too low similarity for all matching methods.
