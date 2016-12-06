@@ -33,7 +33,7 @@ class Chatbot(object):
         self.custom_rulebase.model = self.console.rb.model # pass word2vec model
 
         # For QA
-        self.github_qa_unupdated = False
+        self.github_qa_unupdated = True
         if not self.github_qa_unupdated:
             self.answerer = qa.Answerer()
 
