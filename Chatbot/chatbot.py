@@ -52,7 +52,7 @@ class Chatbot(object):
             res = self.listen(speech)
             print(res[0])
 
-    def listen(self, sentence, target=None, api_key=None, qa_threshold=50, qa_block_threshold=80):
+    def listen(self, sentence, target=None, api_key=None, qa_threshold=35, qa_block_threshold=60):
 
         """
         listen function is to encapsulate the following getResponse methods:
