@@ -14,7 +14,9 @@ class Answerer(object):
         self.general_questions = []
         self.path = os.path.dirname(__file__)
 
-        self.matcher = getMatcher(matcherType="Fuzzy")
+        self.matcher = getMatcher(matcherType="bm25")
+        self.fuzzy_matcher = getMatcher(matcherType="Fuzzy")
+
         self.evaluator = Evaluator()
         self.moduleTest()
 
@@ -69,9 +71,12 @@ class Answerer(object):
 
         # Load question to a list.
         q_list = [qa["question"] for qa in customqa_list]
-        #TODO  customized threshold.
-        title,index = self.matcher.match(sentence,custom_title=q_list)
-        sim = self.matcher.getSimilarity()
+
+        #TODO 1.  customized threshold.
+
+        #NOTICE: Always choose fuzzy matcher for custom matching.
+        title,index = self.fuzzy_matcher.match(sentence,custom_title=q_list)
+        sim = self.fuzzy_matcher.getSimilarity()
         if sim < threshold:
             return None,0
         return customqa_list[index]["answers"][random.randrange(0,len(customqa_list[index]["answers"]))],sim

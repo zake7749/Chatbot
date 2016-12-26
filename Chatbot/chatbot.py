@@ -9,7 +9,14 @@ import QuestionAnswering.qaBase as qa
 
 class Chatbot(object):
 
-    def __init__(self, name="MianBot"):
+    def __init__(self, name="MianBot", build_console=True):
+
+        """
+        # Args:
+         - build_console: 是否要建構依照詞向量進行主題匹配的 console,
+         如果只需要 qa 模組，可將 build_console 關閉，可見 demo_qa.py
+        """
+
         self.name = name             # The name of chatbot.
 
         self.speech = ''             # The lastest user's input
@@ -27,10 +34,11 @@ class Chatbot(object):
         self.exception_log = open('log/exception.log','w',encoding='utf-8')
         os.chdir(cur_dir)
 
-        # For rule matching
-        self.console = console.Console(model_path="model/ch-corpus-3sg.bin")
-        self.custom_rulebase = crb.CustomRuleBase() # for one time matching.
-        self.custom_rulebase.model = self.console.rb.model # pass word2vec model
+        if build_console:
+            # For rule matching
+            self.console = console.Console(model_path="model/ch-corpus-3sg.bin")
+            self.custom_rulebase = crb.CustomRuleBase() # for one time matching.
+            self.custom_rulebase.model = self.console.rb.model # pass word2vec model
 
         # For QA
         self.github_qa_unupdated = True
@@ -52,7 +60,7 @@ class Chatbot(object):
             res = self.listen(speech)
             print(res[0])
 
-    def listen(self, sentence, target=None, api_key=None, qa_threshold=50, qa_block_threshold=80):
+    def listen(self, sentence, target=None, api_key=None, qa_threshold=35, qa_block_threshold=60):
 
         """
         listen function is to encapsulate the following getResponse methods:
@@ -115,7 +123,7 @@ class Chatbot(object):
         # Assume that there are no intent in the sentence, consider this questions
         # is qa again, but this time use a smaller threshold.
         else:
-            if qa_sim > 60:
+            if qa_sim > qa_threshold:
                 return qa_response,None,None,None
             else:
                 # This query has too low similarity for all matching methods.
@@ -201,12 +209,16 @@ class Chatbot(object):
         if self.github_qa_unupdated:
             return None, 0
 
+        # custom qa matching (with Fuzzy matching.)
         cqa_response,cqa_sim = self.getResponseForCustomQA(sentence,api_key)
         if cqa_sim > threshold:
             return cqa_response,cqa_sim
+
+        # PTT qa matching (with bm25.)
         gqa_response,gqa_sim = self.getResponseForGeneralQA(sentence)
         if gqa_sim > threshold:
             return gqa_response,gqa_sim
+
         return None,0
 
     def getResponseForGeneralQA(self, sentence):
@@ -278,10 +290,34 @@ class Chatbot(object):
         Send back a default response.
         """
 
-        #TODO 根據 Query 的類型調整 default response
+        # TODO 根據 Query 的類型調整 default response
         # 如問句 -> 是嗎
         # 問關於 Chatbot 本身的行為 -> 別再提我的事了 etc
+        # FIXME 這部分在銜接 Seqence to seqence 後將廢除
+
         return self.default_response[random.randrange(0,len(self.default_response))]
+
+    def testQuestionAnswering(self, sentence):
+        """
+        專用於 QA 回覆，回傳(最佳回應、信心度)
+        """
+        # 默認 QA 庫，無閥值採用 BM25，關閉遠端 API
+        if self.github_qa_unupdated:
+            return ("Can not find the PTT CORPUS.",0)
+        qa_response, qa_confidence = self.getResponseForGeneralQA(sentence)
+        return (qa_response, qa_confidence)
+
+    def testDomainAnswering(self):
+        """
+        專用於 Domain 的階層式匹配，回傳(模組回應、匹配路徑、信心度)
+        """
+        # 默認規則庫，無閥值，關閉遠端 API
+        # @zake7749 沒有實現的必要性
+        pass
+
+    def testSeq2Seq(self):
+        # TODO
+        pass
 
     def _set_root_domain(self):
 

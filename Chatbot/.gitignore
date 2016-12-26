@@ -9,3 +9,5 @@ __pycache__
 Taiba
 QuestionAnswering/data/processed/reply
 jieba_dictionary/dict.txt.big
+processed/
+Seq2Seq/
