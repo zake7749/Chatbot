@@ -177,7 +177,6 @@ class Console(object):
         """
         rule = self.rb.rules[rule_id]
         res_num = rule.has_response()
-
         if res_num == 0:
             return None
         else:
