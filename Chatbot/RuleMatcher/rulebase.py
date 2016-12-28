@@ -84,7 +84,6 @@ class Rule(object):
                     if term == word:
                         max_sim = 1
                         matchee = word
-
         return [max_sim, self.id_term, matchee]
 
 class RuleBase(object):
@@ -245,5 +244,6 @@ class RuleBase(object):
                 focused_rule = []
                 for rule_id in self.rules[top_domain].children:
                     focused_rule.append(self.rules[rule_id])
-
+            else:
+                term_trans += top_domain
         return [result_list,term_trans]
