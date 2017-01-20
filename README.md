@@ -113,6 +113,9 @@ c.write_output(speech,res,path)
 * [基於詞向量的主題匹配](http://zake7749.github.io/2016/08/30/chatterbot-with-word2vec/)
 * [聊天機器人的開發思路](http://zake7749.github.io/2016/12/17/how-to-develop-chatbot/)
 
-## TODO
-* 追加規則案例
-* 實作平台 adapter
+## 特別致謝
+
+* 網路探勘暨跨語知識系統實驗室
+* 智慧型知識管理實驗室
+* Legoly
+* 與我交流和指教的每名朋友
