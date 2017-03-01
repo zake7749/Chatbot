@@ -5,7 +5,7 @@
 Mianbot 是採用樣板與檢索式模型搭建的聊天機器人，目前有兩種產生回覆的方式，專案仍在開發中:)
 
 * 其一（左圖）是以詞向量進行短語分類，針對分類的目標模組實現特徵抽取與記憶回覆功能，以進行多輪對話，匹配方式可參考[Semantic Graph](https://github.com/zake7749/Semantic-Graph)（目前仍在施工中 Σ Σ Σ (」○ ω○ )／）。
-* 其二（右圖）是利用以 PTT Gossiping 作為知識庫， 透過文本相似度的比對取出與使用者輸入最相似的文章標題，再從推文集內挑選出最為可靠的回覆，程式內容及實驗過程請參見[PTT-Chat_Generator](https://github.com/zake7749/PTT-Chat-Generator)。
+* 其二（右圖）是以 PTT Gossiping 作為知識庫， 透過文本相似度的比對取出與使用者輸入最相似的文章標題，再從推文集內挑選出最為可靠的回覆，程式內容及實驗過程請參見[PTT-Chat_Generator](https://github.com/zake7749/PTT-Chat-Generator)。
 
 ## 匹配示例
 
