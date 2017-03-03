@@ -126,7 +126,7 @@ QuestionAnswering
    │       └── xxx.json
    └── Titles.txt 
 ```
-完成配置後，可以即可將`chatbot.py` 中的 `self.github_qa_unupdated` 設為 `False` 打開問答模組進行測試。
+完成配置後，可以將`chatbot.py` 中的 `self.github_qa_unupdated` 設為 `False` 打開問答模組進行測試。
 
 ## 開發日誌
 
