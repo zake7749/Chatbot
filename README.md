@@ -4,8 +4,8 @@
 
 Mianbot 是採用樣板與檢索式模型搭建的聊天機器人，目前有兩種產生回覆的方式，專案仍在開發中:)
 
-* 其一（左圖）是以詞向量進行短語分類，針對分類的目標模組實現特徵抽取與記憶回覆功能，以進行多輪對話，匹配方式可參考[Semantic Graph](https://github.com/zake7749/Semantic-Graph)（目前仍在施工中 Σ Σ Σ (」○ ω○ )／）。
-* 其二（右圖）是以 PTT Gossiping 作為知識庫， 透過文本相似度的比對取出與使用者輸入最相似的文章標題，再從推文集內挑選出最為可靠的回覆，程式內容及實驗過程請參見[PTT-Chat_Generator](https://github.com/zake7749/PTT-Chat-Generator)。
+* 其一（左圖）是以詞向量進行短語分類，針對分類的目標模組實現特徵抽取與記憶回覆功能，以進行多輪對話，匹配方式可參考[Semantic Graph](https://github.com/zake7749/Semantic-Graph)（目前仍在施工中 ΣΣΣ (」○ ω○ )／）。
+* 其二（右圖）除了天氣應答外，主要是以 PTT Gossiping 作為知識庫，透過文本相似度的比對取出與使用者輸入最相似的文章標題，再從推文集內挑選出最為可靠的回覆，程式內容及實驗過程請參見[PTT-Chat_Generator](https://github.com/zake7749/PTT-Chat-Generator)。
 
 ## 匹配示例
 
@@ -46,7 +46,6 @@ Mianbot 是採用樣板與檢索式模型搭建的聊天機器人，目前有兩
 import Chatbot.console as console
 c = console.Console(model_path='your_model')
 ```
-* *目前問答系統的資料集尚未上傳至 Github，預設關閉問答模組 `self.github_qa_unupdated=True`*
 
 ## 使用方式
 
@@ -111,6 +110,23 @@ c.write_output(speech,res,path)
         ]
     },
 ```
+## 問答測試用資料集
+
+請點擊[這裡](https://drive.google.com/file/d/0BxfXm7KkNKc-RkY2Z1pONUlqODg/view?usp=sharing)下載部分測試用資料集，內容包含了 PTT C_Chat、Gossiping 版非新聞類問答約 250,000 則。檔案解壓縮後請放置於 `QuestionAnswering/data/` 資料夾下，`reply.rar` 解壓縮後的資料夾請放置於 `QuestionAnswering/data/processed` 下：
+```
+QuestionAnswering
+└── data
+   ├── SegTitles.txt
+   ├── processed
+   │   └── reply
+   │       ├── 0.json
+   │       ├── .
+   │       ├── .
+   │       ├── .
+   │       └── xxx.json
+   └── Titles.txt 
+```
+完成配置後，可以即可將`chatbot.py` 中的 `self.github_qa_unupdated` 設為 `False` 打開問答模組進行測試。
 
 ## 開發日誌
 
@@ -123,4 +139,4 @@ c.write_output(speech,res,path)
 * 網路探勘暨跨語知識系統實驗室
 * 智慧型知識管理實驗室
 * Legoly
-* 與我交流和指教的每名朋友
+* 給予我協助與交流的每名朋友
