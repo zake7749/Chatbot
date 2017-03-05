@@ -40,8 +40,8 @@ Mianbot 是採用樣板與檢索式模型搭建的聊天機器人，目前有兩
 * 安裝 python3 開發環境
 * 安裝 [gensim – Topic Modelling in Python](https://github.com/RaRe-Technologies/gensim)
 * 安裝 [jieba 结巴中文分词 ](https://github.com/fxsjy/jieba)
-* 安裝 [Taiba 中文分詞](https://github.com/fann1993814/Taiba) : QA 使用，可以更換為 jieba 模組
 * 有已訓練好的中文詞向量，並根據檔案位置調整 `Console class` 的初始化參數。
+
 ```python
 import Chatbot.console as console
 c = console.Console(model_path='your_model')
