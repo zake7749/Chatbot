@@ -2,7 +2,6 @@ import logging
 import os
 
 import jieba
-import Taiba
 
 class Matcher(object):
 
@@ -11,7 +10,7 @@ class Matcher(object):
     回傳語料集中最相似的一個句子。
     """
 
-    def __init__(self, segLib="Taiba"):
+    def __init__(self, segLib="jieba"):
 
         logging.basicConfig(format='%(asctime)s : %(threadName)s : %(levelname)s : %(message)s', level=logging.INFO)
         self.titles = [] # 欲進行匹配的所有標題
@@ -32,11 +31,15 @@ class Matcher(object):
             for word in dic:
                 jieba.add_word(word.strip('\n'))
 
+    '''
+    Deprecated
+    
     def TaibaCustomSetting(self, usr_dict):
 
         with open(usr_dict, 'r', encoding='utf-8') as dic:
             for word in dic:
                 Taiba.add_word(word.strip('\n'))
+    '''
 
     def loadStopWords(self, path):
         with open(path, 'r', encoding='utf-8') as sw:
@@ -49,6 +52,7 @@ class Matcher(object):
             self.titles = [line.strip('\n') for line in data]
 
     def match(self, query):
+
         """
         讀入使用者 query，若語料庫中存在相同的句子，便回傳該句子與標號
 
@@ -59,20 +63,19 @@ class Matcher(object):
             - title: 最為相似的標題
             - 該標題的索引編號
         """
+
         result = None
         for index, title in enumerate(self.titles):
             if title == query:
                 return title,index
 
     def getSimilarity(self):
+
         return self.similarity
 
     def wordSegmentation(self, string):
 
-        if self.useTaiba:
-            return Taiba.lcut(string,CRF=True)
-        else:
-            return jieba.cut(string,cut_all=True)
+        return [word for word in jieba.cut(string,cut_all=True)]
 
     def TitlesSegmentation(self, cleanStopwords=False):
 

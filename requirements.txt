@@ -13,4 +13,3 @@ requests==2.13.0
 scipy==0.18.1
 six==1.10.0
 smart-open==1.4.0
-Taiba==0.2

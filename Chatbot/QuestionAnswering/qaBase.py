@@ -21,6 +21,7 @@ class Answerer(object):
         self.moduleTest()
 
     def moduleTest(self):
+
         logging.info("測試問答與斷詞模塊中...")
         try:
             self.matcher.wordSegmentation("測試一下斷詞")

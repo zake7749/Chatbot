@@ -34,14 +34,14 @@ class Chatbot(object):
         self.exception_log = open('log/exception.log','w',encoding='utf-8')
         os.chdir(cur_dir)
 
+        # For rule matching
         if build_console:
-            # For rule matching
             self.console = console.Console(model_path="model/ch-corpus-3sg.bin")
             self.custom_rulebase = crb.CustomRuleBase() # for one time matching.
             self.custom_rulebase.model = self.console.rb.model # pass word2vec model
 
-        # For QA
-        self.github_qa_unupdated = True
+        # For Question Answering
+        self.github_qa_unupdated = False
         if not self.github_qa_unupdated:
             self.answerer = qa.Answerer()
 
@@ -65,13 +65,11 @@ class Chatbot(object):
         """
         listen function is to encapsulate the following getResponse methods:
 
-            1.getResponseOnCustomDomain(sentence,api_key)
-            2.getResponseOnRootDomains(sentence,target)
-            3.getResponseForCustomQA(sentence,api_key)
-            4.getResponseForGeneralQA(sentence)
+            1.getResponseOnRootDomains(sentence,target)
+            2.getResponseForGeneralQA(sentence)
 
-        1,2 is to measure the consine similarity between keywords and sentence.
-        3,4 is to measure the levenshtein distance between sentence and the questions
+        1 is to measure the consine similarity between keywords and sentence.
+        2 is to measure the levenshtein distance between sentence and the questions
         in database/corpus.
 
         Args:
@@ -93,26 +91,13 @@ class Chatbot(object):
         target = None
         candiates = None
 
-        #FIXME
-        # @zake7749
-        # 區隔 custom rule 與 root rule 匹配的原因是 custom rule 並不支援多段式應答
-        # 若後續在模組上進行更動，可考慮將兩者合併，透過辨識 api_key 的有無來修改操作
-
         # First of all,
         # Assume this sentence is for qa, but use a very high threshold.
-        # FIXME Remove api_key TESTING VALUE
-        qa_response, qa_sim = self.getResponseForQA(sentence,"TESTING",qa_threshold)
+        qa_response, qa_sim = self.getResponseForQA(sentence,qa_threshold)
         if qa_sim > qa_block_threshold:
             return qa_response,None,None,None,None
 
-        # matching on custom rules.
-        # FIXME Remove api_key TESTING VALUE
-        response = self.getResponseOnCustomDomain(sentence, api_key="TESTING")
-        if response is not None:
-            return response,None,None,None
-
-        # if the confidence of the custom rule matching is too low,
-        # do the original rule matching.
+        # do the rule matching.
         is_confident = self.rule_match(sentence, threshold=0.4)
 
         if is_confident:
@@ -129,9 +114,6 @@ class Chatbot(object):
                 # This query has too low similarity for all matching methods.
                 # We can only send back a default response.
                 return self.getDefaultResponse(),None,None,None
-
-                #TODO
-                # Use generative model to solve this case
 
     def getResponseOnRootDomains(self, target=None):
 
@@ -152,7 +134,8 @@ class Chatbot(object):
             - target   : Refer to get_query() in task_modules/task.py
             - candiates: Refer to get_query() in task_modules/task.py
         """
-        status   = None
+
+        status = None
         response = None
 
         handler = self._get_task_handler()
@@ -179,26 +162,10 @@ class Chatbot(object):
             handler.debug(self.extract_attr_log)
             return [response,status,target,candiates]
 
-    def getResponseOnCustomDomain(self, sentence, api_key, threshold=.4):
+    def getResponseForQA(self, sentence, threshold=0):
         """
-        Fetch user's custom rules by api_key and then match the sentence with
-        custom rules.
-
-        Args:
-            - sentence: user's raw input. (not segmented)
-            - api_key : a string to recognize the user and get rules defined by him/she.
-            - threshold : a value between 0 to 1, to block the response which
-              has a similarity lower than threshold.
-        """
-        if api_key is None:
-            return None
-
-        #TODO 調適為能夠進行「多段式對話」
-        return self.custom_rulebase.customMatch(sentence, api_key, threshold)
-
-    def getResponseForQA(self, sentence, api_key, threshold):
-        """
-        Encapsulate getResponseForGeneralQA, getResponseForCustomQA
+        Encapsulate getResponseForGeneralQA
+        For details on the matching method, please refer PTT-Chat-Generator repo on github.
 
         Return:
             - response, similarity
@@ -209,50 +176,12 @@ class Chatbot(object):
         if self.github_qa_unupdated:
             return None, 0
 
-        # custom qa matching (with Fuzzy matching.)
-        cqa_response,cqa_sim = self.getResponseForCustomQA(sentence,api_key)
-        if cqa_sim > threshold:
-            return cqa_response,cqa_sim
+        response,sim = self.answerer.getResponse(sentence)
 
-        # PTT qa matching (with bm25.)
-        gqa_response,gqa_sim = self.getResponseForGeneralQA(sentence)
-        if gqa_sim > threshold:
-            return gqa_response,gqa_sim
+        if sim > threshold:
+            return response,sim
 
         return None,0
-
-    def getResponseForGeneralQA(self, sentence):
-
-        """
-        Listen user's input and return a response which is based on our
-        knowledge base.
-
-        Return:
-            answer, similarity
-        """
-        if self.github_qa_unupdated:
-            return None, 0
-
-        return self.answerer.getResponse(sentence)
-
-    def getResponseForCustomQA(self,sentence,api_key):
-
-        """
-        Listen user's input and return a response which is based on a cutsom
-        knowledge base.
-
-        Return:
-            answer, similarity
-        """
-        if api_key is None:
-            return None, 0
-
-        return self.answerer.getResponse(sentence,api_key)
-
-    def getLoggerData(self):
-        return [self.root_domain,
-                self.speech_domain,
-                console.jieba.cut(self.speech,cut_all=False)]
 
     def rule_match(self, speech, threshold):
 
@@ -274,11 +203,13 @@ class Chatbot(object):
             return True
 
     def getDomainResponse(self, domain=None):
+
         """
         Generate a response to user's speech.
         Please note that this response is *pre-defined in the json file*,
         is not the result return by sub_module.
         """
+
         if domain is None:
             domain = self.speech_domain
         response = self.console.get_response(domain)
@@ -290,32 +221,34 @@ class Chatbot(object):
         Send back a default response.
         """
 
-        # TODO 根據 Query 的類型調整 default response
-        # 如問句 -> 是嗎
-        # 問關於 Chatbot 本身的行為 -> 別再提我的事了 etc
-        # FIXME 這部分在銜接 Seqence to seqence 後將廢除
+        # TODO @zake7749: update the attn-seq2seq code to github.
 
         return self.default_response[random.randrange(0,len(self.default_response))]
 
     def testQuestionAnswering(self, sentence):
+
         """
         專用於 QA 回覆，回傳(最佳回應、信心度)
         """
         # 默認 QA 庫，無閥值採用 BM25，關閉遠端 API
         if self.github_qa_unupdated:
             return ("Can not find the PTT CORPUS.",0)
-        qa_response, qa_confidence = self.getResponseForGeneralQA(sentence)
+
+        qa_response, qa_confidence = self.getResponseForQA(sentence)
         return (qa_response, qa_confidence)
 
     def testDomainAnswering(self):
+
         """
         專用於 Domain 的階層式匹配，回傳(模組回應、匹配路徑、信心度)
         """
         # 默認規則庫，無閥值，關閉遠端 API
         # @zake7749 沒有實現的必要性
+
         pass
 
     def testSeq2Seq(self):
+
         # TODO
         pass
 
@@ -342,3 +275,13 @@ class Chatbot(object):
         handler = switch.get_handler(domain)
 
         return handler
+
+    def getLoggerData(self):
+
+        """
+        Deprecated.
+        """
+
+        return [self.root_domain,
+                self.speech_domain,
+                console.jieba.cut(self.speech,cut_all=False)]

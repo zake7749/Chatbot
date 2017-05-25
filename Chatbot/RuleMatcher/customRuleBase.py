@@ -4,6 +4,12 @@ import random
 
 from .rulebase import RuleBase,Rule
 
+###############################
+#                             #
+#  This class has deprecated  #
+#                             #
+###############################
+
 class CustomRuleBase(RuleBase):
 
     """

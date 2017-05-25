@@ -27,9 +27,11 @@ class Rule(object):
         return res
 
     def serialize(self):
+
         """
         Convert the instance to json format.
         """
+
         ch_list = []
         for child in self.children:
             ch_list.append(child.id_term)
@@ -40,17 +42,21 @@ class Rule(object):
 
         response = []
 
-        data =  { "domain": str(self.id_term),
-                  "concepts": cp_list,
-                  "children": ch_list,
-                  "response": response
-                }
+        data = {
+                "domain": str(self.id_term),
+                "concepts": cp_list,
+                "children": ch_list,
+                "response": response
+        }
+
         return data
 
     def add_child(self,child_rule):
+
         """
         Add child rule into children list , e.g: Purchase(Parent) -> Drinks(Child).
         """
+
         self.children.append(child_rule)
 
     def has_child(self):
@@ -60,6 +66,7 @@ class Rule(object):
         return len(self.response)
 
     def match(self, sentence, threshold=0):
+
         """
         Calculate the similarity between the input and concept term.
 
@@ -87,9 +94,11 @@ class Rule(object):
         return [max_sim, self.id_term, matchee]
 
 class RuleBase(object):
+
     """
     to store rules, and load the trained word2vec model.
     """
+
     def __init__(self, domain="general"):
         self.rules = {}
         self.domain = domain
@@ -116,11 +125,15 @@ class RuleBase(object):
             op.write(json.dumps(rule_list, indent=4))
 
     def load_rules_old_format(self,path):
+
         """
+        Deprecated.
+        
         Build the rulebase by loading the rules terms from the given file.
         The data format is: child term, parent term(optional)
         Args: the path of file.
         """
+
         assert self.model is not None, "Please load the model before loading rules."
         self.rules.clear()
 
@@ -143,11 +156,13 @@ class RuleBase(object):
                     self.forest_base_roots.append(new_rule)
 
     def load_rules(self, path, reload=False, is_root=False):
+
         """
         Build the rulebase by loading the rules terms from the given file.
 
         Args: the path of file.
         """
+
         assert self.model is not None, "Please load the model before loading rules."
 
         if reload:
@@ -173,11 +188,13 @@ class RuleBase(object):
 
 
     def load_rules_from_dic(self,path):
+
         """
         load all rule_files in given path
         """
+
         for file_name in os.listdir(path):
-            if not file_name.startswith('.'):  #escape .DS_Store on OSX.
+            if not file_name.startswith('.'):  # escape .DS_Store on OSX.
                 if file_name == "rule.json": # roots of forest
                     self.load_rules(path + file_name, is_root=True)
                 else:
@@ -185,15 +202,18 @@ class RuleBase(object):
 
 
     def load_model(self,path):
+
         """
         Load a trained word2vec model(binary format only).
 
         Args:
             path: the path of the model.
         """
-        self.model = models.Word2Vec.load_word2vec_format(path,binary=True)
+
+        self.model = models.KeyedVectors.load_word2vec_format(path,binary=True)
 
     def match(self, sentence, topk=1, threshold=0, root=None):
+
         """
         match the sentence with rules then order by similarity.
 
@@ -227,7 +247,7 @@ class RuleBase(object):
             result_list = sorted(result_list, reverse=True , key=lambda k: k[0])
             top_domain  = result_list[0][1] # get the best matcher's term.
 
-            #Output matching_log.
+            # Output matching_log.
             log.write("---")
             for result in result_list:
                 s,d,m = result

@@ -19,31 +19,30 @@ class Console(object):
                  stopword="jieba_dict/stopword.txt",
                  jieba_dic="jieba_dict/dict.txt.big",
                  jieba_user_dic="jieba_dict/userdict.txt"):
+
         print("[Console] Building a console...")
-        try:
 
-            cur_dir = os.getcwd()
-            curPath = os.path.dirname(__file__)
-            os.chdir(curPath)
+        cur_dir = os.getcwd()
+        curPath = os.path.dirname(__file__)
+        os.chdir(curPath)
 
-            # jieba custom setting.
-            self.init_jieba(jieba_dic, jieba_user_dic)
-            self.stopword = self.load_stopword(stopword)
+        # jieba custom setting.
+        self.init_jieba(jieba_dic, jieba_user_dic)
+        self.stopword = self.load_stopword(stopword)
 
-            # build the rulebase.
-            self.rb = rulebase.RuleBase()
-            print("[Console] Loading vector model...")
-            self.rb.load_model(model_path)
-            print("[Console] Loading pre-defined rules.")
-            self.rb.load_rules_from_dic(rule_path)
-            print("[Console] Initialized successfully :>")
+        # build the rulebase.
+        self.rb = rulebase.RuleBase()
 
-            os.chdir(cur_dir)
+        print("[Console] Loading vector model...")
+        self.rb.load_model(model_path)
 
-        except Exception as e:
-            print("[Console] Opps! Initialized Error.")
-            print(repr(e))
-            exit()
+        print("[Console] Loading pre-defined rules.")
+        self.rb.load_rules_from_dic(rule_path)
+
+        print("[Console] Initialized successfully :>")
+
+        os.chdir(cur_dir)
+
 
     def listen(self):
         #into interactive console
@@ -82,16 +81,20 @@ class Console(object):
                 print('[Opps!] No such choice: ' + choice + '.')
 
     def jieba_textrank(self):
+
         """
         Use textrank in jieba to extract keywords in a sentence.
         """
+
         speech = input('Input a sentence: ')
         return jieba.analyse.textrank(speech, withWeight=True, topK=20)
 
     def jieba_tf_idf(self):
+
         """
         Use tf/idf in jieba to extract keywords in a sentence
         """
+
         speech = input('Input a sentence: ')
         return jieba.analyse.extract_tags(speech, topK=20, withWeight=True)
 
@@ -112,6 +115,7 @@ class Console(object):
         """
         jieba custom setting.
         """
+
         jieba.load_userdict(userdic)
         jieba.set_dictionary(seg_dic)
         with open(userdic,'r',encoding='utf-8') as input:

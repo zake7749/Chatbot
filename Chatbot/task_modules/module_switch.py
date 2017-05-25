@@ -34,6 +34,8 @@ class Switch(object):
         #    handler = entertainment.entertainment(self.console)
         #elif domain=="住宿":
         #    handler = hotel.HotelListener(self.console)
+
         else:
             pass
+
         return handler
