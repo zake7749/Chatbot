@@ -47,6 +47,8 @@ import Chatbot.console as console
 c = console.Console(model_path='your_model')
 ```
 
+* 如要使用 QA 模組，請先依照[問答測試用資料集](https://github.com/zake7749/Chatbot#%E5%95%8F%E7%AD%94%E6%B8%AC%E8%A9%A6%E7%94%A8%E8%B3%87%E6%96%99%E9%9B%86)進行配置，或透過將`chatbot.py` 中的 `self.github_qa_unupdated` 設為 `True` 選擇關閉 QA 模組
+
 ## 使用方式
 
 ### 聊天機器人
@@ -54,7 +56,7 @@ c = console.Console(model_path='your_model')
 ```python
 import Chatbot.chatbot as chatbot
 
-chatter = chatbot.Chatbot()
+chatter = chatbot.Chatbot(w2v_model_path='your_model')
 chatter.waiting_loop()
 ```
 
@@ -124,7 +126,7 @@ QuestionAnswering
    │       ├── .
    │       ├── .
    │       └── xxx.json
-   └── Titles.txt 
+   └── Titles.txt
 ```
 完成配置後，可以將`chatbot.py` 中的 `self.github_qa_unupdated` 設為 `False` 打開問答模組進行測試。
 
