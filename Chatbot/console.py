@@ -33,8 +33,18 @@ class Console(object):
         # build the rulebase.
         self.rb = rulebase.RuleBase()
 
-        print("[Console] Loading vector model...")
-        self.rb.load_model(model_path)
+        print("[Console] Loading the word embedding model...")
+
+        try:
+            self.rb.load_model(model_path)
+        except FileNotFoundError as e:
+            print("[Console] 請確定詞向量模型有正確配置")
+            print(e)
+            exit()
+        except Exception as e:
+            print("[Gensim]")
+            print(e)
+            exit()
 
         print("[Console] Loading pre-defined rules.")
         self.rb.load_rules_from_dic(rule_path)
