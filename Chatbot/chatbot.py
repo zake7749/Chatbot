@@ -9,7 +9,7 @@ import QuestionAnswering.qaBase as qa
 
 class Chatbot(object):
 
-    def __init__(self, name="MianBot", build_console=True):
+    def __init__(self, name="MianBot", build_console=True, w2v_model_path="model/ch-corpus-3sg.bin"):
 
         """
         # Args:
@@ -36,14 +36,19 @@ class Chatbot(object):
 
         # For rule matching
         if build_console:
-            self.console = console.Console(model_path="model/ch-corpus-3sg.bin")
-            self.custom_rulebase = crb.CustomRuleBase() # for one time matching.
-            self.custom_rulebase.model = self.console.rb.model # pass word2vec model
+            self.console = console.Console(model_path=w2v_model_path)
+            # self.custom_rulebase = crb.CustomRuleBase() # for one time matching.
+            # self.custom_rulebase.model = self.console.rb.model # pass word2vec model
 
         # For Question Answering
         self.github_qa_unupdated = False
         if not self.github_qa_unupdated:
-            self.answerer = qa.Answerer()
+
+            try:
+                self.answerer = qa.Answerer()
+            except Exception as exc:
+                print("[QA] 請確認問答資料集的目錄結構是否正確")
+                print("[QA] 如尚未取得問答資料集, 請至 Github: zake7749/Chatbot/Readme.md 中下載, 或將 self.github_qa_unupdated 設為 true")
 
         self.default_response = [
             "是嗎?",
