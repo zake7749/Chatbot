@@ -209,8 +209,10 @@ class RuleBase(object):
         Args:
             path: the path of the model.
         """
-
-        self.model = models.KeyedVectors.load_word2vec_format(path,binary=True)
+        try:
+            self.model = models.Word2Vec.load(path)  # cur
+        except:
+            self.model = models.KeyedVectors.load_word2vec_format(path, binary=True)  # old
 
     def match(self, sentence, topk=1, threshold=0, root=None):
 
