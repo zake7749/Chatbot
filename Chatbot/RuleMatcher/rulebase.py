@@ -210,9 +210,16 @@ class RuleBase(object):
             path: the path of the model.
         """
         try:
-            self.model = models.Word2Vec.load(path)  # cur
-        except:
-            self.model = models.KeyedVectors.load_word2vec_format(path, binary=True)  # old
+            self.model = models.Word2Vec.load(path)  # current loading method
+        except FileNotFoundError as file_not_found_err:
+            print("[Gensim] FileNotFoundError", file_not_found_err)
+            exit()
+        except UnicodeDecodeError as unicode_decode_err:
+            print("[Gensim] UnicodeDecodeError", unicode_decode_err)
+            self.model = models.KeyedVectors.load_word2vec_format(path, binary=True)  # old loading method
+        except Exception as ex:
+            print("[Gensim] Exception", ex)
+            exit()
 
     def match(self, sentence, topk=1, threshold=0, root=None):
 
