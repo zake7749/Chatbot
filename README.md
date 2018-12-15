@@ -114,7 +114,7 @@ c.write_output(speech,res,path)
 ```
 ## 問答測試用資料集
 
-請點擊[這裡](https://drive.google.com/file/d/0BxfXm7KkNKc-RkY2Z1pONUlqODg/view?usp=sharing)下載部分測試用資料集，內容包含了 PTT C_Chat、Gossiping 版非新聞類問答約 250,000 則。檔案解壓縮後請放置於 `QuestionAnswering/data/` 資料夾下，`reply.rar` 解壓縮後的資料夾請放置於 `QuestionAnswering/data/processed` 下：
+請點擊[這裡](https://drive.google.com/file/d/11JlbmYmuu00TfmfdAfyoGK_E3VMp8Vd_/view)下載部分測試用資料集，內容包含了 PTT C_Chat、Gossiping 版非新聞類問答約 250,000 則。檔案解壓縮後請放置於 `QuestionAnswering/data/` 資料夾下，`reply.rar` 解壓縮後的資料夾請放置於 `QuestionAnswering/data/processed` 下：
 ```
 QuestionAnswering
 └── data
